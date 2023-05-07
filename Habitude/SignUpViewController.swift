@@ -101,7 +101,7 @@ extension SignUpViewController {
             activityIndicator.stopAnimating()
             view.isUserInteractionEnabled = true
         }
-        activityIndicator.isHidden = false
+        activityIndicator.isHidden = !isShow
     }
 
 }
