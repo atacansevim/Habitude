@@ -46,15 +46,25 @@ final class HabitudeTabBar: UITabBarController {
     
     func setupVCs() {
         viewControllers = [
-            createViewController(for: SignUpViewController(), image: Images.homePageUnselected.image),
-            createViewController(for: SignUpViewController(), image: Images.tickUnselected.image),
-            createViewController(for: EditProfileViewController(), image: Images.gearUnselected.image),
-            createViewController(for: ProfileViewController(), image: Images.profileUnselected.image),
-            
+            createNavigationViewController(
+                for: HomeViewController(viewModel: HomeViewModel(title: "Home")),
+                image: Images.homePageUnselected.image
+            ),
+            createNavigationViewController(
+                for: SignUpViewController(),
+                image: Images.tickUnselected.image
+            ),
+            createNavigationViewController(
+                for: EditProfileViewController(),
+                image: Images.gearUnselected.image),
+            createNavigationViewController(
+                for: ProfileViewController(viewModel: ProfileViewModel(title: "Profile")),
+                image: Images.profileUnselected.image
+            )
         ]
     }
     
-    private func createViewController(
+    private func createNavigationViewController(
         for rootViewController: UIViewController,
         image: UIImage
     ) -> UIViewController {
@@ -136,6 +146,6 @@ final class HabitudeTabBar: UITabBarController {
 extension HabitudeTabBar: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        addTabbarIndicatorView(index: self.selectedIndex)
+        //addTabbarIndicatorView(index: self.selectedIndex)
     }
 }

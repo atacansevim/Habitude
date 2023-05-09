@@ -36,6 +36,7 @@ class HabitudeCornerButton: UIButton {
     }
     
     private func layout() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(title)
         NSLayoutConstraint.activate([
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
