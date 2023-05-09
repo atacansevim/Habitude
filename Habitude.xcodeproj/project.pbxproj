@@ -15,6 +15,15 @@
 		F9AC99E22A07A82700F50CE5 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E12A07A82700F50CE5 /* Authentication.swift */; };
 		F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */; };
 		F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */; };
+		F9AC99E82A0AC96900F50CE5 /* ProfileViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */; };
+		F9AC99EE2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */; };
+		F9AC99F62A0AD5E600F50CE5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99F52A0AD5E600F50CE5 /* HomeViewModel.swift */; };
+		F9AC99F82A0AD5F500F50CE5 /* HomeViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99F72A0AD5F500F50CE5 /* HomeViewModelContracts.swift */; };
+		F9AC99FA2A0AD60100F50CE5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99F92A0AD60100F50CE5 /* HomeViewController.swift */; };
+		F9AC99FC2A0AD8D000F50CE5 /* EmptyHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */; };
+		F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */; };
+		F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */; };
+		F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */; };
 		F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAF9629F85FDD0004472E /* AppDelegate.swift */; };
 		F9FDAFA029F85FDE0004472E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAF9F29F85FDE0004472E /* Assets.xcassets */; };
 		F9FDAFA329F85FDE0004472E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAFA129F85FDE0004472E /* LaunchScreen.storyboard */; };
@@ -75,6 +84,15 @@
 		F9AC99E12A07A82700F50CE5 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationContract.swift; sourceTree = "<group>"; };
 		F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
+		F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelContracts.swift; sourceTree = "<group>"; };
+		F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
+		F9AC99F52A0AD5E600F50CE5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F9AC99F72A0AD5F500F50CE5 /* HomeViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelContracts.swift; sourceTree = "<group>"; };
+		F9AC99F92A0AD60100F50CE5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHabitView.swift; sourceTree = "<group>"; };
+		F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
+		F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
+		F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModelContracts.swift; sourceTree = "<group>"; };
 		F9FDAF9329F85FDD0004472E /* Habitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FDAF9629F85FDD0004472E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FDAF9F29F85FDE0004472E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +167,83 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		F9AC99F12A0AD56900F50CE5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99FD2A0AE58000F50CE5 /* Submodules */,
+				F9AC99F42A0AD59F00F50CE5 /* Model */,
+				F9AC99F32A0AD59800F50CE5 /* ViewModel */,
+				F9AC99F22A0AD59300F50CE5 /* View */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		F9AC99F22A0AD59300F50CE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99F92A0AD60100F50CE5 /* HomeViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F9AC99F32A0AD59800F50CE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99F52A0AD5E600F50CE5 /* HomeViewModel.swift */,
+				F9AC99F72A0AD5F500F50CE5 /* HomeViewModelContracts.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		F9AC99F42A0AD59F00F50CE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F9AC99FD2A0AE58000F50CE5 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC9A002A0AE5A400F50CE5 /* Model */,
+				F9AC99FF2A0AE59C00F50CE5 /* ViewModel */,
+				F9AC99FE2A0AE59800F50CE5 /* View */,
+			);
+			name = Submodules;
+			sourceTree = "<group>";
+		};
+		F9AC99FE2A0AE59800F50CE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC9A072A0AE89000F50CE5 /* Components */,
+				F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F9AC99FF2A0AE59C00F50CE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */,
+				F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		F9AC9A002A0AE5A400F50CE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F9AC9A072A0AE89000F50CE5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		F9FDAF8A29F85FDD0004472E = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +294,7 @@
 				F9FDB02929F9C15B0004472E /* View+Extensions.swift */,
 				F9FDB0382A018A8E0004472E /* UIViewController+Utils.swift */,
 				F9FDB03C2A018EA70004472E /* Images.swift */,
+				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -206,6 +302,7 @@
 		F9FDAFCA29F869630004472E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F9AC99F12A0AD56900F50CE5 /* Home */,
 				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
 			);
@@ -247,17 +344,9 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		F9FDAFCF29F869850004472E /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Coordinator;
-			sourceTree = "<group>";
-		};
 		F9FDAFD229F86A570004472E /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				F9FDAFCF29F869850004472E /* Coordinator */,
 				F9FDAFCE29F8697E0004472E /* Model */,
 				F9FDAFCD29F869750004472E /* ViewModel */,
 				F9FDAFCC29F869710004472E /* View */,
@@ -311,7 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				F9FDB0302A0189CA0004472E /* Submodules */,
-				F9FDB02F2A0189C30004472E /* Coordinator */,
 				F9FDB02E2A0189BC0004472E /* Model */,
 				F9FDB02D2A0189B60004472E /* ViewModel */,
 				F9FDB02C2A0189AF0004472E /* View */,
@@ -331,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				F9FDB0362A018A080004472E /* ProfileViewModel.swift */,
+				F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -340,13 +429,6 @@
 			children = (
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		F9FDB02F2A0189C30004472E /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Coordinator;
 			sourceTree = "<group>";
 		};
 		F9FDB0302A0189CA0004472E /* Submodules */ = {
@@ -389,6 +471,7 @@
 				F9FDB0432A0429310004472E /* HabituteSharpButton.swift */,
 				F9FDB0472A043ADB0004472E /* HabitudeProfileTextView.swift */,
 				F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */,
+				F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -499,6 +582,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9AC99EE2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift in Sources */,
+				F9AC99F82A0AD5F500F50CE5 /* HomeViewModelContracts.swift in Sources */,
+				F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */,
 				F9FDB0482A043ADB0004472E /* HabitudeProfileTextView.swift in Sources */,
 				F9FDB0462A04385E0004472E /* EditProfileViewController.swift in Sources */,
 				F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */,
@@ -506,14 +592,20 @@
 				F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */,
 				F9AC99E22A07A82700F50CE5 /* Authentication.swift in Sources */,
 				F9FDB0422A0424580004472E /* HabitudeCornerButton.swift in Sources */,
+				F9AC99FC2A0AD8D000F50CE5 /* EmptyHabitView.swift in Sources */,
 				F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */,
+				F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */,
 				F9FDAFD129F86A110004472E /* SignUpViewController.swift in Sources */,
+				F9AC99F62A0AD5E600F50CE5 /* HomeViewModel.swift in Sources */,
 				F9FDB0402A02E7760004472E /* HabitudeTabBar.swift in Sources */,
+				F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */,
+				F9AC99E82A0AC96900F50CE5 /* ProfileViewModelContracts.swift in Sources */,
 				F9FDAFD629F86E4E0004472E /* LoginBottomView.swift in Sources */,
 				F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */,
 				F9FDAFC729F865250004472E /* UIColor+Extensions.swift in Sources */,
 				F9FDB0372A018A080004472E /* ProfileViewModel.swift in Sources */,
 				F9FDB03D2A018EA70004472E /* Images.swift in Sources */,
+				F9AC99FA2A0AD60100F50CE5 /* HomeViewController.swift in Sources */,
 				F9FDB02A29F9C15B0004472E /* View+Extensions.swift in Sources */,
 				F9FDB0392A018A8E0004472E /* UIViewController+Utils.swift in Sources */,
 				F9FDB0442A0429310004472E /* HabituteSharpButton.swift in Sources */,

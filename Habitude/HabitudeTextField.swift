@@ -27,11 +27,14 @@ class HabitudeTextField: UITextView {
         return border
      }()
     
+    private var height: CGFloat = 60
+    
     weak var handleViewOutput: HabitudeTextFieldDelegate?
     
-    init(placeHolder: String) {
+    init(placeHolder: String, height: CGFloat = 60) {
         super.init(frame: .zero, textContainer: nil)
         self.placeHolder.text = placeHolder
+        self.height = height
         backgroundColor = .clear
         delegate = self
         layout()
@@ -41,7 +44,7 @@ class HabitudeTextField: UITextView {
     private func layout() {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 60),
+            heightAnchor.constraint(equalToConstant: height),
             widthAnchor.constraint(equalToConstant: 350)
         ])
         

@@ -35,7 +35,7 @@ class SignUpViewController: UIViewController {
        let indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.isHidden = true
-        indicator.style = .large
+        indicator.style = .medium
         indicator.color = UIColor.Habitute.accent
         return indicator
     }()

@@ -82,6 +82,15 @@ class ProfileViewController: UIViewController {
     private let changePasswordButton = HabitudeSharpButton(title: "Change Password", icon: Images.lock.image)
     private let reportBugButton = HabitudeSharpButton(title: "Report a Bug", icon: Images.bug.image)
     
+    private var viewModel: ProfileViewModelContracts!
+    
+    convenience init(viewModel: ProfileViewModelContracts){
+        self.init()
+        self.viewModel = viewModel
+        self.viewModel.delegate = self
+        editProfileButton.addTarget(self, action: #selector(editProfileAction), for: .touchUpInside)
+    }
+    
     // MARK: -LifeCycle
     
     override func viewDidLoad() {
@@ -97,6 +106,10 @@ class ProfileViewController: UIViewController {
         actionsStackView.addArrangedSubview(changePasswordButton)
         actionsStackView.addArrangedSubview(reportBugButton)
     }
+    
+    @objc private func editProfileAction(sender: UIButton!) {
+        viewModel.goEditProfile()
+    }
 }
 
 extension ProfileViewController {
@@ -107,7 +120,7 @@ extension ProfileViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        title = "Profile"
+        title = viewModel.title
         
         editProfileButton.isEnabled = true
         changePasswordButton.isEnabled = false
@@ -154,5 +167,19 @@ extension ProfileViewController {
             actionsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             actionsStackView.topAnchor.constraint(equalTo: bioLabel.bottomAnchor, constant: Constants.customLargeSpacing)
         ])
+    }
+}
+
+
+// MARK: -HandleViewOutput
+
+extension ProfileViewController: ProfileViewModelDelegate {
+    func handleViewOutput(_ output: ProfileViewModelOutput) {
+        switch output {
+        case .setLoading(_): break
+        case .goToEditProfile:
+            self.navigationItem.removeBackBarButtonTitle()
+            self.show(EditProfileViewController(), sender: nil)
+        }
     }
 }
