@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HabitudeProfileTextView: UITextView {
+final class HabitudeProfileTextView: UITextView {
     
     private let placeHolder: UILabel = {
        let label = UILabel()
@@ -55,4 +55,3 @@ class HabitudeProfileTextView: UITextView {
         fatalError("")
     }
 }
-

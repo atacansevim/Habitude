@@ -51,11 +51,11 @@ final class HabitudeTabBar: UITabBarController {
                 image: Images.homePageUnselected.image
             ),
             createNavigationViewController(
-                for: SignUpViewController(),
+                for: UIViewController(),
                 image: Images.tickUnselected.image
             ),
             createNavigationViewController(
-                for: EditProfileViewController(),
+                for: UIViewController(),
                 image: Images.gearUnselected.image),
             createNavigationViewController(
                 for: ProfileViewController(viewModel: ProfileViewModel(title: "Profile")),

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F97371232A14093700EE611A /* RemindDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371222A14093700EE611A /* RemindDayComponent.swift */; };
+		F97371252A140D0200EE611A /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371242A140D0200EE611A /* DayEnum.swift */; };
 		F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */; };
 		F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */; };
 		F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */; };
@@ -76,6 +78,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F97371222A14093700EE611A /* RemindDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDayComponent.swift; sourceTree = "<group>"; };
+		F97371242A140D0200EE611A /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
 		F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTextField.swift; sourceTree = "<group>"; };
 		F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
 		F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasic.swift; sourceTree = "<group>"; };
@@ -157,6 +161,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F97371262A14255C00EE611A /* Mark */ = {
+			isa = PBXGroup;
+			children = (
+				F97371292A14258400EE611A /* ViewController */,
+				F97371282A14257E00EE611A /* Model */,
+				F97371272A14257900EE611A /* View */,
+			);
+			name = Mark;
+			sourceTree = "<group>";
+		};
+		F97371272A14257900EE611A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F97371282A14257E00EE611A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F97371292A14258400EE611A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		F9AC99E02A07A70B00F50CE5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +275,8 @@
 		F9AC9A072A0AE89000F50CE5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F97371222A14093700EE611A /* RemindDayComponent.swift */,
+				F97371242A140D0200EE611A /* DayEnum.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -302,6 +339,7 @@
 		F9FDAFCA29F869630004472E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F97371262A14255C00EE611A /* Mark */,
 				F9AC99F12A0AD56900F50CE5 /* Home */,
 				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
@@ -588,6 +626,7 @@
 				F9FDB0482A043ADB0004472E /* HabitudeProfileTextView.swift in Sources */,
 				F9FDB0462A04385E0004472E /* EditProfileViewController.swift in Sources */,
 				F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */,
+				F97371252A140D0200EE611A /* DayEnum.swift in Sources */,
 				F9AC99DD2A07A48000F50CE5 /* SignUpViewModel.swift in Sources */,
 				F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */,
 				F9AC99E22A07A82700F50CE5 /* Authentication.swift in Sources */,
@@ -611,6 +650,7 @@
 				F9FDB0442A0429310004472E /* HabituteSharpButton.swift in Sources */,
 				F9FDAFC929F866A30004472E /* UIFont+Extensions.swift in Sources */,
 				F9FDB0352A0189FC0004472E /* ProfileViewController.swift in Sources */,
+				F97371232A14093700EE611A /* RemindDayComponent.swift in Sources */,
 				F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */,
 				F9FDAFD829F9B4810004472E /* String+Extensions.swift in Sources */,
 				F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */,

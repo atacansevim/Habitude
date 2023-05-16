@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController {
+final class EditProfileViewController: UIViewController {
     
     // MARK: -Constants
     
