@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HabitudeTextField: UITextView {
+final class HabitudeTextField: UITextView {
     
     private let placeHolder: UILabel = {
        let label = UILabel()

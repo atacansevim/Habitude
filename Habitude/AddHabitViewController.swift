@@ -7,7 +7,8 @@
 
 import UIKit
 
-class AddHabitViewController: UIViewController {
+final class AddHabitViewController: UIViewController {
+    //TODO: (add a scrol View for small scree)
     
     // MARK: -Constants
     
@@ -20,6 +21,7 @@ class AddHabitViewController: UIViewController {
         static let addButtonTitle: String = "Add a habit"
         static let titlePlaceHolder: String = "name"
         static let descriptionPlaceHolder: String = "description"
+        static let timeSelectionLabel: String = "Select time for a reminder"
         static let descriptionHeightAnchor: CGFloat = 100
     }
     
@@ -30,6 +32,32 @@ class AddHabitViewController: UIViewController {
         placeHolder: Constants.descriptionPlaceHolder,
         height: Constants.descriptionHeightAnchor
     )
+    private let remindDay: RemindDayComponent = RemindDayComponent()
+    
+    private let timeSelectionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.Habitude.titleMedium
+        label.textColor = UIColor.Habitute.primaryLight
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        //TODO: (change dummy name)
+        label.text = Constants.timeSelectionLabel
+        return label
+    }()
+    
+    private let timePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        let loc = Locale(identifier: "en")
+        picker.locale = loc
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        picker.setValue(UIColor.Habitute.accent, forKeyPath: "textColor")
+        return picker
+    }()
     
     private let contentStackView: UIStackView = {
         let stack = UIStackView()
@@ -55,6 +83,17 @@ class AddHabitViewController: UIViewController {
         style()
         layout()
         navigationController?.navigationBar.barTintColor = .clear
+        self.navigationItem.rightBarButtonItem = BackBarButtonItem(title: "clear", style: .done, target: self, action: #selector(backAction))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 }
@@ -77,6 +116,14 @@ extension AddHabitViewController {
         
         contentStackView.addArrangedSubview(titleTextView)
         contentStackView.addArrangedSubview(descriptionTextView)
+        contentStackView.addArrangedSubview(remindDay)
+        contentStackView.addArrangedSubview(timeSelectionLabel)
+        contentStackView.addArrangedSubview(timePicker)
+        contentStackView.addArrangedSubview(addHabitButton)
+    }
+    
+    @objc func backAction(sender: UIBarButtonItem) {
+       //TODO: (will implemented)
     }
 }
 
