@@ -23,6 +23,21 @@ final class HomeViewController: UIViewController {
     
     // MARK: -Properties
     
+    private let scrollView = UIScrollView()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let contentStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.Habitude.paragraphRegular
@@ -74,7 +89,10 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         style()
         viewModel.loadData()
-        navigationController?.navigationBar.barTintColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
     
     private func setActionsStack(for outcome: Outcome) {
@@ -99,34 +117,53 @@ extension HomeViewController {
     }
     
     func layout(for outcome: Outcome) {
+        scrollView.contentInsetAdjustmentBehavior = .never
+        var constraints: [NSLayoutConstraint] = []
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        constraints.append(contentsOf: [
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        scrollView.addSubview(contentView)
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        constraints.append(contentsOf: [
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ])
+        constraints.last?.priority = .defaultLow
+        
+        contentView.addSubview(contentStackView)
+        constraints.append(contentsOf: [
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.spacing),
+            contentView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
+        ])
         
         switch outcome {
         case .data:
             break
         case .empty:
-            view.addSubview(nameLabel)
-            NSLayoutConstraint.activate([
-                nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
-                nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
-                nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
-            
-            view.addSubview(welcomingLabel)
-            NSLayoutConstraint.activate([
-                welcomingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
-                welcomingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.smallSpacing),
-                welcomingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
-            
-            view.addSubview(habitsStackView)
-            NSLayoutConstraint.activate([
-                habitsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
-                view.trailingAnchor.constraint(equalTo: habitsStackView.trailingAnchor, constant:  Constants.spacing),
-                habitsStackView.topAnchor.constraint(equalTo: welcomingLabel.bottomAnchor, constant: Constants.customSpacing)
-            ])
+            contentStackView.addArrangedSubview(nameLabel)
+            contentStackView.setCustomSpacing(Constants.smallSpacing, after: nameLabel)
+            contentStackView.addArrangedSubview(welcomingLabel)
+            contentStackView.setCustomSpacing(Constants.customSpacing, after: welcomingLabel)
+            contentStackView.addArrangedSubview(habitsStackView)
         case .failed:
             break
         }
+        NSLayoutConstraint.activate(constraints)
     }
     
     @objc private func addHabitAction(sender: UIButton!) {

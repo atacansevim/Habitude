@@ -18,7 +18,7 @@ final class HabitudeProfileTextView: UITextView {
        return label
     }()
     
-    private let underLine = UIView.separator(width: 350, color: UIColor.Habitute.secondaryLight)
+    private let underLine = UIView.separator(width: 400, color: UIColor.Habitute.secondaryLight)
     
     init(placeHolder: String, isInfoShown: Bool = false) {
         super.init(frame: .zero, textContainer: nil)
@@ -31,7 +31,7 @@ final class HabitudeProfileTextView: UITextView {
     private func layout() {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 32),
-            widthAnchor.constraint(equalToConstant: 350)
+            widthAnchor.constraint(lessThanOrEqualToConstant: 350)
         ])
         
         addSubview(placeHolder)

@@ -8,8 +8,6 @@
 import UIKit
 
 final class AddHabitViewController: UIViewController {
-    //TODO: (add a scrol View for small scree)
-    
     // MARK: -Constants
     
     private enum Constants {
@@ -19,44 +17,20 @@ final class AddHabitViewController: UIViewController {
         static let customLargeSpacing: CGFloat = 60
         static let stackSpacing: CGFloat = 20
         static let addButtonTitle: String = "Add a habit"
-        static let titlePlaceHolder: String = "name"
-        static let descriptionPlaceHolder: String = "description"
+        static let titlePlaceHolder: String = "Title"
+        static let descriptionPlaceHolder: String = "Description"
         static let timeSelectionLabel: String = "Select time for a reminder"
         static let descriptionHeightAnchor: CGFloat = 100
     }
     
     // MARK: -Properties
     
-    private let titleTextView = HabitudeTextField(placeHolder: Constants.titlePlaceHolder)
-    private let descriptionTextView = HabitudeTextField(
-        placeHolder: Constants.descriptionPlaceHolder,
-        height: Constants.descriptionHeightAnchor
-    )
-    private let remindDay: RemindDayComponent = RemindDayComponent()
+    private let scrollView = UIScrollView()
     
-    private let timeSelectionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.Habitude.titleMedium
-        label.textColor = UIColor.Habitute.primaryLight
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        //TODO: (change dummy name)
-        label.text = Constants.timeSelectionLabel
-        return label
-    }()
-    
-    private let timePicker: UIDatePicker = {
-        let picker = UIDatePicker()
-        picker.datePickerMode = .time
-        let loc = Locale(identifier: "en")
-        picker.locale = loc
-        if #available(iOS 13.4, *) {
-            picker.preferredDatePickerStyle = .wheels
-        } else {
-            // Fallback on earlier versions
-        }
-        picker.setValue(UIColor.Habitute.accent, forKeyPath: "textColor")
-        return picker
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let contentStackView: UIStackView = {
@@ -65,6 +39,44 @@ final class AddHabitViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = Constants.stackSpacing
         return stack
+    }()
+    
+    private let titleTextView = HabitudeTextField(
+        placeHolder: Constants.titlePlaceHolder,
+        holderFont: UIFont.Habitude.titleMedium,
+        placeHolderColor: UIColor.Habitute.primaryLight
+    )
+    
+    private let descriptionTextView = HabitudeTextField(
+        placeHolder: Constants.descriptionPlaceHolder,
+        height: Constants.descriptionHeightAnchor,
+        holderFont: UIFont.Habitude.paragraphSmall,
+        isPlaceHolderUp: true,
+        placeHolderColor: UIColor.Habitute.primaryLight
+    )
+    
+    private let remindDay: RemindDayComponent = RemindDayComponent()
+    
+    private let timeSelectionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.Habitude.titleMedium
+        label.textColor = UIColor.Habitute.primaryLight
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = Constants.timeSelectionLabel
+        return label
+    }()
+    
+    private let timePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        picker.setValue(UIColor.Habitute.accent, forKeyPath: "textColor")
+        return picker
     }()
     
     private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle)
@@ -82,7 +94,10 @@ final class AddHabitViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
-        navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         self.navigationItem.rightBarButtonItem = BackBarButtonItem(title: "clear", style: .done, target: self, action: #selector(backAction))
     }
     
@@ -106,12 +121,38 @@ extension AddHabitViewController {
     }
     
     func layout() {
-        view.addSubview(contentStackView)
+        scrollView.contentInsetAdjustmentBehavior = .never
+        var constraints: [NSLayoutConstraint] = []
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        constraints.append(contentsOf: [
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        scrollView.addSubview(contentView)
         NSLayoutConstraint.activate([
-            contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
-            view.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
-            contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.customSpacing),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.customSpacing)
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        constraints.append(contentsOf: [
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ])
+        constraints.last?.priority = .defaultLow
+        
+        contentView.addSubview(contentStackView)
+        constraints.append(contentsOf: [
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.spacing),
+            contentView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.spacing),
+            contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
         ])
         
         contentStackView.addArrangedSubview(titleTextView)
@@ -120,6 +161,8 @@ extension AddHabitViewController {
         contentStackView.addArrangedSubview(timeSelectionLabel)
         contentStackView.addArrangedSubview(timePicker)
         contentStackView.addArrangedSubview(addHabitButton)
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     @objc func backAction(sender: UIBarButtonItem) {

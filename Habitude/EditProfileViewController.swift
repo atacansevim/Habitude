@@ -24,10 +24,27 @@ final class EditProfileViewController: UIViewController {
     
     // MARK: -Properties
     
+    private let scrollView = UIScrollView()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let contentStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Constants.stackSpacing
+        stack.distribution = .fillProportionally
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     private let addCoverPhotoInfoView = EditProfileViewController.createCoverPhotoInfo()
     
     private let headerImageView: UIImageView = {
-        let imageView = UIImageView(image: Images.shadow.image)
+        let imageView = UIImageView(image: Images.profileHeader.image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -115,45 +132,72 @@ extension EditProfileViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         title = "Edit Profile"
-
         changePasswordButton.isEnabled = false
         reportBugButton.isEnabled = false
     }
     
     func layout() {
-        view.addSubview(headerImageView)
-        NSLayoutConstraint.activate([
-            headerImageView.heightAnchor.constraint(equalToConstant: Constants.headerImageHeight),
-            headerImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            headerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        scrollView.contentInsetAdjustmentBehavior = .never
+        var constraints: [NSLayoutConstraint] = []
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        constraints.append(contentsOf: [
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
-        view.addSubview(profileImageView)
+        scrollView.addSubview(contentView)
         NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        constraints.append(contentsOf: [
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ])
+        constraints.last?.priority = .defaultLow
+        
+        contentView.addSubview(headerImageView)
+        constraints.append(contentsOf: [
+            headerImageView.heightAnchor.constraint(equalToConstant: Constants.headerImageHeight),
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        contentView.addSubview(contentStackView)
+        constraints.append(contentsOf: [
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.spacing),
+            contentView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
+            contentStackView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: 70),
+            contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
+        ])
+        
+        headerImageView.addSubview(profileImageView)
+        headerImageView.addSubview(addCoverPhotoInfoView)
+        
+        constraints.append(contentsOf: [
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
             profileImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
-            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profileImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             profileImageView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: -Constants.profileImageSize / 2)
         ])
         
-        view.addSubview(addCoverPhotoInfoView)
-        NSLayoutConstraint.activate([
+        constraints.append(contentsOf: [
             profileImageView.topAnchor.constraint(equalTo: addCoverPhotoInfoView.bottomAnchor, constant: 46),
-            addCoverPhotoInfoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addCoverPhotoInfoView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+        contentStackView.addArrangedSubview(profileInfoStackView)
+        contentStackView.setCustomSpacing(43, after: profileInfoStackView)
+        contentStackView.addArrangedSubview(actionsStackView)
         
-        view.addSubview(profileInfoStackView)
-        NSLayoutConstraint.activate([
-            profileInfoStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileInfoStackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: Constants.customLargeSpacing)
-        ])
-        
-        view.addSubview(actionsStackView)
-        NSLayoutConstraint.activate([
-            actionsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            actionsStackView.topAnchor.constraint(equalTo: profileInfoStackView.bottomAnchor, constant: Constants.customLargeSpacing)
-        ])
+        NSLayoutConstraint.activate(constraints)
     }
 }
 
@@ -173,7 +217,6 @@ fileprivate extension EditProfileViewController {
             return label
         }()
         let image = UIImageView(image: Images.plusWithBorder.image)
-        image.setContentHuggingPriority(.defaultLow, for: .horizontal)
         stack.addArrangedSubview(image)
         stack.addArrangedSubview(infoLabel)
         return stack

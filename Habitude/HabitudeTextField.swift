@@ -27,14 +27,26 @@ final class HabitudeTextField: UITextView {
         return border
      }()
     
+    private var holderFont: UIFont?
     private var height: CGFloat = 60
+    private var isPlaceHolderUp: Bool?
+    private var placeHolderColor: UIColor?
     
     weak var handleViewOutput: HabitudeTextFieldDelegate?
     
-    init(placeHolder: String, height: CGFloat = 60) {
+    init(
+        placeHolder: String,
+        height: CGFloat = 60,
+        holderFont: UIFont? = nil,
+        isPlaceHolderUp: Bool? = nil,
+        placeHolderColor: UIColor = UIColor.Habitute.primaryLightHalfAlpha
+    ) {
         super.init(frame: .zero, textContainer: nil)
         self.placeHolder.text = placeHolder
         self.height = height
+        self.holderFont = holderFont
+        self.isPlaceHolderUp = isPlaceHolderUp
+        self.placeHolderColor = placeHolderColor
         backgroundColor = .clear
         delegate = self
         layout()
@@ -49,10 +61,19 @@ final class HabitudeTextField: UITextView {
         ])
         
         addSubview(placeHolder)
-        NSLayoutConstraint.activate([
-            placeHolder.centerYAnchor.constraint(equalTo: centerYAnchor),
-            placeHolder.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2)
-        ])
+        if let isPlaceHolderUp = isPlaceHolderUp {
+            NSLayoutConstraint.activate([
+                placeHolder.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+                placeHolder.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                placeHolder.centerYAnchor.constraint(equalTo: centerYAnchor),
+                placeHolder.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2)
+            ])
+        }
+        
+
     }
     
     private func style() {
@@ -62,6 +83,12 @@ final class HabitudeTextField: UITextView {
         layer.borderColor = UIColor.Habitute.secondaryLight.cgColor
         layer.cornerRadius = 5
         textContainer.maximumNumberOfLines = 1
+        if let holderFont = holderFont {
+            placeHolder.font = holderFont
+        }
+        if let placeHolderColor = placeHolderColor {
+            placeHolder.textColor = placeHolderColor
+        }
     }
     
     required init?(coder: NSCoder){

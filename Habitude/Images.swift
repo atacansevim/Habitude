@@ -19,6 +19,8 @@ public enum Images: String, CaseIterable {
     case lock
     case plus
     case plusWithBorder
+    case mark
+    case cross
 }
 
 extension Images {
