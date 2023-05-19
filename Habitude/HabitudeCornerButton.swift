@@ -16,6 +16,8 @@ class HabitudeCornerButton: UIButton {
        return label
     }()
     
+    private var width: CGFloat?
+    
     override var isEnabled: Bool {
           didSet {
               if isEnabled {
@@ -28,9 +30,10 @@ class HabitudeCornerButton: UIButton {
           }
       }
     
-    init(title: String) {
+    init(title: String, width: CGFloat = 350) {
         super.init(frame: .zero)
         self.title.text = title
+        self.width = width
         style()
         layout()
     }
@@ -42,7 +45,7 @@ class HabitudeCornerButton: UIButton {
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
             title.centerYAnchor.constraint(equalTo: centerYAnchor),
             heightAnchor.constraint(equalToConstant: 50),
-            widthAnchor.constraint(equalToConstant: 350),
+            widthAnchor.constraint(equalToConstant: width!)
         ])
     }
     

@@ -30,8 +30,19 @@ final class HabitudeTabBar: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.isTranslucent = false
-        tabBar.backgroundColor = .clear
+        tabBar.isTranslucent = true
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+             appearance.configureWithOpaqueBackground()
+             appearance.backgroundColor = UIColor.Habitute.primaryDark
+             tabBar.standardAppearance = appearance
+             tabBar.scrollEdgeAppearance = appearance
+        } else {
+            tabBar.backgroundColor = UIColor.clear // clears the background
+            tabBar.backgroundImage = UIImage()
+            tabBar.shadowImage = UIImage()  // removes the border
+            tabBar.backgroundColor = UIColor.Habitute.primaryDark
+        }
         tabBar.tintColor = UIColor.Habitute.accent
         tabBar.unselectedItemTintColor = UIColor.Habitute.secondaryLight
         delegate = self
@@ -51,12 +62,9 @@ final class HabitudeTabBar: UITabBarController {
                 image: Images.homePageUnselected.image
             ),
             createNavigationViewController(
-                for: UIViewController(),
+                for: DrawViewController(viewModel: DrawViewModel()),
                 image: Images.tickUnselected.image
             ),
-            createNavigationViewController(
-                for: UIViewController(),
-                image: Images.gearUnselected.image),
             createNavigationViewController(
                 for: ProfileViewController(viewModel: ProfileViewModel(title: "Profile")),
                 image: Images.profileUnselected.image

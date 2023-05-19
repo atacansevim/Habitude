@@ -15,7 +15,7 @@ public extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         if let width = width {
-            view.widthAnchor.constraint(equalToConstant: width).isActive = true
+            view.widthAnchor.constraint(greaterThanOrEqualToConstant: width).isActive = true
         }
         
         view.heightAnchor.constraint(equalToConstant: height).isActive = true

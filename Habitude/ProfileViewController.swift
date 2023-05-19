@@ -20,9 +20,29 @@ final class ProfileViewController: UIViewController {
         static let customSpacing: CGFloat = 12
         static let customLargeSpacing: CGFloat = 60
         static let stackSpacing: CGFloat = 20
+        static let emailSpacing: CGFloat = 58
+        static let nameSpacing: CGFloat = 30
     }
     
     // MARK: -Properties
+    
+    private let scrollView = UIScrollView()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let contentStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = Constants.stackSpacing
+        stack.distribution = .fillProportionally
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
+        return stack
+    }()
     
     private let headerImageView: UIImageView = {
         let imageView = UIImageView(image: Images.profileHeader.image)
@@ -128,45 +148,67 @@ extension ProfileViewController {
     }
     
     func layout() {
-        view.addSubview(headerImageView)
-        NSLayoutConstraint.activate([
-            headerImageView.heightAnchor.constraint(equalToConstant: Constants.headerImageHeight),
-            headerImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            headerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        scrollView.contentInsetAdjustmentBehavior = .never
+        var constraints: [NSLayoutConstraint] = []
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        constraints.append(contentsOf: [
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
-        view.addSubview(profileImageView)
+        scrollView.addSubview(contentView)
         NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        constraints.append(contentsOf: [
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ])
+        constraints.last?.priority = .defaultLow
+        
+        contentView.addSubview(headerImageView)
+        constraints.append(contentsOf: [
+            headerImageView.heightAnchor.constraint(equalToConstant: Constants.headerImageHeight),
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        contentView.addSubview(contentStackView)
+        constraints.append(contentsOf: [
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.spacing),
+            contentView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
+            contentStackView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.emailSpacing),
+            contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
+        ])
+        
+        headerImageView.addSubview(profileImageView)
+        
+        constraints.append(contentsOf: [
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
             profileImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
-            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profileImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             profileImageView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: -Constants.profileImageSize / 2)
         ])
         
-        view.addSubview(emailLabel)
-        NSLayoutConstraint.activate([
-            emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: Constants.spacing)
-        ])
+        contentStackView.addArrangedSubview(emailLabel)
+        contentStackView.setCustomSpacing(Constants.nameSpacing, after: emailLabel)
+        contentStackView.addArrangedSubview(nameLabel)
+        contentStackView.setCustomSpacing(Constants.smallSpacing, after: bioLabel)
+        contentStackView.addArrangedSubview(bioLabel)
+        contentStackView.setCustomSpacing(Constants.customLargeSpacing, after: bioLabel)
+        contentStackView.addArrangedSubview(actionsStackView)
         
-        view.addSubview(nameLabel)
-        NSLayoutConstraint.activate([
-            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: Constants.customSpacing)
-        ])
+        NSLayoutConstraint.activate(constraints)
         
-        view.addSubview(bioLabel)
-        NSLayoutConstraint.activate([
-            bioLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bioLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.smallSpacing)
-        ])
-        
-        view.addSubview(actionsStackView)
-        NSLayoutConstraint.activate([
-            actionsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            actionsStackView.topAnchor.constraint(equalTo: bioLabel.bottomAnchor, constant: Constants.customLargeSpacing)
-        ])
     }
 }
 
