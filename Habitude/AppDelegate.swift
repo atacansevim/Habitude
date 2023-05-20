@@ -20,8 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.Habitute.primaryDark
-        window?.rootViewController = HabitudeTabBar()
-
+        let viewModel =  SignUpViewModel( authService: Authentication(), for: .SIGNUP)
+        viewModel.appDelegate = self
+        window?.rootViewController = SignUpViewController(viewModel: viewModel)
         return true
+    }
+}
+
+extension AppDelegate: AppDelegateViewOutput {
+    func goToHomePage() {
+        window?.rootViewController = HabitudeTabBar()
     }
 }

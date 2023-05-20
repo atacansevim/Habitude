@@ -15,10 +15,11 @@ final class LoginBottomView: UIView {
     private enum Constants {
         static let illustrationName = "LoginScreenIllustration"
         static let height: CGFloat = 488
-        static let infoText = "By continuing you agree to the Habitude Term of Service and Privacy Policy"
+        static let signUpInfoText = "By continuing you agree to the Habitude Term of Service and Privacy Policy"
         static let stackSpacing: CGFloat = 16
         static let iconStackViewSpacing: CGFloat = 10
         static let bottomStackViewSpacing: CGFloat = 5
+        static let signInInfoText = "Forget Password?"
     }
     
     // MARK: -Properties
@@ -47,7 +48,7 @@ final class LoginBottomView: UIView {
     private let infoLabel: UILabel = {
         let label = UILabel()
         var attributedText = NSMutableAttributedString(
-            string: Constants.infoText,
+            string: Constants.signUpInfoText,
             attributes: [
                 NSAttributedString.Key.font : UIFont.Habitude.paragraphExtraSmall!,
                 NSAttributedString.Key.foregroundColor: UIColor.Habitute.primaryLight
@@ -56,12 +57,12 @@ final class LoginBottomView: UIView {
         attributedText.addAttribute(
             NSAttributedString.Key.foregroundColor,
             value: UIColor.Habitute.accent,
-            range: NSRange(location: Constants.infoText.indexInt(of: "T")!, length: "Term of Service".count)
+            range: NSRange(location: Constants.signUpInfoText.indexInt(of: "T")!, length: "Term of Service".count)
         )
         attributedText.addAttribute(
             NSAttributedString.Key.foregroundColor,
             value: UIColor.Habitute.accent,
-            range: NSRange(location: Constants.infoText.indexInt(of: "P")!, length: "Privacy Policy".count)
+            range: NSRange(location: Constants.signUpInfoText.indexInt(of: "P")!, length: "Privacy Policy".count)
         )
         label.attributedText = attributedText
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -131,6 +132,9 @@ final class LoginBottomView: UIView {
         style()
         layout()
         contiuneButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(bottomButtonAction))
+        actionLabel.isUserInteractionEnabled = true
+        actionLabel.addGestureRecognizer(tap)
     }
     
     required init?(coder: NSCoder){
@@ -146,6 +150,9 @@ extension LoginBottomView {
         clipsToBounds = true
         layer.cornerRadius = 20
         layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        emailTextView.keyboardType = .emailAddress
+        passwordTextView.isSecureTextEntry = true
     }
     
     private func layout() {
@@ -209,7 +216,31 @@ extension LoginBottomView {
     @objc private func buttonAction(sender: UIButton!) {
         delegate?.tapContiuneButton()
     }
-
+    
+    @objc private func bottomButtonAction(sender: UIButton!) {
+        delegate?.tapBottomButton()
+    }
+    
+    func setInfoText(for text: NSAttributedString) {
+        infoLabel.attributedText = text
+        if infoLabel.textAlignment == .right {
+            infoLabel.textAlignment = .left
+        } else {
+            infoLabel.textAlignment = .right
+        }
+    }
+    
+    func setBottomInfoText(for text: String) {
+        actionLabel.text = text
+    }
+    
+    func setTitleText(for text: String) {
+        titleLabel.text = text
+    }
+    
+    func setBottomLeftInfoText(for text: String) {
+        bottomInfoLabel.text = text
+    }
 }
 
 // MARK: - Actions
@@ -226,3 +257,11 @@ extension LoginBottomView: HabitudeTextFieldDelegate {
         delegate?.sendPassword(password: password)
     }
 }
+
+extension LoginBottomView: UITextFieldDelegate {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        delegate?.dismissKeyboard()
+    }
+}
+

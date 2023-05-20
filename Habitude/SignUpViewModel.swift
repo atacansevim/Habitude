@@ -8,21 +8,30 @@ import FirebaseAuth
 
 final class SignUpViewModel: SignUpViewModelContract {
     
-   weak var handleViewOutput: SignUpHandleViewOutput?
+   weak var delegate: SignUpHandleViewOutput?
+   weak var appDelegate: AppDelegateViewOutput?
    var authService: AuthenticationContract!
+   var typeOfLogin: LoginTypeEnum?
     
-    init(authService: AuthenticationContract) {
+    init(authService: AuthenticationContract, for type: LoginTypeEnum) {
         self.authService = authService
         self.authService.delegate = self
+        self.typeOfLogin = type
     }
 }
 
 //MARK: -ServiceCalls
 
 extension SignUpViewModel {
+    
     func signUp(email: String, password: String) {
-        handleViewOutput?.setLoading(isLoading: true)
+        delegate?.setLoading(isLoading: true)
         authService.signUp(email: email, password: password)
+    }
+    
+    func signIn(email: String, password: String) {
+        delegate?.setLoading(isLoading: true)
+        authService.signIn(email: email, password: password)
     }
     
     func signUpWithFacebook() {
@@ -37,12 +46,21 @@ extension SignUpViewModel {
 extension SignUpViewModel: AuthenticationDelegate {
     
     func fetchedData(email: String?, error: Error?) {
-        handleViewOutput?.setLoading(isLoading: false)
+        delegate?.setLoading(isLoading: false)
         
         guard let email = email else {
-            handleViewOutput?.showError(error: error!)
+            delegate?.showError(error: error!)
             return
         }
-        handleViewOutput?.fetchedData(email: email)
+        appDelegate?.goToHomePage()
+    }
+}
+
+//MARK: -Actions
+
+extension SignUpViewModel {
+    
+    func changeTheLoginType() {
+        delegate?.changeTheLoginType()
     }
 }
