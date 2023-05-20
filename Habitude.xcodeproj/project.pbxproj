@@ -12,6 +12,7 @@
 		F973712B2A155CAE00EE611A /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712A2A155CAE00EE611A /* DrawViewController.swift */; };
 		F973712D2A155CC400EE611A /* DrawViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712C2A155CC400EE611A /* DrawViewModelContracts.swift */; };
 		F973712F2A155CCF00EE611A /* DrawViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712E2A155CCF00EE611A /* DrawViewModel.swift */; };
+		F9A565392A17BA9B00FC9DE7 /* LoginTypeEnum .swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */; };
 		F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */; };
 		F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */; };
 		F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */; };
@@ -86,6 +87,7 @@
 		F973712A2A155CAE00EE611A /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		F973712C2A155CC400EE611A /* DrawViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewModelContracts.swift; sourceTree = "<group>"; };
 		F973712E2A155CCF00EE611A /* DrawViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewModel.swift; sourceTree = "<group>"; };
+		F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginTypeEnum .swift"; sourceTree = "<group>"; };
 		F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTextField.swift; sourceTree = "<group>"; };
 		F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
 		F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasic.swift; sourceTree = "<group>"; };
@@ -359,8 +361,9 @@
 		F9FDAFCB29F8696B0004472E /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				F9FDAFD329F86A6F0004472E /* SignIn */,
-				F9FDAFD229F86A570004472E /* SignUp */,
+				F9FDAFCE29F8697E0004472E /* Model */,
+				F9FDAFCD29F869750004472E /* ViewModel */,
+				F9FDAFCC29F869710004472E /* View */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -387,25 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */,
+				F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		F9FDAFD229F86A570004472E /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDAFCE29F8697E0004472E /* Model */,
-				F9FDAFCD29F869750004472E /* ViewModel */,
-				F9FDAFCC29F869710004472E /* View */,
-			);
-			name = SignUp;
-			sourceTree = "<group>";
-		};
-		F9FDAFD329F86A6F0004472E /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SignIn;
 			sourceTree = "<group>";
 		};
 		F9FDAFD429F86D7E0004472E /* Components */ = {
@@ -632,6 +619,7 @@
 				F9AC99EE2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift in Sources */,
 				F9AC99F82A0AD5F500F50CE5 /* HomeViewModelContracts.swift in Sources */,
 				F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */,
+				F9A565392A17BA9B00FC9DE7 /* LoginTypeEnum .swift in Sources */,
 				F9FDB0482A043ADB0004472E /* HabitudeProfileTextView.swift in Sources */,
 				F9FDB0462A04385E0004472E /* EditProfileViewController.swift in Sources */,
 				F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */,

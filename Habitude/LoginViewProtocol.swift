@@ -16,5 +16,6 @@ protocol LoginBottomViewDelegate: AnyObject {
     func sendEmail(email: String)
     func sendPassword(password: String)
     func tapContiuneButton()
+    func tapBottomButton()
     func dismissKeyboard()
 }

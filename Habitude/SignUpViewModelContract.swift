@@ -6,16 +6,25 @@
 //
 
 protocol SignUpViewModelContract: AnyObject {
-    var handleViewOutput: SignUpHandleViewOutput? { get }
+    var delegate: SignUpHandleViewOutput? { get set }
+    var appDelegate: AppDelegateViewOutput? { get set }
+    var typeOfLogin: LoginTypeEnum? { get set }
     
     func signUp(email: String, password: String)
+    func signIn(email: String, password: String)
     func signUpWithFacebook()
     func signUpWithGoogle()
+    func changeTheLoginType()
 }
 
 protocol SignUpHandleViewOutput: AnyObject {
     func setLoading(isLoading: Bool)
     func fetchedData(email: String)
     func showError(error: Error)
+    func changeTheLoginType()
+}
+
+protocol AppDelegateViewOutput: AnyObject {
+    func goToHomePage()
 }
 
