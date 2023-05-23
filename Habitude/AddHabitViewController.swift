@@ -173,7 +173,7 @@ extension AddHabitViewController {
     }
     
     @objc func backAction(sender: UIBarButtonItem) {
-       //TODO: (will implemented)
+        view.endEditing(true)
     }
     
     private func isButtonEnabled() {
