@@ -18,6 +18,8 @@ class HabitudeCornerButton: UIButton {
     
     private var width: CGFloat?
     
+    private var isDefaultDisabled: Bool?
+    
     override var isEnabled: Bool {
           didSet {
               if isEnabled {
@@ -30,10 +32,15 @@ class HabitudeCornerButton: UIButton {
           }
       }
     
-    init(title: String, width: CGFloat = 350) {
+    init(
+        title: String,
+        width: CGFloat = 350,
+        isDefaultDisabled: Bool = false
+    ) {
         super.init(frame: .zero)
         self.title.text = title
         self.width = width
+        self.isDefaultDisabled = isDefaultDisabled
         style()
         layout()
     }
@@ -54,6 +61,7 @@ class HabitudeCornerButton: UIButton {
         self.backgroundColor = UIColor.Habitute.accent
         self.layer.cornerRadius = 20
         self.title.font = UIFont.Habitude.titleSmall
+        self.isEnabled = !isDefaultDisabled!
     }
     
     required init?(coder: NSCoder){

@@ -180,7 +180,7 @@ extension HomeViewController: HomeViewModelDelegate {
         case .setLoading(_): break
         case .goToAddHabit:
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(viewModel: HomeViewModel(title: "Habit Details")), sender: nil)
+            self.show(AddHabitViewController(viewModel: AddHabitViewModel(title: "Habit Details")), sender: nil)
         case .setState(state: let state):
             switch state {
             case .loading:

@@ -132,6 +132,7 @@ extension HabitudeTextField: UITextViewDelegate {
         } else if placeHolder.text == "Password" {
             handleViewOutput?.sendPassword(password: textView.text)
         }
+        handleViewOutput?.textChanged()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -140,6 +141,7 @@ extension HabitudeTextField: UITextViewDelegate {
         } else if placeHolder.text == "Password" {
             handleViewOutput?.sendPassword(password: textView.text)
         }
+        handleViewOutput?.textChanged()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

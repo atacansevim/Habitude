@@ -17,7 +17,7 @@ final class AddHabitViewController: UIViewController {
         static let customLargeSpacing: CGFloat = 60
         static let stackSpacing: CGFloat = 20
         static let addButtonTitle: String = "Add a habit"
-        static let titlePlaceHolder: String = "Title"
+        static let titlePlaceHolder: String = "Title*"
         static let descriptionPlaceHolder: String = "Description"
         static let timeSelectionLabel: String = "Select time for a reminder"
         static let descriptionHeightAnchor: CGFloat = 100
@@ -79,13 +79,20 @@ final class AddHabitViewController: UIViewController {
         return picker
     }()
     
-    private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle)
+    private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle, isDefaultDisabled: true)
     
-    private var viewModel: HomeViewModelContracts!
+    private var viewModel: AddHabitViewModelContracts!
     
-    convenience init(viewModel: HomeViewModelContracts){
+    private var hour: Int = 0
+    private var minute: Int = 0
+    
+    convenience init(viewModel: AddHabitViewModelContracts){
         self.init()
         self.viewModel = viewModel
+        self.viewModel.delegate = self
+        remindDay.delegate = self
+        titleTextView.handleViewOutput = self
+        addHabitButton.addTarget(self, action: #selector(addHabitAction), for: .touchUpInside)
     }
     
     // MARK: -LifeCycle
@@ -168,7 +175,62 @@ extension AddHabitViewController {
     @objc func backAction(sender: UIBarButtonItem) {
        //TODO: (will implemented)
     }
+    
+    private func isButtonEnabled() {
+        addHabitButton.isEnabled = !self.titleTextView.text.isEmpty && !remindDay.getEnabeledIndexs().isEmpty
+    }
+    
+    private func getHourAndMinute() {
+        let date = timePicker.date
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+        hour = components.hour!
+        minute = components.minute!
+    }
+    
+    @objc private func addHabitAction(sender: UIButton!) {
+        getHourAndMinute()
+        for index in remindDay.getEnabeledIndexs() {
+            viewModel.setNotification(
+                title: titleTextView.text!,
+                body: descriptionTextView.text,
+                day: index,
+                hour: hour,
+                minute: minute
+            )
+        }
+    }
 }
 
+extension AddHabitViewController: RemindDayDelegate {
+    
+    func stateChange() {
+        isButtonEnabled()
+    }
+}
 
+extension AddHabitViewController: HabitudeTextFieldDelegate {
+    
+    func sendEmail(email: String) {
+    }
+    
+    func sendPassword(password: String) {
+    }
+    
+    func textChanged() {
+        isButtonEnabled()
+    }
+}
 // MARK: -HandleViewOutput
+
+extension AddHabitViewController: AddHabitViewModelDelegate {
+    func handleViewOutput(_ output: AddHabitViewModelOutput) {
+        switch output {
+        case .setLoading(let bool):break
+        case .goToHabitList(let string, let string2):
+            self.navigationItem.removeBackBarButtonTitle()
+            self.show(HomeViewController(viewModel: HomeViewModel(title: "Home")), sender: nil)
+        case .showError(let error):
+            showErrorDialog(for: error?.localizedDescription)
+        }
+    }
+}

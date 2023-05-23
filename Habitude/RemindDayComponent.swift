@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol RemindDayDelegate: AnyObject {
+    func stateChange()
+}
+
 final class RemindDayComponent: UIView {
    
     // MARK: -Constants
@@ -26,6 +30,8 @@ final class RemindDayComponent: UIView {
     }
     
     // MARK: -Properties
+    
+    weak var delegate: RemindDayDelegate?
     
     private var isEnabled = [Bool](repeatElement(false, count: 7))
     
@@ -225,6 +231,7 @@ extension RemindDayComponent {
             sender.backgroundColor = UIColor.Habitute.accent
             isEnabled[sender.tag] = true
         }
+        delegate?.stateChange()
     }
     
     @objc private func switchAction(_ sender: UISwitch!) {
@@ -233,6 +240,7 @@ extension RemindDayComponent {
         } else {
             setAllButton(for: false)
         }
+        delegate?.stateChange()
     }
     
     private func setAllButton(for value: Bool) {

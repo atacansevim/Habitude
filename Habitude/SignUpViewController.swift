@@ -209,13 +209,11 @@ extension SignUpViewController: SignUpHandleViewOutput {
     }
     
     func fetchedData(email: String) {
-    }
-    
-    func showError(error: Error) {
         
     }
     
-    func goToHomePage() {
+    func showError(error: Error) {
+        showErrorDialog(for: error.localizedDescription.lowercased())
     }
     
     func changeTheLoginType() {

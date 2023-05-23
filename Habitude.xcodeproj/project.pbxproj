@@ -30,6 +30,7 @@
 		F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */; };
 		F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */; };
 		F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */; };
+		F9D652312A1D5A6900D3BEA0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D652302A1D5A6900D3BEA0 /* NotificationManager.swift */; };
 		F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAF9629F85FDD0004472E /* AppDelegate.swift */; };
 		F9FDAFA029F85FDE0004472E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAF9F29F85FDE0004472E /* Assets.xcassets */; };
 		F9FDAFA329F85FDE0004472E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAFA129F85FDE0004472E /* LaunchScreen.storyboard */; };
@@ -105,6 +106,7 @@
 		F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
 		F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModelContracts.swift; sourceTree = "<group>"; };
+		F9D652302A1D5A6900D3BEA0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F9FDAF9329F85FDD0004472E /* Habitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FDAF9629F85FDD0004472E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FDAF9F29F85FDE0004472E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				F9FDB0382A018A8E0004472E /* UIViewController+Utils.swift */,
 				F9FDB03C2A018EA70004472E /* Images.swift */,
 				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
+				F9D652302A1D5A6900D3BEA0 /* NotificationManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				F9FDB0402A02E7760004472E /* HabitudeTabBar.swift in Sources */,
 				F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */,
 				F9AC99E82A0AC96900F50CE5 /* ProfileViewModelContracts.swift in Sources */,
+				F9D652312A1D5A6900D3BEA0 /* NotificationManager.swift in Sources */,
 				F9FDAFD629F86E4E0004472E /* LoginBottomView.swift in Sources */,
 				F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */,
 				F9FDAFC729F865250004472E /* UIColor+Extensions.swift in Sources */,

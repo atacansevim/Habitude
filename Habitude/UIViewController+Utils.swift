@@ -23,4 +23,25 @@ extension UIViewController {
         let configuration = UIImage.SymbolConfiguration(scale: .medium)
         tabBarItem = UITabBarItem(title: nil, image: image, tag: 0)
     }*/
+    
+    func showErrorDialog(for message: String? = "There is something went wrong") {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                print("default")
+                
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+            @unknown default:
+                print("")
+            }
+        }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

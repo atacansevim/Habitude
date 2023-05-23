@@ -256,6 +256,9 @@ extension LoginBottomView: HabitudeTextFieldDelegate {
         isButtonEnabled()
         delegate?.sendPassword(password: password)
     }
+    
+    func textChanged() {
+    }
 }
 
 extension LoginBottomView: UITextFieldDelegate {

@@ -10,6 +10,7 @@ import Foundation
 protocol HabitudeTextFieldDelegate: AnyObject {
     func sendEmail(email: String)
     func sendPassword(password: String)
+    func textChanged()
 }
 
 protocol LoginBottomViewDelegate: AnyObject {
