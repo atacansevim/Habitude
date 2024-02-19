@@ -8,8 +8,10 @@
 protocol HomeViewModelContracts {
     var title: String { get }
     var delegate: HomeViewModelDelegate? { get set }
+    var habits: [Habit] { get set }
     
     func goToAddHabit()
+    func goToUpdateHabit(for habit: Habit)
     func loadData()
 }
 
@@ -21,6 +23,7 @@ enum HomeViewModelOutput: Equatable {
     case setLoading(Bool)
     case setState(state: ListState)
     case goToAddHabit
+    case goToUpdateHabit(habit: Habit)
 }
 
 enum ListState: Equatable {

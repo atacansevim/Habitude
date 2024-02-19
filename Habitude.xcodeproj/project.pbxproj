@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1E418ECE7AB086733399F4C /* Pods_Habitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */; };
+		F908113D2B82B0EF00071F4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908113C2B82B0EF00071F4A /* BaseViewController.swift */; };
 		F97371232A14093700EE611A /* RemindDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371222A14093700EE611A /* RemindDayComponent.swift */; };
 		F97371252A140D0200EE611A /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371242A140D0200EE611A /* DayEnum.swift */; };
 		F973712B2A155CAE00EE611A /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712A2A155CAE00EE611A /* DrawViewController.swift */; };
 		F973712D2A155CC400EE611A /* DrawViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712C2A155CC400EE611A /* DrawViewModelContracts.swift */; };
 		F973712F2A155CCF00EE611A /* DrawViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712E2A155CCF00EE611A /* DrawViewModel.swift */; };
+		F980C1382B7D559400F6A468 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C1372B7D559400F6A468 /* NotificationManager.swift */; };
+		F980C13A2B7D6DFD00F6A468 /* NotificationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */; };
+		F980C13D2B7E7C1200F6A468 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */; };
+		F980C1402B7E7CE500F6A468 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F980C13F2B7E7CE500F6A468 /* KeychainSwift */; };
+		F980C1422B7EC28400F6A468 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C1412B7EC28400F6A468 /* HabitView.swift */; };
 		F9A565392A17BA9B00FC9DE7 /* LoginTypeEnum .swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */; };
 		F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */; };
 		F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */; };
@@ -30,6 +37,20 @@
 		F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */; };
 		F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */; };
 		F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */; };
+		F9BF32142B80BE6200499676 /* ProfileContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32132B80BE6200499676 /* ProfileContract.swift */; };
+		F9BF32162B80BE8E00499676 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32152B80BE8E00499676 /* ProfileManager.swift */; };
+		F9BF32182B80E52B00499676 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32172B80E52B00499676 /* EditProfileViewModel.swift */; };
+		F9BF321A2B80E65400499676 /* EditProfileViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32192B80E65400499676 /* EditProfileViewModelContract.swift */; };
+		F9BF321C2B81E38400499676 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF321B2B81E38400499676 /* Profile.swift */; };
+		F9BF321F2B8220EE00499676 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF321E2B8220EE00499676 /* DrawingView.swift */; };
+		F9BF32222B824DC300499676 /* StrokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32212B824DC300499676 /* StrokeManager.swift */; };
+		F9BF32242B8256E700499676 /* RecognizedInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF32232B8256E700499676 /* RecognizedInk.swift */; };
+		F9D6DEAB2B7BE63700E8CF8E /* HabitManagerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6DEAA2B7BE63700E8CF8E /* HabitManagerContract.swift */; };
+		F9D6DEAF2B7BE66700E8CF8E /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6DEAE2B7BE66700E8CF8E /* HabitManager.swift */; };
+		F9D6DEB22B7BE96200E8CF8E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F9D6DEB12B7BE96200E8CF8E /* FirebaseFirestore */; };
+		F9D6DEB42B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F9D6DEB32B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community */; };
+		F9D6DEB62B7BE96200E8CF8E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F9D6DEB52B7BE96200E8CF8E /* FirebaseFirestoreSwift */; };
+		F9D6DEBB2B7C009A00E8CF8E /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */; };
 		F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAF9629F85FDD0004472E /* AppDelegate.swift */; };
 		F9FDAFA029F85FDE0004472E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAF9F29F85FDE0004472E /* Assets.xcassets */; };
 		F9FDAFA329F85FDE0004472E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FDAFA129F85FDE0004472E /* LaunchScreen.storyboard */; };
@@ -78,15 +99,23 @@
 		F9FDB0422A0424580004472E /* HabitudeCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDB0412A0424580004472E /* HabitudeCornerButton.swift */; };
 		F9FDB0442A0429310004472E /* HabituteSharpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDB0432A0429310004472E /* HabituteSharpButton.swift */; };
 		F9FDB0462A04385E0004472E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDB0452A04385E0004472E /* EditProfileViewController.swift */; };
-		F9FDB0482A043ADB0004472E /* HabitudeProfileTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDB0472A043ADB0004472E /* HabitudeProfileTextView.swift */; };
+		F9FDB0482A043ADB0004472E /* HabitudeProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDB0472A043ADB0004472E /* HabitudeProfileTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09093A2693EEA6790601A23C /* Pods-Habitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitude.debug.xcconfig"; path = "Target Support Files/Pods-Habitude/Pods-Habitude.debug.xcconfig"; sourceTree = "<group>"; };
+		4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitude.release.xcconfig"; path = "Target Support Files/Pods-Habitude/Pods-Habitude.release.xcconfig"; sourceTree = "<group>"; };
+		5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habitude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F908113C2B82B0EF00071F4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F97371222A14093700EE611A /* RemindDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDayComponent.swift; sourceTree = "<group>"; };
 		F97371242A140D0200EE611A /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
 		F973712A2A155CAE00EE611A /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		F973712C2A155CC400EE611A /* DrawViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewModelContracts.swift; sourceTree = "<group>"; };
 		F973712E2A155CCF00EE611A /* DrawViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewModel.swift; sourceTree = "<group>"; };
+		F980C1372B7D559400F6A468 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetails.swift; sourceTree = "<group>"; };
+		F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		F980C1412B7EC28400F6A468 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginTypeEnum .swift"; sourceTree = "<group>"; };
 		F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTextField.swift; sourceTree = "<group>"; };
 		F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
@@ -105,6 +134,17 @@
 		F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
 		F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModelContracts.swift; sourceTree = "<group>"; };
+		F9BF32132B80BE6200499676 /* ProfileContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContract.swift; sourceTree = "<group>"; };
+		F9BF32152B80BE8E00499676 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		F9BF32172B80E52B00499676 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		F9BF32192B80E65400499676 /* EditProfileViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelContract.swift; sourceTree = "<group>"; };
+		F9BF321B2B81E38400499676 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F9BF321E2B8220EE00499676 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		F9BF32212B824DC300499676 /* StrokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeManager.swift; sourceTree = "<group>"; };
+		F9BF32232B8256E700499676 /* RecognizedInk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedInk.swift; sourceTree = "<group>"; };
+		F9D6DEAA2B7BE63700E8CF8E /* HabitManagerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagerContract.swift; sourceTree = "<group>"; };
+		F9D6DEAE2B7BE66700E8CF8E /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
+		F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		F9FDAF9329F85FDD0004472E /* Habitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FDAF9629F85FDD0004472E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FDAF9F29F85FDE0004472E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,7 +184,7 @@
 		F9FDB0412A0424580004472E /* HabitudeCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeCornerButton.swift; sourceTree = "<group>"; };
 		F9FDB0432A0429310004472E /* HabituteSharpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabituteSharpButton.swift; sourceTree = "<group>"; };
 		F9FDB0452A04385E0004472E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		F9FDB0472A043ADB0004472E /* HabitudeProfileTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeProfileTextView.swift; sourceTree = "<group>"; };
+		F9FDB0472A043ADB0004472E /* HabitudeProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeProfileTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,23 +192,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D6DEB42B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community in Frameworks */,
 				F9FDAFC429F863500004472E /* FirebaseStorageCombine-Community in Frameworks */,
 				F9FDAFB429F863500004472E /* FirebaseAnalyticsSwift in Frameworks */,
+				F9D6DEB62B7BE96200E8CF8E /* FirebaseFirestoreSwift in Frameworks */,
 				F9FDAFB029F863500004472E /* FirebaseAnalytics in Frameworks */,
 				F9FDAFBC29F863500004472E /* FirebaseMessaging in Frameworks */,
 				F9FDAFC229F863500004472E /* FirebaseStorage in Frameworks */,
+				F9D6DEB22B7BE96200E8CF8E /* FirebaseFirestore in Frameworks */,
 				F9FDAFC029F863500004472E /* FirebaseRemoteConfigSwift in Frameworks */,
 				F9FDAFB229F863500004472E /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				F9FDAFBA29F863500004472E /* FirebaseCrashlytics in Frameworks */,
 				F9FDAFB629F863500004472E /* FirebaseAuth in Frameworks */,
+				F980C1402B7E7CE500F6A468 /* KeychainSwift in Frameworks */,
 				F9FDAFB829F863500004472E /* FirebaseAuthCombine-Community in Frameworks */,
 				F9FDAFBE29F863500004472E /* FirebaseRemoteConfig in Frameworks */,
+				E1E418ECE7AB086733399F4C /* Pods_Habitude.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBF329CBF413093034C89146 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09093A2693EEA6790601A23C /* Pods-Habitude.debug.xcconfig */,
+				4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F97371262A14255C00EE611A /* Draw */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +236,7 @@
 		F97371272A14257900EE611A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF321D2B8220DB00499676 /* Components */,
 				F973712A2A155CAE00EE611A /* DrawViewController.swift */,
 			);
 			name = View;
@@ -203,12 +258,29 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		F980C1362B7D557F00F6A468 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				F980C1372B7D559400F6A468 /* NotificationManager.swift */,
+				F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */,
+			);
+			name = NotificationManager;
+			sourceTree = "<group>";
+		};
+		F980C13B2B7E7BFF00F6A468 /* KeyChainManager */ = {
+			isa = PBXGroup;
+			children = (
+				F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */,
+			);
+			name = KeyChainManager;
+			sourceTree = "<group>";
+		};
 		F9AC99E02A07A70B00F50CE5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F9AC99E12A07A82700F50CE5 /* Authentication.swift */,
-				F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */,
-				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
+				F9BF32122B80BE4900499676 /* ProfileManager */,
+				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
+				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -292,11 +364,67 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		F9BF32122B80BE4900499676 /* ProfileManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32132B80BE6200499676 /* ProfileContract.swift */,
+				F9BF32152B80BE8E00499676 /* ProfileManager.swift */,
+			);
+			name = ProfileManager;
+			sourceTree = "<group>";
+		};
+		F9BF321D2B8220DB00499676 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF321E2B8220EE00499676 /* DrawingView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		F9BF32202B824DB400499676 /* StrokeManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32212B824DC300499676 /* StrokeManager.swift */,
+				F9BF32232B8256E700499676 /* RecognizedInk.swift */,
+			);
+			name = StrokeManager;
+			sourceTree = "<group>";
+		};
+		F9D6DEA82B7BE60200E8CF8E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99E12A07A82700F50CE5 /* Authentication.swift */,
+				F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */,
+				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		F9D6DEA92B7BE61600E8CF8E /* HabitManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9D6DEAA2B7BE63700E8CF8E /* HabitManagerContract.swift */,
+				F9D6DEAE2B7BE66700E8CF8E /* HabitManager.swift */,
+				F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */,
+			);
+			name = HabitManager;
+			sourceTree = "<group>";
+		};
+		F9D6DEB02B7BE96200E8CF8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F9FDAF8A29F85FDD0004472E = {
 			isa = PBXGroup;
 			children = (
 				F9FDAF9529F85FDD0004472E /* Habitude */,
 				F9FDAF9429F85FDD0004472E /* Products */,
+				F9D6DEB02B7BE96200E8CF8E /* Frameworks */,
+				BBF329CBF413093034C89146 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -311,6 +439,9 @@
 		F9FDAF9529F85FDD0004472E /* Habitude */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF32202B824DB400499676 /* StrokeManager */,
+				F980C13B2B7E7BFF00F6A468 /* KeyChainManager */,
+				F980C1362B7D557F00F6A468 /* NotificationManager */,
 				F9AC99E02A07A70B00F50CE5 /* Network */,
 				F9FDB03E2A02E7310004472E /* Components */,
 				F9FDB00229F9BAD20004472E /* Poppins */,
@@ -343,6 +474,7 @@
 				F9FDB0382A018A8E0004472E /* UIViewController+Utils.swift */,
 				F9FDB03C2A018EA70004472E /* Images.swift */,
 				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
+				F908113C2B82B0EF00071F4A /* BaseViewController.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -461,6 +593,7 @@
 		F9FDB02E2A0189BC0004472E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF321B2B81E38400499676 /* Profile.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -486,6 +619,8 @@
 		F9FDB0322A0189E20004472E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF32172B80E52B00499676 /* EditProfileViewModel.swift */,
+				F9BF32192B80E65400499676 /* EditProfileViewModelContract.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -503,9 +638,10 @@
 				F9FDB03F2A02E7760004472E /* HabitudeTabBar.swift */,
 				F9FDB0412A0424580004472E /* HabitudeCornerButton.swift */,
 				F9FDB0432A0429310004472E /* HabituteSharpButton.swift */,
-				F9FDB0472A043ADB0004472E /* HabitudeProfileTextView.swift */,
+				F9FDB0472A043ADB0004472E /* HabitudeProfileTextField.swift */,
 				F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */,
 				F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */,
+				F980C1412B7EC28400F6A468 /* HabitView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -517,9 +653,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9FDAFA729F85FDE0004472E /* Build configuration list for PBXNativeTarget "Habitude" */;
 			buildPhases = (
+				D8426BBC0AC9224B7869FC81 /* [CP] Check Pods Manifest.lock */,
 				F9FDAF8F29F85FDD0004472E /* Sources */,
 				F9FDAF9029F85FDD0004472E /* Frameworks */,
 				F9FDAF9129F85FDD0004472E /* Resources */,
+				014DD9ACE4CFD5922607D77B /* [CP] Embed Pods Frameworks */,
+				B4B379853B5386522DA913C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -538,6 +677,10 @@
 				F9FDAFBF29F863500004472E /* FirebaseRemoteConfigSwift */,
 				F9FDAFC129F863500004472E /* FirebaseStorage */,
 				F9FDAFC329F863500004472E /* FirebaseStorageCombine-Community */,
+				F9D6DEB12B7BE96200E8CF8E /* FirebaseFirestore */,
+				F9D6DEB32B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community */,
+				F9D6DEB52B7BE96200E8CF8E /* FirebaseFirestoreSwift */,
+				F980C13F2B7E7CE500F6A468 /* KeychainSwift */,
 			);
 			productName = Habitude;
 			productReference = F9FDAF9329F85FDD0004472E /* Habitude.app */;
@@ -569,6 +712,7 @@
 			mainGroup = F9FDAF8A29F85FDD0004472E;
 			packageReferences = (
 				F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F980C13E2B7E7CE500F6A468 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = F9FDAF9429F85FDD0004472E /* Products */;
 			projectDirPath = "";
@@ -611,16 +755,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		014DD9ACE4CFD5922607D77B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B379853B5386522DA913C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8426BBC0AC9224B7869FC81 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Habitude-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F9FDAF8F29F85FDD0004472E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BF321A2B80E65400499676 /* EditProfileViewModelContract.swift in Sources */,
+				F9D6DEAF2B7BE66700E8CF8E /* HabitManager.swift in Sources */,
+				F9BF32222B824DC300499676 /* StrokeManager.swift in Sources */,
 				F9AC99EE2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift in Sources */,
 				F9AC99F82A0AD5F500F50CE5 /* HomeViewModelContracts.swift in Sources */,
 				F9AC9A022A0AE6B400F50CE5 /* AddHabitViewController.swift in Sources */,
+				F980C13D2B7E7C1200F6A468 /* KeychainManager.swift in Sources */,
+				F980C1422B7EC28400F6A468 /* HabitView.swift in Sources */,
 				F9A565392A17BA9B00FC9DE7 /* LoginTypeEnum .swift in Sources */,
-				F9FDB0482A043ADB0004472E /* HabitudeProfileTextView.swift in Sources */,
+				F980C13A2B7D6DFD00F6A468 /* NotificationDetails.swift in Sources */,
+				F9BF32142B80BE6200499676 /* ProfileContract.swift in Sources */,
+				F9FDB0482A043ADB0004472E /* HabitudeProfileTextField.swift in Sources */,
 				F9FDB0462A04385E0004472E /* EditProfileViewController.swift in Sources */,
 				F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */,
 				F97371252A140D0200EE611A /* DayEnum.swift in Sources */,
@@ -632,14 +842,19 @@
 				F9FDB0422A0424580004472E /* HabitudeCornerButton.swift in Sources */,
 				F9AC99FC2A0AD8D000F50CE5 /* EmptyHabitView.swift in Sources */,
 				F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */,
+				F980C1382B7D559400F6A468 /* NotificationManager.swift in Sources */,
 				F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */,
 				F9FDAFD129F86A110004472E /* SignUpViewController.swift in Sources */,
 				F9AC99F62A0AD5E600F50CE5 /* HomeViewModel.swift in Sources */,
 				F9FDB0402A02E7760004472E /* HabitudeTabBar.swift in Sources */,
 				F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */,
 				F9AC99E82A0AC96900F50CE5 /* ProfileViewModelContracts.swift in Sources */,
+				F9D6DEAB2B7BE63700E8CF8E /* HabitManagerContract.swift in Sources */,
+				F9D6DEBB2B7C009A00E8CF8E /* Habit.swift in Sources */,
+				F9BF321F2B8220EE00499676 /* DrawingView.swift in Sources */,
 				F9FDAFD629F86E4E0004472E /* LoginBottomView.swift in Sources */,
 				F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */,
+				F908113D2B82B0EF00071F4A /* BaseViewController.swift in Sources */,
 				F9FDAFC729F865250004472E /* UIColor+Extensions.swift in Sources */,
 				F973712D2A155CC400EE611A /* DrawViewModelContracts.swift in Sources */,
 				F9FDB0372A018A080004472E /* ProfileViewModel.swift in Sources */,
@@ -647,11 +862,15 @@
 				F9AC99FA2A0AD60100F50CE5 /* HomeViewController.swift in Sources */,
 				F9FDB02A29F9C15B0004472E /* View+Extensions.swift in Sources */,
 				F9FDB0392A018A8E0004472E /* UIViewController+Utils.swift in Sources */,
+				F9BF32182B80E52B00499676 /* EditProfileViewModel.swift in Sources */,
 				F9FDB0442A0429310004472E /* HabituteSharpButton.swift in Sources */,
+				F9BF32242B8256E700499676 /* RecognizedInk.swift in Sources */,
 				F9FDAFC929F866A30004472E /* UIFont+Extensions.swift in Sources */,
 				F9FDB0352A0189FC0004472E /* ProfileViewController.swift in Sources */,
 				F97371232A14093700EE611A /* RemindDayComponent.swift in Sources */,
+				F9BF32162B80BE8E00499676 /* ProfileManager.swift in Sources */,
 				F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */,
+				F9BF321C2B81E38400499676 /* Profile.swift in Sources */,
 				F9FDAFD829F9B4810004472E /* String+Extensions.swift in Sources */,
 				F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */,
 				F9AC99DF2A07A4D600F50CE5 /* SignUpViewModelContract.swift in Sources */,
@@ -788,19 +1007,20 @@
 		};
 		F9FDAFA829F85FDE0004472E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09093A2693EEA6790601A23C /* Pods-Habitude.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PGRD87J52F;
+				DEVELOPMENT_TEAM = 9S589SULTS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habitude/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,19 +1036,20 @@
 		};
 		F9FDAFA929F85FDE0004472E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PGRD87J52F;
+				DEVELOPMENT_TEAM = 9S589SULTS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habitude/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -866,6 +1087,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F980C13E2B7E7CE500F6A468 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 21.0.0;
+			};
+		};
 		F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -877,6 +1106,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F980C13F2B7E7CE500F6A468 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F980C13E2B7E7CE500F6A468 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		F9D6DEB12B7BE96200E8CF8E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F9D6DEB32B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		F9D6DEB52B7BE96200E8CF8E /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		F9FDAFAF29F863500004472E /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

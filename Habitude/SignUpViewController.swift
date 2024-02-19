@@ -204,6 +204,7 @@ extension SignUpViewController: LoginBottomViewDelegate {
 }
 
 extension SignUpViewController: SignUpHandleViewOutput {
+    
     func setLoading(isLoading: Bool) {
         showIndicator(isShow: isLoading)
     }
@@ -212,7 +213,7 @@ extension SignUpViewController: SignUpHandleViewOutput {
     }
     
     func showError(error: Error) {
-        
+        print(error.localizedDescription)
     }
     
     func goToHomePage() {

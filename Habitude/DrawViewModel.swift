@@ -6,7 +6,6 @@
 //
 
 final class DrawViewModel: DrawViewModelContracts {
-
     // MARK: -Properties
     
     var title: String
@@ -30,4 +29,3 @@ extension DrawViewModel {
         delegate?.handleViewOutput(.setState(state: .finished(.empty)))
     }
 }
-

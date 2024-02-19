@@ -10,6 +10,7 @@ import UIKit
 final class HabitudeTabBar: UITabBarController {
     
     private var frameView: UIView!
+    private var email: String = ""
     
     private var backgroundView: UIView = {
         let backgroundView = UIView(frame: .zero)
@@ -27,6 +28,12 @@ final class HabitudeTabBar: UITabBarController {
         stack.spacing = 60
         return stack
     }()
+    
+    convenience init(email: String){
+        self.init()
+        self.email = email
+        setupVCs()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +53,6 @@ final class HabitudeTabBar: UITabBarController {
         tabBar.tintColor = UIColor.Habitute.accent
         tabBar.unselectedItemTintColor = UIColor.Habitute.secondaryLight
         delegate = self
-        setupVCs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +64,9 @@ final class HabitudeTabBar: UITabBarController {
     func setupVCs() {
         viewControllers = [
             createNavigationViewController(
-                for: HomeViewController(viewModel: HomeViewModel(title: "Home")),
+                for: HomeViewController(
+                    viewModel: HomeViewModel(title: "Home", email: email)
+                ),
                 image: Images.homePageUnselected.image
             ),
             createNavigationViewController(
@@ -66,7 +74,7 @@ final class HabitudeTabBar: UITabBarController {
                 image: Images.tickUnselected.image
             ),
             createNavigationViewController(
-                for: ProfileViewController(viewModel: ProfileViewModel(title: "Profile")),
+                for: ProfileViewController(viewModel: ProfileViewModel(profileManager: ProfileManager())),
                 image: Images.profileUnselected.image
             )
         ]

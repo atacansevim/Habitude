@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EEE470BC-29A8-4D68-B9E3-221BBA55BB41"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "082AC696-5FA4-4676-9EB1-A3C599634BD4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "downloadModel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "082AC696-5FA4-4676-9EB1-A3C599634BD4 - 29dfefd3de6b5e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.StrokeManager.init() -&gt; Habitude.StrokeManager"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1422">
+               </Location>
+               <Location
+                  uuid = "082AC696-5FA4-4676-9EB1-A3C599634BD4 - 92fc1a1f581ffbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.StrokeManager.downloadModel() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "887">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2DF7788-6FC5-484C-A2AB-C1BDEA486324"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "downloadModel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B2DF7788-6FC5-484C-A2AB-C1BDEA486324 - 29dfefd3de6b5ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.StrokeManager.init() -&gt; Habitude.StrokeManager"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "1551">
+               </Location>
+               <Location
+                  uuid = "B2DF7788-6FC5-484C-A2AB-C1BDEA486324 - 6c88ca2dcf358b73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable (Foundation.Notification) -&gt; () in Habitude.StrokeManager.init() -&gt; Habitude.StrokeManager"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "123">
+               </Location>
+               <Location
+                  uuid = "B2DF7788-6FC5-484C-A2AB-C1BDEA486324 - 92fc1a1f581ff9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.StrokeManager.downloadModel() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "692">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "331419EE-B60E-4B09-83B7-74C268BF8086"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "downloadModel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "331419EE-B60E-4B09-83B7-74C268BF8086 - 6c88ca2dcf358bff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable (Foundation.Notification) -&gt; () in Habitude.StrokeManager.init() -&gt; Habitude.StrokeManager"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1389">
+               </Location>
+               <Location
+                  uuid = "331419EE-B60E-4B09-83B7-74C268BF8086 - 92fc1a1f581fef3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.StrokeManager.downloadModel() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/StrokeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "559389BC-A68B-429A-AC73-693AD9D9C91C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/DrawViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "getResult(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "559389BC-A68B-429A-AC73-693AD9D9C91C - cf89b30a4c63e3e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.DrawViewController.getResult(result: Habitude.PredictResult) -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/DrawViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "294"
+                  endingLineNumber = "294"
+                  offsetFromSymbolStart = "101">
+               </Location>
+               <Location
+                  uuid = "559389BC-A68B-429A-AC73-693AD9D9C91C - cf89b30a4c63e3c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.DrawViewController.getResult(result: Habitude.PredictResult) -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/DrawViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "293"
+                  endingLineNumber = "293"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB032550-08EF-43D3-972F-5909574980E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/DrawingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getResult(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74251F86-D994-4A00-9D8D-EC962D47D43A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "recognizeInk()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3B0E276-E1D5-4E77-AA80-31567AD9F4B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "recognizeInk()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C82B2AFC-F6E4-480C-BF22-DD5A9D65E1BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/StrokeManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "recognizeInk()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFDDFDA7-8C9C-4BE8-9375-70D75C764A97"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "updateHabit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AFDDFDA7-8C9C-4BE8-9375-70D75C764A97 - f6ce667c8c5840b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "1022">
+               </Location>
+               <Location
+                  uuid = "AFDDFDA7-8C9C-4BE8-9375-70D75C764A97 - f6ce667c8c584154"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "1412">
+               </Location>
+               <Location
+                  uuid = "AFDDFDA7-8C9C-4BE8-9375-70D75C764A97 - f6ce667c8c584092"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "481">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26A5F33C-6831-4741-918A-4F5FA477EAF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "updateHabit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26A5F33C-6831-4741-918A-4F5FA477EAF4 - f6ce667c8c5841c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "883">
+               </Location>
+               <Location
+                  uuid = "26A5F33C-6831-4741-918A-4F5FA477EAF4 - f6ce667c8c5841c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "795">
+               </Location>
+               <Location
+                  uuid = "26A5F33C-6831-4741-918A-4F5FA477EAF4 - f6ce667c8c584154"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "516">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "817E974E-A99C-4683-80E6-59235725461E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "updateHabit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "817E974E-A99C-4683-80E6-59235725461E - f6ce667c8c58418b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "241">
+               </Location>
+               <Location
+                  uuid = "817E974E-A99C-4683-80E6-59235725461E - f6ce667c8c5841aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "589">
+               </Location>
+               <Location
+                  uuid = "817E974E-A99C-4683-80E6-59235725461E - f6ce667c8c5841e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAB5059D-E2AE-4D2E-989B-074995C2A6E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "updateHabit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FAB5059D-E2AE-4D2E-989B-074995C2A6E6 - 61b54bc0521d4638"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "FAB5059D-E2AE-4D2E-989B-074995C2A6E6 - 61b54bc0521d479d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84FA1BC3-02C7-4623-8E68-176BD2A030A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "updateHabit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "84FA1BC3-02C7-4623-8E68-176BD2A030A1 - 61b54bc0521d47df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "207">
+               </Location>
+               <Location
+                  uuid = "84FA1BC3-02C7-4623-8E68-176BD2A030A1 - 61b54bc0521d47bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Habitude.AddHabitViewModel.updateHabit() -&gt; ()"
+                  moduleName = "Habitude"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/atacansevim/Desktop/Projects/Habitude/Habitude/AddHabitViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "207">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F587AF5F-CB63-4B5B-8D09-E1D43402902B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Habitude/AddHabitViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "addHabit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

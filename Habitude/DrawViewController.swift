@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DrawViewController: UIViewController {
+class DrawViewController: BaseViewController {
     
     // MARK: -Constants
     
@@ -116,7 +116,7 @@ class DrawViewController: UIViewController {
     
     private let subView = UIView()
     
-    private let drawnImage = UIImageView()
+    private let drawnImage = DrawingView()
     
     private let addHabitButton = HabitudeCornerButton(title: Constants.saveButtonTitle, width: 250)
     
@@ -143,6 +143,8 @@ class DrawViewController: UIViewController {
         self.init()
         self.viewModel = viewModel
         self.viewModel.delegate = self
+        clearButton.addTarget(self, action: #selector(clearButtonAction), for: .touchUpInside)
+        addHabitButton.addTarget(self, action: #selector(saveButton), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -153,6 +155,7 @@ class DrawViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
         style()
         layout()
+        drawnImage.delegate = self
     }
 }
 
@@ -227,6 +230,7 @@ extension DrawViewController {
         contentStackView.setCustomSpacing(Constants.drawViewTopSpacing, after: crossInfoStack)
         contentStackView.addArrangedSubview(subView)
         contentStackView.setCustomSpacing(Constants.customSpacing, after: subView)
+        contentStackView.addArrangedSubview(UIView())
         
         setDrawArea()
     }
@@ -241,6 +245,7 @@ extension DrawViewController {
         subView.translatesAutoresizingMaskIntoConstraints = false
         drawnImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            subView.heightAnchor.constraint(equalToConstant: 300),
             drawnImage.leadingAnchor.constraint(equalToSystemSpacingAfter: subView.leadingAnchor, multiplier: 2),
             subView.trailingAnchor.constraint(equalToSystemSpacingAfter: drawnImage.trailingAnchor, multiplier: 2),
             subView.bottomAnchor.constraint(equalToSystemSpacingBelow: drawnImage.bottomAnchor,  multiplier: 2),
@@ -253,16 +258,51 @@ extension DrawViewController {
 // MARK: -HandleViewOutput
 
 extension DrawViewController: DrawViewModelDelegate {
+    
     func handleViewOutput(_ output: DrawViewModelOutput) {
         switch output {
         case .setLoading(let bool):
-            break
+            setActivityIndicator(for: bool)
         case .setState(let state):
             break
         case .goToAddHabit:
             break
-        case .showAlert(let bool):
-            break
+        case .showError(let errorMessage):
+            showAlert(message: errorMessage)
         }
+    }
+}
+
+// MARK: -Button Actions
+
+extension DrawViewController {
+    
+    @objc private func clearButtonAction() {
+        //subView.clearDrawing()
+    }
+    
+    @objc private func saveButton() {
+        drawnImage.recognize()
+    }
+}
+
+// MARK: -DrawingView Delegate
+
+extension DrawViewController: DrawingViewDelegate {
+    
+    func getResult(result: PredictResult) {
+        var message: String = ""
+        switch result {
+        case .tick:
+            message = "Congratulations"
+        case .crossMark:
+            message = "Tomorrow is a new chance"
+        case .undefined(let errorMessage):
+            message = errorMessage
+        }
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in}))
+        present(alert, animated: true, completion: nil)
     }
 }

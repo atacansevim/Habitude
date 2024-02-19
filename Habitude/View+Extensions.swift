@@ -25,7 +25,6 @@ public extension UIView {
             view.backgroundColor = UIColor(red: 0.263, green: 0.294, blue: 0.325, alpha: 1)
         }
       
-        
         return view
     }
 }

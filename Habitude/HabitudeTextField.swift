@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class HabitudeTextField: UITextView {
+final class HabitudeTextField: UIView {
     
     private let placeHolder: UILabel = {
        let label = UILabel()
@@ -27,6 +27,20 @@ final class HabitudeTextField: UITextView {
         return border
      }()
     
+    private let textField : UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.Habitude.paragraphSmall
+        textField.textColor = UIColor.Habitute.primaryLight
+        textField.autocapitalizationType = .none
+        textField.backgroundColor = .clear
+        return textField
+     }()
+    
+    var text: String {
+        textField.text ?? ""
+    }
+    
     private var holderFont: UIFont?
     private var height: CGFloat = 60
     private var isPlaceHolderUp: Bool?
@@ -41,14 +55,14 @@ final class HabitudeTextField: UITextView {
         isPlaceHolderUp: Bool? = nil,
         placeHolderColor: UIColor = UIColor.Habitute.primaryLightHalfAlpha
     ) {
-        super.init(frame: .zero, textContainer: nil)
+        super.init(frame: .zero)
         self.placeHolder.text = placeHolder
         self.height = height
         self.holderFont = holderFont
         self.isPlaceHolderUp = isPlaceHolderUp
         self.placeHolderColor = placeHolderColor
-        backgroundColor = .clear
-        delegate = self
+        textField.delegate = self
+        textField.isUserInteractionEnabled = true
         layout()
         style()
     }
@@ -60,7 +74,17 @@ final class HabitudeTextField: UITextView {
             widthAnchor.constraint(equalToConstant: 350)
         ])
         
+        addSubview(border)
         addSubview(placeHolder)
+        addSubview(textField)
+        
+        NSLayoutConstraint.activate([
+            border.topAnchor.constraint(equalTo: topAnchor),
+            border.leadingAnchor.constraint(equalTo: leadingAnchor),
+            border.bottomAnchor.constraint(equalTo: bottomAnchor),
+            border.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
         if let isPlaceHolderUp = isPlaceHolderUp {
             NSLayoutConstraint.activate([
                 placeHolder.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
@@ -73,16 +97,17 @@ final class HabitudeTextField: UITextView {
             ])
         }
         
-
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+            textField.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 1),
+            bottomAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1)
+        ])
+        
+        textField.layer.zPosition = 1
     }
     
     private func style() {
-        font = UIFont.Habitude.paragraphSmall
-        textColor = UIColor.Habitute.primaryLight
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.Habitute.secondaryLight.cgColor
-        layer.cornerRadius = 5
-        textContainer.maximumNumberOfLines = 1
         if let holderFont = holderFont {
             placeHolder.font = holderFont
         }
@@ -96,54 +121,57 @@ final class HabitudeTextField: UITextView {
     }
 }
 
-extension HabitudeTextField: UITextViewDelegate {
+extension HabitudeTextField: UITextFieldDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        placeHolder.isHidden = true
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         placeHolder.isHidden = true
     }
     
-    private func textViewShouldBeginEditing(_ textView: UITextView) {
-        placeHolder.isHidden = true
-    }
-    
-    private func textFieldShouldEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            placeHolder.isHidden = false
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text  {
+            placeHolder.isHidden = (text.isEmpty && !textField.isFirstResponder) ? false : true
         } else {
-            placeHolder.isHidden = true
+            placeHolder.isHidden = false
         }
         
-        if placeHolder.text == "Email" {
-            handleViewOutput?.sendEmail(email: textView.text)
-        } else if placeHolder.text == "Password" {
-            handleViewOutput?.sendPassword(password: textView.text)
-        }
+        handleViewOutput?.sendText(text: text, placeHolder: placeHolder.text ?? "")
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            placeHolder.isHidden = false
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let text = textField.text  {
+            placeHolder.isHidden = (text.isEmpty && !textField.isFirstResponder) ? false : true
         } else {
-            placeHolder.isHidden = true
+            placeHolder.isHidden = false
         }
         
-        if placeHolder.text == "Email" {
-            handleViewOutput?.sendEmail(email: textView.text)
-        } else if placeHolder.text == "Password" {
-            handleViewOutput?.sendPassword(password: textView.text)
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if placeHolder.text == "Email" {
-            handleViewOutput?.sendEmail(email: textView.text)
-        } else if placeHolder.text == "Password" {
-            handleViewOutput?.sendPassword(password: textView.text)
-        }
+        handleViewOutput?.sendText(text: text, placeHolder: placeHolder.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.endEditing(true)
         return true
+    }
+}
+
+// MARK: - Helper Functions
+
+extension HabitudeTextField {
+    
+    func setKeyboard(with type: UIKeyboardType) {
+        textField.keyboardType = type
+    }
+    
+    func isSecureKeyboard(_ isSecure: Bool) {
+        textField.isSecureTextEntry = isSecure
+    }
+    
+    func setText(_ text: String) {
+        textField.text = text
+        placeHolder.isHidden = true
     }
 }

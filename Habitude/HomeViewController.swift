@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController {
     
     // MARK: -Constants
     
@@ -69,11 +69,11 @@ final class HomeViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = Constants.spacing
         return stack
     }()
     
     private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle)
-    
     private var viewModel: HomeViewModelContracts!
     
     convenience init(viewModel: HomeViewModelContracts){
@@ -81,6 +81,9 @@ final class HomeViewController: UIViewController {
         self.viewModel = viewModel
         self.viewModel.delegate = self
         addHabitButton.addTarget(self, action: #selector(addHabitAction), for: .touchUpInside)
+        emptyHabitView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(addHabitAction))
+        )
     }
     
     // MARK: -LifeCycle
@@ -88,6 +91,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        layout()
         viewModel.loadData()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -98,13 +102,27 @@ final class HomeViewController: UIViewController {
     private func setActionsStack(for outcome: Outcome) {
         switch outcome {
         case .data:
-            break
+            for (index, habit) in viewModel.habits.enumerated() {
+                let habitView = HabitView(habit: habit)
+                habitView.tag = index
+                habitView.addGestureRecognizer(
+                    UITapGestureRecognizer(target: self, action: #selector(updateHabitAction))
+                )
+                habitsStackView.addArrangedSubview(habitView)
+            }
+            habitsStackView.addArrangedSubview(addHabitButton)
         case .empty:
             habitsStackView.addArrangedSubview(emptyHabitView)
             habitsStackView.setCustomSpacing(Constants.customSpacing, after: emptyHabitView)
             habitsStackView.addArrangedSubview(addHabitButton)
         case .failed:
             break
+        }
+    }
+    
+    private func removeHabitStackViewSubViews() {
+        for subView in habitsStackView.arrangedSubviews {
+            habitsStackView.removeArrangedSubview(subView)
         }
     }
 }
@@ -116,7 +134,7 @@ extension HomeViewController {
         title = viewModel.title
     }
     
-    func layout(for outcome: Outcome) {
+    func layout() {
         scrollView.contentInsetAdjustmentBehavior = .never
         var constraints: [NSLayoutConstraint] = []
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -150,24 +168,23 @@ extension HomeViewController {
             contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
         ])
-        
-        switch outcome {
-        case .data:
-            break
-        case .empty:
-            contentStackView.addArrangedSubview(nameLabel)
-            contentStackView.setCustomSpacing(Constants.smallSpacing, after: nameLabel)
-            contentStackView.addArrangedSubview(welcomingLabel)
-            contentStackView.setCustomSpacing(Constants.customSpacing, after: welcomingLabel)
-            contentStackView.addArrangedSubview(habitsStackView)
-        case .failed:
-            break
-        }
+    
+        contentStackView.addArrangedSubview(nameLabel)
+        contentStackView.setCustomSpacing(Constants.smallSpacing, after: nameLabel)
+        contentStackView.addArrangedSubview(welcomingLabel)
+        contentStackView.setCustomSpacing(Constants.customSpacing, after: welcomingLabel)
+        contentStackView.addArrangedSubview(habitsStackView)
         NSLayoutConstraint.activate(constraints)
     }
     
-    @objc private func addHabitAction(sender: UIButton!) {
+    @objc private func addHabitAction(sender: UITapGestureRecognizer) {
         viewModel.goToAddHabit()
+    }
+    
+    @objc private func updateHabitAction(sender: UITapGestureRecognizer) {
+        if let tappedView = sender.view as? HabitView {
+            viewModel.goToUpdateHabit(for: tappedView.habit)
+        }
     }
 }
 
@@ -175,12 +192,14 @@ extension HomeViewController {
 // MARK: -HandleViewOutput
 
 extension HomeViewController: HomeViewModelDelegate {
+    
     func handleViewOutput(_ output: HomeViewModelOutput) {
         switch output {
-        case .setLoading(_): break
+        case .setLoading(let flag):
+            setActivityIndicator(for: flag)
         case .goToAddHabit:
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(viewModel: HomeViewModel(title: "Habit Details")), sender: nil)
+            self.show(AddHabitViewController(viewModel: AddHabitViewModel()), sender: nil)
         case .setState(state: let state):
             switch state {
             case .loading:
@@ -188,9 +207,11 @@ extension HomeViewController: HomeViewModelDelegate {
             case .refreshing:
                 break
             case .finished(let outcome):
-                layout(for: outcome)
                 setActionsStack(for: outcome)
             }
+        case .goToUpdateHabit(let habit):
+            self.navigationItem.removeBackBarButtonTitle()
+            self.show(AddHabitViewController(viewModel: AddHabitViewModel(habit: habit)), sender: nil)
         }
     }
 }

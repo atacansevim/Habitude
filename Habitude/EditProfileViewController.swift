@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EditProfileViewController: UIViewController {
+final class EditProfileViewController: BaseViewController {
     
     // MARK: -Constants
     
@@ -20,6 +20,9 @@ final class EditProfileViewController: UIViewController {
         static let customSpacing: CGFloat = 12
         static let customLargeSpacing: CGFloat = 41
         static let stackSpacing: CGFloat = 20
+        static let namePlaceHolder: String = "Add First Name"
+        static let surnamePlaceHolder: String = "Add Surname"
+        static let bioPlaceHolder: String = "Add Bio"
     }
     
     // MARK: -Properties
@@ -40,9 +43,7 @@ final class EditProfileViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
-    private let addCoverPhotoInfoView = EditProfileViewController.createCoverPhotoInfo()
-    
+
     private let headerImageView: UIImageView = {
         let imageView = UIImageView(image: Images.profileHeader.image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +57,7 @@ final class EditProfileViewController: UIViewController {
         imageView.layer.cornerRadius = Constants.profileImageSize / 2
         imageView.layer.borderColor = UIColor.darkText.cgColor
         imageView.layer.borderWidth = Constants.borderWidth
+        imageView.clipsToBounds = true
         
         let icon = UIImageView(
             image:
@@ -78,26 +80,29 @@ final class EditProfileViewController: UIViewController {
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = Constants.stackSpacing
-        return stack
-    }()
-     
-    private let actionsStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = Constants.stackSpacing
+        stack.spacing = Constants.stackSpacing * 2
         return stack
     }()
     
-    private let changePasswordButton = HabitudeSharpButton(title: "Change Password", icon: Images.lock.image)
-    private let reportBugButton = HabitudeSharpButton(title: "Report a Bug", icon: Images.bug.image)
+    private let firstNameTextField = HabitudeProfileTextField(placeHolder: Constants.namePlaceHolder)
+    private let lastNameTextField = HabitudeProfileTextField(placeHolder: Constants.surnamePlaceHolder)
+    private let bioTextField = HabitudeProfileTextField(placeHolder: Constants.bioPlaceHolder)
+
+    private let imagePicker = UIImagePickerController()
+    private var viewModel: EditProfileViewModelContract!
     
-    private let firstNameTextView = HabitudeProfileTextView(placeHolder: "Add First Name")
-    private let lastNameTextView = HabitudeProfileTextView(placeHolder: "Add Last Name")
-    private let bioTextView = HabitudeProfileTextView(placeHolder: "Add Bio", isInfoShown: true)
-    private let emailTextView = HabitudeProfileTextView(placeHolder: "Add Email Address")
+    convenience init(viewModel: EditProfileViewModelContract) {
+        self.init()
+        self.viewModel = viewModel
+        viewModel.delegate = self
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        let profilePhotoTapGesture = UITapGestureRecognizer(target: self, action: #selector(selectPhoto))
+        profileImageView.addGestureRecognizer(profilePhotoTapGesture)
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.layer.zPosition = 1
+    }
     
     // MARK: -LifeCycle
     
@@ -107,23 +112,19 @@ final class EditProfileViewController: UIViewController {
         layout()
         navigationController?.navigationBar.barTintColor = .clear
         setProfileInfoTextViews()
-        setActionsStack()
+        setDelegates()
+        viewModel.setProfileData()
     }
     
     private func setProfileInfoTextViews() {
-        profileInfoStackView.addArrangedSubview(firstNameTextView)
-        profileInfoStackView.addArrangedSubview(lastNameTextView)
-        profileInfoStackView.addArrangedSubview(bioTextView)
-        profileInfoStackView.addArrangedSubview(emailTextView)
-    }
-    
-    private func setActionsStack() {
-        actionsStackView.addArrangedSubview(changePasswordButton)
-        actionsStackView.addArrangedSubview(reportBugButton)
+        profileInfoStackView.addArrangedSubview(firstNameTextField)
+        profileInfoStackView.addArrangedSubview(lastNameTextField)
+        profileInfoStackView.addArrangedSubview(bioTextField)
     }
 }
 
 extension EditProfileViewController {
+    
     func style() {
         //TODO: (could be unneccesary)
         view.backgroundColor = UIColor.Habitute.primaryDark
@@ -131,9 +132,8 @@ extension EditProfileViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationItem.rightBarButtonItem = BackBarButtonItem(title: "Done", style: .done, target: self, action: #selector(uploadData))
         title = "Edit Profile"
-        changePasswordButton.isEnabled = false
-        reportBugButton.isEnabled = false
     }
     
     func layout() {
@@ -164,6 +164,7 @@ extension EditProfileViewController {
         constraints.last?.priority = .defaultLow
         
         contentView.addSubview(headerImageView)
+        contentView.addSubview(profileImageView)
         constraints.append(contentsOf: [
             headerImageView.heightAnchor.constraint(equalToConstant: Constants.headerImageHeight),
             headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -175,12 +176,9 @@ extension EditProfileViewController {
         constraints.append(contentsOf: [
             contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.spacing),
             contentView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: Constants.spacing),
-            contentStackView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: 70),
+            contentStackView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: 140),
             contentView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: Constants.spacing)
         ])
-        
-        headerImageView.addSubview(profileImageView)
-        headerImageView.addSubview(addCoverPhotoInfoView)
         
         constraints.append(contentsOf: [
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
@@ -189,37 +187,137 @@ extension EditProfileViewController {
             profileImageView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: -Constants.profileImageSize / 2)
         ])
         
-        constraints.append(contentsOf: [
-            profileImageView.topAnchor.constraint(equalTo: addCoverPhotoInfoView.bottomAnchor, constant: 46),
-            addCoverPhotoInfoView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-        ])
         contentStackView.addArrangedSubview(profileInfoStackView)
-        contentStackView.setCustomSpacing(43, after: profileInfoStackView)
-        contentStackView.addArrangedSubview(actionsStackView)
         
         NSLayoutConstraint.activate(constraints)
     }
 }
 
-fileprivate extension EditProfileViewController {
-    static func createCoverPhotoInfo() -> UIView {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = 10
+//MARK: -Functions
+
+extension EditProfileViewController {
+    func setDelegates() {
+        firstNameTextField.handleViewOutput = self
+        lastNameTextField.handleViewOutput = self
+        bioTextField.handleViewOutput = self
+    }
+    
+    @objc func uploadData() {
+        viewModel.uploadData()
+    }
+}
+
+//MARK: -ImagePickerDelegates
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.editedImage] as? UIImage {
+            viewModel.uploadProfilePhoto(pickedImage)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: -Image Select Functions
+
+extension EditProfileViewController {
+    
+    @objc private func selectPhoto() {
+        let alert = UIAlertController(title: "Choose Profile Photo", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            self.openPhotoLibrary()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            print("Camera not available")
+        }
+    }
+    
+    private func openPhotoLibrary() {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+// MARK: -TextFieldDelegate
+
+extension EditProfileViewController: HabitudeProfileTextFieldDelegate {
+    
+    func sendText(text: String, placeHolder: String) {
+        if placeHolder == Constants.namePlaceHolder {
+            viewModel.name = text
+        } else if placeHolder == Constants.surnamePlaceHolder {
+            viewModel.surname = text
+        } else if placeHolder == Constants.bioPlaceHolder {
+            viewModel.bio = text
+        }
+    }
+}
+
+// MARK: -HandleViewOutput
+
+extension EditProfileViewController: EditProfileViewModelDelegate {
+    
+    func handleViewOutput(_ output: EditProfileViewModelOutput) {
+        switch output {
+        case .setLoading(let show):
+            setActivityIndicator(for: show)
+        case .setState(let state):
+            switch state {
+            case .loading:
+                break
+            case .refreshing:
+                break
+            case .finished(let outcome):
+                switch outcome {
+                case .data:
+                    setPersonalInformation()
+                case .empty:
+                    break
+                case .failed:
+                    break
+                }
+            }
+        case .setProfilePhoto(let image):
+            profileImageView.subviews.first?.isHidden = true
+            profileImageView.image = image
+        case .backToProfile:
+            navigationController?.popViewController(animated: true)
+        case .setProfileData:
+            setPersonalInformation()
+        }
+    }
+}
+
+extension EditProfileViewController {
+    
+    func setPersonalInformation() {
+        if viewModel.name.safelyUnwrapped() != "" {
+            firstNameTextField.setText(viewModel.name)
+        }
         
-        
-        let infoLabel: UILabel = {
-            let label = UILabel()
-            //TODO: (change dummy email)
-            label.text = "Add Cover Photo"
-            label.font = UIFont.Habitude.paragraphSmall
-            label.textColor = UIColor.Habitute.primaryLight
-            return label
-        }()
-        let image = UIImageView(image: Images.plusWithBorder.image)
-        stack.addArrangedSubview(image)
-        stack.addArrangedSubview(infoLabel)
-        return stack
+        if viewModel.surname.safelyUnwrapped() != "" {
+            lastNameTextField.setText(viewModel.surname)
+        }
+            
+        if viewModel.bio.safelyUnwrapped() != "" {
+            bioTextField.setText(viewModel.bio)
+        }
     }
 }
 

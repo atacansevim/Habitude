@@ -8,8 +8,7 @@
 import Foundation
 
 protocol HabitudeTextFieldDelegate: AnyObject {
-    func sendEmail(email: String)
-    func sendPassword(password: String)
+    func sendText(text: String, placeHolder: String)
 }
 
 protocol LoginBottomViewDelegate: AnyObject {

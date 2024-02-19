@@ -25,6 +25,6 @@ protocol SignUpHandleViewOutput: AnyObject {
 }
 
 protocol AppDelegateViewOutput: AnyObject {
-    func goToHomePage()
+    func goToHomePage(email: String)
 }
 

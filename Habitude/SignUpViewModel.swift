@@ -52,7 +52,9 @@ extension SignUpViewModel: AuthenticationDelegate {
             delegate?.showError(error: error!)
             return
         }
-        appDelegate?.goToHomePage()
+        //- :TODO check when failed.
+        KeychainManager.shared.setData(email, forKey: "userEmail")
+        appDelegate?.goToHomePage(email: email)
     }
 }
 

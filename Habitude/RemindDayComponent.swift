@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
+protocol RemindDayComponentDelegate: AnyObject {
+    func selectedDates(selectedDays: [Int])
+}
+
 final class RemindDayComponent: UIView {
-   
+    
     // MARK: -Constants
     
     private enum Constants {
@@ -27,6 +31,7 @@ final class RemindDayComponent: UIView {
     
     // MARK: -Properties
     
+    weak var delegate: RemindDayComponentDelegate?
     private var isEnabled = [Bool](repeatElement(false, count: 7))
     
     private let titleLabel: UILabel = {
@@ -164,7 +169,7 @@ extension RemindDayComponent {
     
     private func layout() {
         heightAnchor.constraint(equalToConstant: Constants.height).isActive = true
-
+        
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.spacing),
@@ -202,14 +207,69 @@ extension RemindDayComponent {
         switchButton.addTarget(self, action: #selector(switchAction), for: .allEvents)
     }
     
-    public func getEnabeledIndexs() -> [Int] {
-        var indexArray = [Int]()
-        for (index, element) in isEnabled.enumerated() {
-            if element {
-                indexArray.append(index)
+    func getDaysStackView(days: [Int]) -> UIStackView {
+        switchButton.isHidden = true
+        titleLabel.isHidden = true
+        backgroundColor = .clear
+        
+        for day in days {
+            switch (day+1) {
+            case 1:
+                mondayButton.backgroundColor = UIColor.Habitute.accent
+                mondayButton.isEnabled = false
+            case 2:
+                tuesdayButton.backgroundColor = UIColor.Habitute.accent
+                tuesdayButton.isEnabled = false
+            case 3:
+                wednesdayButton.backgroundColor = UIColor.Habitute.accent
+                wednesdayButton.isEnabled = false
+            case 4:
+                thursdayButton.backgroundColor = UIColor.Habitute.accent
+                thursdayButton.isEnabled = false
+            case 5:
+                fridayButton.backgroundColor = UIColor.Habitute.accent
+                fridayButton.isEnabled = false
+            case 6:
+                saturdayButton.backgroundColor = UIColor.Habitute.accent
+                saturdayButton.isEnabled = false
+            case 7:
+                sundayButton.backgroundColor = UIColor.Habitute.accent
+                sundayButton.isEnabled = false
+            default:
+                break
             }
         }
-        return indexArray
+        
+       return dayButtonStack
+    }
+    
+    func setForUpdate(days: [Int]) {
+        if days.count == 7 {
+            switchButton.isOn = true
+            setAllButton(for: true)
+        } else {
+            for day in days {
+                isEnabled[day] = true
+                switch (day) {
+                case 0:
+                    mondayButton.backgroundColor = UIColor.Habitute.accent
+                case 1:
+                    tuesdayButton.backgroundColor = UIColor.Habitute.accent
+                case 2:
+                    wednesdayButton.backgroundColor = UIColor.Habitute.accent
+                case 3:
+                    thursdayButton.backgroundColor = UIColor.Habitute.accent
+                case 4:
+                    fridayButton.backgroundColor = UIColor.Habitute.accent
+                case 5:
+                    saturdayButton.backgroundColor = UIColor.Habitute.accent
+                case 6:
+                    sundayButton.backgroundColor = UIColor.Habitute.accent
+                default:
+                    break
+                }
+            }
+        }
     }
 }
 
@@ -218,13 +278,14 @@ extension RemindDayComponent {
 extension RemindDayComponent {
     
     @objc private func clickAction(_ sender: UIButton!) {
-       if isEnabled[sender.tag] {
+        if isEnabled[sender.tag] {
             sender.backgroundColor = UIColor.Habitute.secondaryLight
             isEnabled[sender.tag] = false
         } else {
             sender.backgroundColor = UIColor.Habitute.accent
             isEnabled[sender.tag] = true
         }
+        delegate?.selectedDates(selectedDays: getDays(isEnabled))
     }
     
     @objc private func switchAction(_ sender: UISwitch!) {
@@ -233,6 +294,7 @@ extension RemindDayComponent {
         } else {
             setAllButton(for: false)
         }
+        delegate?.selectedDates(selectedDays: getDays(isEnabled))
     }
     
     private func setAllButton(for value: Bool) {
@@ -255,5 +317,15 @@ extension RemindDayComponent {
             sundayButton.backgroundColor = UIColor.Habitute.accent
             isEnabled = [Bool](repeatElement(true, count: 7))
         }
+    }
+    
+    private func getDays(_ isEnabled: [Bool]) -> [Int] {
+        var result: [Int] = []
+        for (index, element) in isEnabled.enumerated() {
+            if element {
+                result.append(index)
+            }
+        }
+        return result
     }
 }

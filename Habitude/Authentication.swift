@@ -11,7 +11,7 @@ final class Authentication: AuthenticationContract {
     weak var delegate: AuthenticationDelegate?
     
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: "mj23@hotmail.com", password: "111111") { [weak self] authResult, error in
             if let error = error as? NSError {
                 self?.delegate?.fetchedData(email: nil, error: error)
             } else {

@@ -59,5 +59,9 @@ class HabitudeCornerButton: UIButton {
     required init?(coder: NSCoder){
         fatalError("")
     }
+    
+    func setTitle(to title: String) {
+        self.title.text = title
+    }
 }
 

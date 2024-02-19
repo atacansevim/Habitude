@@ -22,6 +22,6 @@ enum DrawViewModelOutput: Equatable {
     case setLoading(Bool)
     case setState(state: ListState)
     case goToAddHabit
-    case showAlert(Bool)
+    case showError(String)
 }
 

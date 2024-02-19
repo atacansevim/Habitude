@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: BaseViewController {
     
     // MARK: -Constants
     
@@ -56,6 +56,7 @@ final class ProfileViewController: UIViewController {
         imageView.layer.cornerRadius = Constants.profileImageSize / 2
         imageView.layer.borderColor = UIColor.Habitute.accent.cgColor
         imageView.layer.borderWidth = Constants.borderWidth
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -119,6 +120,9 @@ final class ProfileViewController: UIViewController {
         layout()
         navigationController?.navigationBar.barTintColor = .clear
         setActionsStack()
+        viewModel.loadData()
+        nameLabel.isHidden = true
+        bioLabel.isHidden = true
     }
     
     private func setActionsStack() {
@@ -216,12 +220,58 @@ extension ProfileViewController {
 // MARK: -HandleViewOutput
 
 extension ProfileViewController: ProfileViewModelDelegate {
+    
     func handleViewOutput(_ output: ProfileViewModelOutput) {
         switch output {
-        case .setLoading(_): break
+        case .setLoading(let show):
+            setActivityIndicator(for: show)
         case .goToEditProfile:
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(EditProfileViewController(), sender: nil)
+            self.show(
+                EditProfileViewController(
+                    viewModel: EditProfileViewModel(
+                        profileManager: ProfileManager(),
+                        profile: viewModel.profile,
+                        profilePhoto: profileImageView.image
+                    )
+                ), sender: nil)
+        case .setState(let state):
+            switch state {
+            case .loading:
+                break
+            case .refreshing:
+                break
+            case .finished(let outcome):
+                switch outcome {
+                case .data:
+                    setPersonalInformation()
+                default:
+                    break
+                }
+            }
+        case .setProfilePhoto(let profilePhoto):
+            profileImageView.image = profilePhoto
+        }
+    }
+}
+
+extension ProfileViewController {
+    
+    func setPersonalInformation() {
+        let userEmail = String.getUserEmail()
+        
+        if userEmail != "" {
+            emailLabel.text = userEmail
+        }
+        
+        if viewModel.profile?.name != "" || viewModel.profile?.surname != "" {
+            nameLabel.text = viewModel.profile?.fullName
+            nameLabel.isHidden = false
+        }
+            
+        if viewModel.profile?.bio != "" {
+            bioLabel.text = viewModel.profile?.bio
+            bioLabel.isHidden = false
         }
     }
 }

@@ -41,9 +41,9 @@ final class LoginBottomView: UIView {
         return stack
     }()
     
-   private let emailTextView = HabitudeTextField(placeHolder: "Email")
+   private let emailTextField = HabitudeTextField(placeHolder: "Email")
     
-   private let passwordTextView = HabitudeTextField(placeHolder: "Password")
+   private let passwordTextField = HabitudeTextField(placeHolder: "Password")
     
     private let infoLabel: UILabel = {
         let label = UILabel()
@@ -127,8 +127,8 @@ final class LoginBottomView: UIView {
         super.init(frame: .zero)
         titleLabel.text = titleText
         actionLabel.text = actionLabelText
-        emailTextView.handleViewOutput = self
-        passwordTextView.handleViewOutput = self
+        emailTextField.handleViewOutput = self
+        passwordTextField.handleViewOutput = self
         style()
         layout()
         contiuneButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -151,8 +151,8 @@ extension LoginBottomView {
         layer.cornerRadius = 20
         layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        emailTextView.keyboardType = .emailAddress
-        passwordTextView.isSecureTextEntry = true
+        emailTextField.setKeyboard(with: .emailAddress)
+        passwordTextField.isSecureKeyboard(true)
     }
     
     private func layout() {
@@ -171,8 +171,8 @@ extension LoginBottomView {
             trailingAnchor.constraint(equalTo: textBoxStack.trailingAnchor, constant: 20)
         ])
         
-        textBoxStack.addArrangedSubview(emailTextView)
-        textBoxStack.addArrangedSubview(passwordTextView)
+        textBoxStack.addArrangedSubview(emailTextField)
+        textBoxStack.addArrangedSubview(passwordTextField)
         textBoxStack.addArrangedSubview(infoLabel)
         textBoxStack.addArrangedSubview(contiuneButton)
         
@@ -210,7 +210,7 @@ extension LoginBottomView {
     }
     
     private func isButtonEnabled() {
-        contiuneButton.isEnabled = !self.emailTextView.text.isEmpty && !self.passwordTextView.text.isEmpty
+        contiuneButton.isEnabled = !self.emailTextField.text.isEmpty && !self.passwordTextField.text.isEmpty
     }
     
     @objc private func buttonAction(sender: UIButton!) {
@@ -247,14 +247,14 @@ extension LoginBottomView {
 
 extension LoginBottomView: HabitudeTextFieldDelegate {
     
-    func sendEmail(email: String) {
+    func sendText(text: String, placeHolder: String) {
         isButtonEnabled()
-        delegate?.sendEmail(email: email)
-    }
-    
-    func sendPassword(password: String) {
-        isButtonEnabled()
-        delegate?.sendPassword(password: password)
+       
+        if placeHolder == "Email" {
+            delegate?.sendEmail(email: text)
+        } else if placeHolder == "Password" {
+            delegate?.sendPassword(password: text)
+        }
     }
 }
 
