@@ -226,9 +226,9 @@
 		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F90811572B83EA3D00071F4A /* Profile */,
 				F90811562B83EA0100071F4A /* Draw */,
 				F908114E2B83E96200071F4A /* Home */,
-				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
 			);
 			path = Modules;
@@ -377,6 +377,76 @@
 				F97371272A14257900EE611A /* View */,
 			);
 			path = Draw;
+			sourceTree = "<group>";
+		};
+		F90811572B83EA3D00071F4A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F908115B2B83EA5800071F4A /* View */,
+				F908115A2B83EA5200071F4A /* ViewModel */,
+				F90811592B83EA4C00071F4A /* Model */,
+				F90811582B83EA4400071F4A /* SubModules */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F90811582B83EA4400071F4A /* SubModules */ = {
+			isa = PBXGroup;
+			children = (
+				F908115E2B83EA8200071F4A /* View */,
+				F908115D2B83EA7700071F4A /* ViewModel */,
+				F908115C2B83EA7200071F4A /* Model */,
+			);
+			path = SubModules;
+			sourceTree = "<group>";
+		};
+		F90811592B83EA4C00071F4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF321B2B81E38400499676 /* Profile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F908115A2B83EA5200071F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDB0362A018A080004472E /* ProfileViewModel.swift */,
+				F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F908115B2B83EA5800071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDB0342A0189FC0004472E /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F908115C2B83EA7200071F4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F908115D2B83EA7700071F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32172B80E52B00499676 /* EditProfileViewModel.swift */,
+				F9BF32192B80E65400499676 /* EditProfileViewModelContract.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F908115E2B83EA8200071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDB0452A04385E0004472E /* EditProfileViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F97371272A14257900EE611A /* View */ = {
@@ -564,77 +634,6 @@
 				F9FDB01529F9BAD20004472E /* Poppins-MediumItalic.ttf */,
 			);
 			path = Poppins;
-			sourceTree = "<group>";
-		};
-		F9FDB02B2A0189A50004472E /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB0302A0189CA0004472E /* Submodules */,
-				F9FDB02E2A0189BC0004472E /* Model */,
-				F9FDB02D2A0189B60004472E /* ViewModel */,
-				F9FDB02C2A0189AF0004472E /* View */,
-			);
-			name = Profile;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F9FDB02C2A0189AF0004472E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB0342A0189FC0004472E /* ProfileViewController.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F9FDB02D2A0189B60004472E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB0362A018A080004472E /* ProfileViewModel.swift */,
-				F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F9FDB02E2A0189BC0004472E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF321B2B81E38400499676 /* Profile.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F9FDB0302A0189CA0004472E /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB0332A0189E90004472E /* Model */,
-				F9FDB0322A0189E20004472E /* ViewModel */,
-				F9FDB0312A0189DD0004472E /* View */,
-			);
-			name = Submodules;
-			sourceTree = "<group>";
-		};
-		F9FDB0312A0189DD0004472E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB0452A04385E0004472E /* EditProfileViewController.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F9FDB0322A0189E20004472E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF32172B80E52B00499676 /* EditProfileViewModel.swift */,
-				F9BF32192B80E65400499676 /* EditProfileViewModelContract.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F9FDB0332A0189E90004472E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
