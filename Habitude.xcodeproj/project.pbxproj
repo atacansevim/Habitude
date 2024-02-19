@@ -223,7 +223,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F908113F2B83D2AC00071F4A /* Modules */ = {
+		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				F97371262A14255C00EE611A /* Draw */,
@@ -231,10 +231,34 @@
 				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
 			);
-			name = Modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		F90811402B83D2D000071F4A /* Utils */ = {
+		F90811452B83D35500071F4A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDB03F2A02E7760004472E /* HabitudeTabBar.swift */,
+				F9FDB0412A0424580004472E /* HabitudeCornerButton.swift */,
+				F9FDB0432A0429310004472E /* HabituteSharpButton.swift */,
+				F9FDB0472A043ADB0004472E /* HabitudeProfileTextField.swift */,
+				F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */,
+				F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */,
+				F980C1412B7EC28400F6A468 /* HabitView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F90811462B83D37100071F4A /* Network1 */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32122B80BE4900499676 /* ProfileManager */,
+				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
+				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
+			);
+			path = Network1;
+			sourceTree = "<group>";
+		};
+		F90811472B83D38400071F4A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				F9FDAFC629F865250004472E /* UIColor+Extensions.swift */,
@@ -246,17 +270,7 @@
 				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
 				F908113C2B82B0EF00071F4A /* BaseViewController.swift */,
 			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		F90811412B83D2E400071F4A /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF32122B80BE4900499676 /* ProfileManager */,
-				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
-				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
-			);
-			name = Network;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F97371262A14255C00EE611A /* Draw */ = {
@@ -267,6 +281,7 @@
 				F97371272A14257900EE611A /* View */,
 			);
 			name = Draw;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F97371272A14257900EE611A /* View */ = {
@@ -320,6 +335,7 @@
 				F9AC99F22A0AD59300F50CE5 /* View */,
 			);
 			name = Home;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9AC99F22A0AD59300F50CE5 /* View */ = {
@@ -397,6 +413,7 @@
 				F9BF32152B80BE8E00499676 /* ProfileManager.swift */,
 			);
 			name = ProfileManager;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9BF321D2B8220DB00499676 /* Components */ = {
@@ -424,6 +441,7 @@
 				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
 			);
 			name = Authentication;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9D6DEA92B7BE61600E8CF8E /* HabitManager */ = {
@@ -434,6 +452,7 @@
 				F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */,
 			);
 			name = HabitManager;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9D6DEB02B7BE96200E8CF8E /* Frameworks */ = {
@@ -465,13 +484,13 @@
 		F9FDAF9529F85FDD0004472E /* Habitude */ = {
 			isa = PBXGroup;
 			children = (
-				F90811412B83D2E400071F4A /* Network */,
-				F90811402B83D2D000071F4A /* Utils */,
-				F908113F2B83D2AC00071F4A /* Modules */,
+				F90811472B83D38400071F4A /* Utils */,
+				F90811462B83D37100071F4A /* Network1 */,
+				F90811452B83D35500071F4A /* Components */,
+				F90811432B83D33000071F4A /* Modules */,
 				F9BF32202B824DB400499676 /* StrokeManager */,
 				F980C13B2B7E7BFF00F6A468 /* KeyChainManager */,
 				F980C1362B7D557F00F6A468 /* NotificationManager */,
-				F9FDB03E2A02E7310004472E /* Components */,
 				F9FDB00229F9BAD20004472E /* Poppins */,
 				F9FDAFAB29F862420004472E /* App */,
 			);
@@ -498,6 +517,7 @@
 				F9FDAFCC29F869710004472E /* View */,
 			);
 			name = Login;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9FDAFCC29F869710004472E /* View */ = {
@@ -571,6 +591,7 @@
 				F9FDB02C2A0189AF0004472E /* View */,
 			);
 			name = Profile;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F9FDB02C2A0189AF0004472E /* View */ = {
@@ -630,20 +651,6 @@
 			children = (
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		F9FDB03E2A02E7310004472E /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDB03F2A02E7760004472E /* HabitudeTabBar.swift */,
-				F9FDB0412A0424580004472E /* HabitudeCornerButton.swift */,
-				F9FDB0432A0429310004472E /* HabituteSharpButton.swift */,
-				F9FDB0472A043ADB0004472E /* HabitudeProfileTextField.swift */,
-				F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */,
-				F9AC99FB2A0AD8D000F50CE5 /* EmptyHabitView.swift */,
-				F980C1412B7EC28400F6A468 /* HabitView.swift */,
-			);
-			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
