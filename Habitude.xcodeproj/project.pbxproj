@@ -226,8 +226,8 @@
 		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F97371262A14255C00EE611A /* Draw */,
-				F9AC99F12A0AD56900F50CE5 /* Home */,
+				F908114E2B83E96200071F4A /* Home */,
+				F908114D2B83E94D00071F4A /* Draw */,
 				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
 			);
@@ -273,15 +273,110 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		F97371262A14255C00EE611A /* Draw */ = {
+		F90811482B83E90200071F4A /* KeyChainManager */ = {
 			isa = PBXGroup;
 			children = (
-				F97371292A14258400EE611A /* Model */,
+				F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */,
+			);
+			path = KeyChainManager;
+			sourceTree = "<group>";
+		};
+		F90811492B83E91700071F4A /* StrokeManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32212B824DC300499676 /* StrokeManager.swift */,
+				F9BF32232B8256E700499676 /* RecognizedInk.swift */,
+			);
+			path = StrokeManager;
+			sourceTree = "<group>";
+		};
+		F908114A2B83E92900071F4A /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				F980C1372B7D559400F6A468 /* NotificationManager.swift */,
+				F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */,
+			);
+			path = NotificationManager;
+			sourceTree = "<group>";
+		};
+		F908114D2B83E94D00071F4A /* Draw */ = {
+			isa = PBXGroup;
+			children = (
 				F97371282A14257E00EE611A /* ViewModel */,
 				F97371272A14257900EE611A /* View */,
 			);
-			name = Draw;
-			path = ..;
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		F908114E2B83E96200071F4A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F90811512B83E97100071F4A /* ViewModel */,
+				F90811502B83E96D00071F4A /* View */,
+				F908114F2B83E96700071F4A /* SubModules */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F908114F2B83E96700071F4A /* SubModules */ = {
+			isa = PBXGroup;
+			children = (
+				F90811542B83E99600071F4A /* ViewModel */,
+				F90811532B83E99200071F4A /* View */,
+				F90811522B83E98D00071F4A /* Model */,
+			);
+			path = SubModules;
+			sourceTree = "<group>";
+		};
+		F90811502B83E96D00071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99F92A0AD60100F50CE5 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F90811512B83E97100071F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99F52A0AD5E600F50CE5 /* HomeViewModel.swift */,
+				F9AC99F72A0AD5F500F50CE5 /* HomeViewModelContracts.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F90811522B83E98D00071F4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F90811532B83E99200071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */,
+				F90811552B83E9A700071F4A /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F90811542B83E99600071F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */,
+				F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F90811552B83E9A700071F4A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F97371222A14093700EE611A /* RemindDayComponent.swift */,
+				F97371242A140D0200EE611A /* DayEnum.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F97371272A14257900EE611A /* View */ = {
@@ -291,6 +386,7 @@
 				F973712A2A155CAE00EE611A /* DrawViewController.swift */,
 			);
 			name = View;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		F97371282A14257E00EE611A /* ViewModel */ = {
@@ -300,110 +396,7 @@
 				F973712E2A155CCF00EE611A /* DrawViewModel.swift */,
 			);
 			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F97371292A14258400EE611A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F980C1362B7D557F00F6A468 /* NotificationManager */ = {
-			isa = PBXGroup;
-			children = (
-				F980C1372B7D559400F6A468 /* NotificationManager.swift */,
-				F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */,
-			);
-			name = NotificationManager;
-			sourceTree = "<group>";
-		};
-		F980C13B2B7E7BFF00F6A468 /* KeyChainManager */ = {
-			isa = PBXGroup;
-			children = (
-				F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */,
-			);
-			name = KeyChainManager;
-			sourceTree = "<group>";
-		};
-		F9AC99F12A0AD56900F50CE5 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99FD2A0AE58000F50CE5 /* Submodules */,
-				F9AC99F42A0AD59F00F50CE5 /* Model */,
-				F9AC99F32A0AD59800F50CE5 /* ViewModel */,
-				F9AC99F22A0AD59300F50CE5 /* View */,
-			);
-			name = Home;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F9AC99F22A0AD59300F50CE5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99F92A0AD60100F50CE5 /* HomeViewController.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F9AC99F32A0AD59800F50CE5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99F52A0AD5E600F50CE5 /* HomeViewModel.swift */,
-				F9AC99F72A0AD5F500F50CE5 /* HomeViewModelContracts.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F9AC99F42A0AD59F00F50CE5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F9AC99FD2A0AE58000F50CE5 /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC9A002A0AE5A400F50CE5 /* Model */,
-				F9AC99FF2A0AE59C00F50CE5 /* ViewModel */,
-				F9AC99FE2A0AE59800F50CE5 /* View */,
-			);
-			name = Submodules;
-			sourceTree = "<group>";
-		};
-		F9AC99FE2A0AE59800F50CE5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC9A072A0AE89000F50CE5 /* Components */,
-				F9AC9A012A0AE6B400F50CE5 /* AddHabitViewController.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F9AC99FF2A0AE59C00F50CE5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC9A032A0AE6C000F50CE5 /* AddHabitViewModel.swift */,
-				F9AC9A052A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F9AC9A002A0AE5A400F50CE5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F9AC9A072A0AE89000F50CE5 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F97371222A14093700EE611A /* RemindDayComponent.swift */,
-				F97371242A140D0200EE611A /* DayEnum.swift */,
-			);
-			name = Components;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		F9BF32122B80BE4900499676 /* ProfileManager */ = {
@@ -422,15 +415,6 @@
 				F9BF321E2B8220EE00499676 /* DrawingView.swift */,
 			);
 			name = Components;
-			sourceTree = "<group>";
-		};
-		F9BF32202B824DB400499676 /* StrokeManager */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF32212B824DC300499676 /* StrokeManager.swift */,
-				F9BF32232B8256E700499676 /* RecognizedInk.swift */,
-			);
-			name = StrokeManager;
 			sourceTree = "<group>";
 		};
 		F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */ = {
@@ -484,13 +468,13 @@
 		F9FDAF9529F85FDD0004472E /* Habitude */ = {
 			isa = PBXGroup;
 			children = (
+				F908114A2B83E92900071F4A /* NotificationManager */,
+				F90811492B83E91700071F4A /* StrokeManager */,
+				F90811482B83E90200071F4A /* KeyChainManager */,
 				F90811472B83D38400071F4A /* Utils */,
 				F90811462B83D37100071F4A /* Network */,
 				F90811452B83D35500071F4A /* Components */,
 				F90811432B83D33000071F4A /* Modules */,
-				F9BF32202B824DB400499676 /* StrokeManager */,
-				F980C13B2B7E7BFF00F6A468 /* KeyChainManager */,
-				F980C1362B7D557F00F6A468 /* NotificationManager */,
 				F9FDB00229F9BAD20004472E /* Poppins */,
 				F9FDAFAB29F862420004472E /* App */,
 			);
