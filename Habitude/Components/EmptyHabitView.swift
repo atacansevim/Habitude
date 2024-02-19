@@ -56,6 +56,8 @@ final class EmptyHabitView: UIView {
     }
 }
 
+// MARK: - Setup Methods
+
 extension EmptyHabitView {
     
     private func style() {

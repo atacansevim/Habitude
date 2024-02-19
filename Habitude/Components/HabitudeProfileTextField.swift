@@ -14,6 +14,8 @@ protocol HabitudeProfileTextFieldDelegate: AnyObject {
 
 final class HabitudeProfileTextField: UITextField {
     
+    // MARK: -  Properties
+    
     private let placeHolder: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +27,8 @@ final class HabitudeProfileTextField: UITextField {
     private let underLine = UIView.separator(width: 400, color: UIColor.Habitute.secondaryLight)
     weak var handleViewOutput: HabitudeProfileTextFieldDelegate?
     
+    // MARK: -  init
+    
     init(placeHolder: String) {
         super.init(frame: .zero)
         self.placeHolder.text = placeHolder
@@ -33,7 +37,16 @@ final class HabitudeProfileTextField: UITextField {
         layout()
         style()
     }
+    
+    required init?(coder: NSCoder){
+        fatalError("")
+    }
+}
 
+// MARK: - Setup Methods
+
+extension HabitudeProfileTextField {
+    
     private func layout() {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 32),
@@ -56,10 +69,6 @@ final class HabitudeProfileTextField: UITextField {
     
     private func style() {
         textAlignment = .center
-    }
-    
-    required init?(coder: NSCoder){
-        fatalError("")
     }
     
     func setText(_ text: String?) {

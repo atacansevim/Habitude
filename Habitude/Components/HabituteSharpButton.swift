@@ -10,6 +10,8 @@ import UIKit
 
 class HabitudeSharpButton: UIButton {
     
+    // MARK: - Properties
+    
     private let title: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +46,8 @@ class HabitudeSharpButton: UIButton {
           }
       }
     
+    // MARK: - init
+    
     init(title: String, icon: UIImage = Images.profileUnselected.image) {
         super.init(frame: .zero)
         self.title.text = title
@@ -51,6 +55,15 @@ class HabitudeSharpButton: UIButton {
         style()
         layout()
     }
+    
+    required init?(coder: NSCoder){
+        fatalError("")
+    }
+}
+
+// MARK: -  Setup Methods
+
+extension HabitudeSharpButton {
     
     private func layout() {
         addSubview(title)
@@ -87,10 +100,6 @@ class HabitudeSharpButton: UIButton {
         self.backgroundColor = UIColor.Habitute.accent
         self.layer.cornerRadius = 5
         self.title.font = UIFont.Habitude.paragraphRegular
-    }
-    
-    required init?(coder: NSCoder){
-        fatalError("")
     }
 }
 

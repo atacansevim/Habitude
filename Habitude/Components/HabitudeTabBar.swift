@@ -9,6 +9,8 @@ import UIKit
 
 final class HabitudeTabBar: UITabBarController {
     
+    // MARK: - Properties
+    
     private var frameView: UIView!
     private var email: String = ""
     
@@ -29,11 +31,15 @@ final class HabitudeTabBar: UITabBarController {
         return stack
     }()
     
+    // MARK: - init
+    
     convenience init(email: String){
         self.init()
         self.email = email
         setupVCs()
     }
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +66,11 @@ final class HabitudeTabBar: UITabBarController {
         //setCustomBackgroundView()
         //setItemsStackView()
     }
+}
+
+// MARK: - Setup Methods
+
+extension HabitudeTabBar {
     
     func setupVCs() {
         viewControllers = [
@@ -79,6 +90,33 @@ final class HabitudeTabBar: UITabBarController {
             )
         ]
     }
+    
+    func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
+        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
+            return
+        }
+        if !isFirstTime && frameView != nil {
+            frameView.removeFromSuperview()
+        }
+
+        frameView = UIView(
+            frame: CGRect(
+                x: tabView.frame.midX - 20,
+                y: tabView.frame.minY - 3,
+                width: 40,
+                height: 40
+            )
+        )
+        frameView.backgroundColor = UIColor.Habitute.primaryDark
+        frameView.layer.cornerRadius = 10
+        frameView.layer.zPosition = -1
+        tabBar.addSubview(frameView)
+    }
+}
+
+// MARK: - PrivateFunctions
+
+extension HabitudeTabBar {
     
     private func createNavigationViewController(
         for rootViewController: UIViewController,
@@ -134,28 +172,6 @@ final class HabitudeTabBar: UITabBarController {
         ])
         
         return itemBackgroundView
-    }
-    
-    func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
-        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
-            return
-        }
-        if !isFirstTime && frameView != nil {
-            frameView.removeFromSuperview()
-        }
-
-        frameView = UIView(
-            frame: CGRect(
-                x: tabView.frame.midX - 20,
-                y: tabView.frame.minY - 3,
-                width: 40,
-                height: 40
-            )
-        )
-        frameView.backgroundColor = UIColor.Habitute.primaryDark
-        frameView.layer.cornerRadius = 10
-        frameView.layer.zPosition = -1
-        tabBar.addSubview(frameView)
     }
 }
 

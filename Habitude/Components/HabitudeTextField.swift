@@ -10,6 +10,8 @@ import UIKit
 
 final class HabitudeTextField: UIView {
     
+    // MARK: - Properties
+    
     private let placeHolder: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +50,8 @@ final class HabitudeTextField: UIView {
     
     weak var handleViewOutput: HabitudeTextFieldDelegate?
     
+    // MARK: - init
+    
     init(
         placeHolder: String,
         height: CGFloat = 60,
@@ -66,7 +70,15 @@ final class HabitudeTextField: UIView {
         layout()
         style()
     }
+    
+    required init?(coder: NSCoder){
+        fatalError("")
+    }
+}
 
+// MARK: - Setup Methods
+extension HabitudeTextField {
+    
     private func layout() {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -115,11 +127,9 @@ final class HabitudeTextField: UIView {
             placeHolder.textColor = placeHolderColor
         }
     }
-    
-    required init?(coder: NSCoder){
-        fatalError("")
-    }
 }
+
+// MARK: - Delegates
 
 extension HabitudeTextField: UITextFieldDelegate {
     

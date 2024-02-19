@@ -10,6 +10,8 @@ import UIKit
 
 class HabitudeCornerButton: UIButton {
     
+    // MARK: - Properties
+    
     private let title: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +32,8 @@ class HabitudeCornerButton: UIButton {
           }
       }
     
+    // MARK: - init
+    
     init(title: String, width: CGFloat = 350) {
         super.init(frame: .zero)
         self.title.text = title
@@ -37,6 +41,19 @@ class HabitudeCornerButton: UIButton {
         style()
         layout()
     }
+    
+    func setTitle(to title: String) {
+        self.title.text = title
+    }
+    
+    required init?(coder: NSCoder){
+        fatalError("")
+    }
+}
+
+// MARK: - Setup Methods
+
+extension HabitudeCornerButton {
     
     private func layout() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -54,14 +71,6 @@ class HabitudeCornerButton: UIButton {
         self.backgroundColor = UIColor.Habitute.accent
         self.layer.cornerRadius = 20
         self.title.font = UIFont.Habitude.titleSmall
-    }
-    
-    required init?(coder: NSCoder){
-        fatalError("")
-    }
-    
-    func setTitle(to title: String) {
-        self.title.text = title
     }
 }
 
