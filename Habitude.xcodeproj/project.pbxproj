@@ -226,10 +226,10 @@
 		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F90811632B83EB2A00071F4A /* Login */,
+				F908115F2B83EAF200071F4A /* Draw */,
 				F90811572B83EA3D00071F4A /* Profile */,
-				F90811562B83EA0100071F4A /* Draw */,
 				F908114E2B83E96200071F4A /* Home */,
-				F9FDAFCB29F8696B0004472E /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -370,15 +370,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F90811562B83EA0100071F4A /* Draw */ = {
-			isa = PBXGroup;
-			children = (
-				F97371282A14257E00EE611A /* ViewModel */,
-				F97371272A14257900EE611A /* View */,
-			);
-			path = Draw;
-			sourceTree = "<group>";
-		};
 		F90811572B83EA3D00071F4A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,24 +440,85 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F97371272A14257900EE611A /* View */ = {
+		F908115F2B83EAF200071F4A /* Draw */ = {
 			isa = PBXGroup;
 			children = (
-				F9BF321D2B8220DB00499676 /* Components */,
-				F973712A2A155CAE00EE611A /* DrawViewController.swift */,
+				F90811612B83EB0000071F4A /* View */,
+				F90811602B83EAFB00071F4A /* ViewModel */,
 			);
-			name = View;
-			path = ../..;
+			path = Draw;
 			sourceTree = "<group>";
 		};
-		F97371282A14257E00EE611A /* ViewModel */ = {
+		F90811602B83EAFB00071F4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				F973712C2A155CC400EE611A /* DrawViewModelContracts.swift */,
 				F973712E2A155CCF00EE611A /* DrawViewModel.swift */,
 			);
-			name = ViewModel;
-			path = ../..;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F90811612B83EB0000071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F973712A2A155CAE00EE611A /* DrawViewController.swift */,
+				F90811622B83EB0600071F4A /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F90811622B83EB0600071F4A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF321E2B8220EE00499676 /* DrawingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F90811632B83EB2A00071F4A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F90811662B83EB3900071F4A /* View */,
+				F90811652B83EB3400071F4A /* ViewModel */,
+				F90811642B83EB3000071F4A /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F90811642B83EB3000071F4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */,
+				F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F90811652B83EB3400071F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */,
+				F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F90811662B83EB3900071F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDAFD029F86A110004472E /* SignUpViewController.swift */,
+				F90811672B83EB4D00071F4A /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F90811672B83EB4D00071F4A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDAFD529F86E4E0004472E /* LoginBottomView.swift */,
+				F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F9BF32122B80BE4900499676 /* ProfileManager */ = {
@@ -477,14 +529,6 @@
 			);
 			name = ProfileManager;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		F9BF321D2B8220DB00499676 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF321E2B8220EE00499676 /* DrawingView.swift */,
-			);
-			name = Components;
 			sourceTree = "<group>";
 		};
 		F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */ = {
@@ -561,53 +605,6 @@
 				F9FDAFA429F85FDE0004472E /* Info.plist */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		F9FDAFCB29F8696B0004472E /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDAFCE29F8697E0004472E /* Model */,
-				F9FDAFCD29F869750004472E /* ViewModel */,
-				F9FDAFCC29F869710004472E /* View */,
-			);
-			name = Login;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F9FDAFCC29F869710004472E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDAFD429F86D7E0004472E /* Components */,
-				F9FDAFD029F86A110004472E /* SignUpViewController.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F9FDAFCD29F869750004472E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */,
-				F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		F9FDAFCE29F8697E0004472E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */,
-				F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F9FDAFD429F86D7E0004472E /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDAFD529F86E4E0004472E /* LoginBottomView.swift */,
-				F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */,
-			);
-			name = Components;
 			sourceTree = "<group>";
 		};
 		F9FDB00229F9BAD20004472E /* Poppins */ = {
