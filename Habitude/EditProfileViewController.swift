@@ -91,6 +91,8 @@ final class EditProfileViewController: BaseViewController {
     private let imagePicker = UIImagePickerController()
     private var viewModel: EditProfileViewModelContract!
     
+    // MARK: -init
+    
     convenience init(viewModel: EditProfileViewModelContract) {
         self.init()
         self.viewModel = viewModel
@@ -115,13 +117,9 @@ final class EditProfileViewController: BaseViewController {
         setDelegates()
         viewModel.setProfileData()
     }
-    
-    private func setProfileInfoTextViews() {
-        profileInfoStackView.addArrangedSubview(firstNameTextField)
-        profileInfoStackView.addArrangedSubview(lastNameTextField)
-        profileInfoStackView.addArrangedSubview(bioTextField)
-    }
 }
+
+// MARK: -Setup Fucntions
 
 extension EditProfileViewController {
     
@@ -196,14 +194,31 @@ extension EditProfileViewController {
 //MARK: -Functions
 
 extension EditProfileViewController {
+    
     func setDelegates() {
         firstNameTextField.handleViewOutput = self
         lastNameTextField.handleViewOutput = self
         bioTextField.handleViewOutput = self
     }
     
-    @objc func uploadData() {
-        viewModel.uploadData()
+    private func setProfileInfoTextViews() {
+        profileInfoStackView.addArrangedSubview(firstNameTextField)
+        profileInfoStackView.addArrangedSubview(lastNameTextField)
+        profileInfoStackView.addArrangedSubview(bioTextField)
+    }
+    
+    func setPersonalInformation() {
+        if viewModel.name.safelyUnwrapped() != "" {
+            firstNameTextField.setText(viewModel.name)
+        }
+        
+        if viewModel.surname.safelyUnwrapped() != "" {
+            lastNameTextField.setText(viewModel.surname)
+        }
+            
+        if viewModel.bio.safelyUnwrapped() != "" {
+            bioTextField.setText(viewModel.bio)
+        }
     }
 }
 
@@ -304,20 +319,12 @@ extension EditProfileViewController: EditProfileViewModelDelegate {
     }
 }
 
+// MARK: -Actions
+
 extension EditProfileViewController {
     
-    func setPersonalInformation() {
-        if viewModel.name.safelyUnwrapped() != "" {
-            firstNameTextField.setText(viewModel.name)
-        }
-        
-        if viewModel.surname.safelyUnwrapped() != "" {
-            lastNameTextField.setText(viewModel.surname)
-        }
-            
-        if viewModel.bio.safelyUnwrapped() != "" {
-            bioTextField.setText(viewModel.bio)
-        }
+    @objc func uploadData() {
+        viewModel.uploadData()
     }
 }
 

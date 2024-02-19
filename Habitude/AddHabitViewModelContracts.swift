@@ -21,6 +21,7 @@ protocol AddHabitViewModelContracts {
     var habit:Habit? { get set }
     
     var delegate: AddHabitViewModelDelegate? { get set }
+    var habitManager: HabitManagerContract { get set }
 
     func splitTime(_ timeString: String)
     func setHabitDays(_ habitDays: [Int])

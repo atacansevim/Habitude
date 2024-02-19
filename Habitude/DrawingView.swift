@@ -12,6 +12,7 @@ protocol DrawingViewDelegate: AnyObject {
 }
 
 class DrawingView: UIView {
+    
     // MARK: -Constants
     
     private enum Constants {
@@ -24,7 +25,7 @@ class DrawingView: UIView {
         static let bottomStackViewSpacing: CGFloat = 5
     }
     
-    // MARK: -Variabels
+    // MARK: -Properties
     
     private var path = UIBezierPath()
     private var previousPoint: CGPoint = .zero
@@ -41,6 +42,8 @@ class DrawingView: UIView {
         return imageView
     }()
     
+    // MARK: -init
+    
     init() {
         super.init(frame: .zero)
         strokeManager.downloadModel()
@@ -53,6 +56,8 @@ class DrawingView: UIView {
         fatalError("")
     }
 }
+
+// MARK: -Setup Functions
 
 extension DrawingView {
     
@@ -75,6 +80,8 @@ extension DrawingView {
         ])
     }
 }
+
+// MARK: -TouchDelegates
 
 extension DrawingView {
     
@@ -131,6 +138,8 @@ extension DrawingView {
         strokeManager.recognizeInk()
     }
 }
+
+// MARK: -StrokeManagerDelegate
 
 extension DrawingView: StrokeManagerDelegate{
     func getResult(result: PredictResult) {

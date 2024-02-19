@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.Habitute.primaryDark
-        let viewModel =  SignUpViewModel( authService: Authentication(), for: .SIGNUP)
+        let viewModel =  SignUpViewModel( authService: AuthenticationManager(), for: .SIGNUP)
         viewModel.appDelegate = self
         window?.rootViewController = SignUpViewController(viewModel: viewModel)
         return true

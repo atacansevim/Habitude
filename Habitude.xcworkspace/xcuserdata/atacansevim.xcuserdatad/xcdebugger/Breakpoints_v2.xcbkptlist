@@ -173,8 +173,8 @@
             filePath = "Habitude/DrawViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "getResult(result:)"
             landmarkType = "7">
             <Locations>
@@ -221,8 +221,8 @@
             filePath = "Habitude/DrawingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "getResult(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -285,8 +285,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "updateHabit()"
             landmarkType = "7">
             <Locations>
@@ -348,8 +348,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "updateHabit()"
             landmarkType = "7">
             <Locations>
@@ -411,8 +411,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "updateHabit()"
             landmarkType = "7">
             <Locations>
@@ -474,8 +474,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "updateHabit()"
             landmarkType = "7">
             <Locations>
@@ -522,8 +522,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "updateHabit()"
             landmarkType = "7">
             <Locations>
@@ -570,8 +570,8 @@
             filePath = "Habitude/AddHabitViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "addHabit()"
             landmarkType = "7">
          </BreakpointContent>

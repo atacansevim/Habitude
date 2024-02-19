@@ -114,12 +114,6 @@ class DrawViewController: BaseViewController {
         return stack
     }()
     
-    private let subView = UIView()
-    
-    private let drawnImage = DrawingView()
-    
-    private let addHabitButton = HabitudeCornerButton(title: Constants.saveButtonTitle, width: 250)
-    
     private let clearButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -137,7 +131,13 @@ class DrawViewController: BaseViewController {
         return stack
     }()
     
+    private let subView = UIView()
+    private let drawnImage = DrawingView()
+    private let addHabitButton = HabitudeCornerButton(title: Constants.saveButtonTitle, width: 250)
+    
     private var viewModel: DrawViewModelContracts!
+    
+    // MARK: -init
     
     convenience init(viewModel: DrawViewModelContracts){
         self.init()
@@ -146,6 +146,8 @@ class DrawViewController: BaseViewController {
         clearButton.addTarget(self, action: #selector(clearButtonAction), for: .touchUpInside)
         addHabitButton.addTarget(self, action: #selector(saveButton), for: .touchUpInside)
     }
+    
+    // MARK: -LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,7 +161,10 @@ class DrawViewController: BaseViewController {
     }
 }
 
+// MARK: -Setup Functions
+
 extension DrawViewController {
+    
     func style() {
         //TODO: (could be unneccesary)
         view.backgroundColor = UIColor.Habitute.primaryDark

@@ -76,7 +76,11 @@ extension HabitudeTabBar {
         viewControllers = [
             createNavigationViewController(
                 for: HomeViewController(
-                    viewModel: HomeViewModel(title: "Home", email: email)
+                    viewModel: HomeViewModel(
+                        title: "Home",
+                        email: email,
+                        habitManager: HabitManager()
+                    )
                 ),
                 image: Images.homePageUnselected.image
             ),

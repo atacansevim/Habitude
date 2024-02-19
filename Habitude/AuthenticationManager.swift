@@ -7,7 +7,7 @@
 
 import FirebaseAuth
 
-final class Authentication: AuthenticationContract {
+final class AuthenticationManager: AuthenticationContract {
     weak var delegate: AuthenticationDelegate?
     
     func signIn(email: String, password: String) {
@@ -21,12 +21,6 @@ final class Authentication: AuthenticationContract {
         }
     }
     
-    func signInWithFacebook() {
-    }
-    
-    func signInWithGoogle() {
-    }
-    
     func signUp(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             if let error = error as? NSError {
@@ -37,10 +31,21 @@ final class Authentication: AuthenticationContract {
             }
         }
     }
+}
 
+// MARK: -Social Media
+
+extension AuthenticationManager {
+    
     func signUpWithFacebook() {
     }
 
     func signUpWithGoogle() {
+    }
+    
+    func signInWithFacebook() {
+    }
+    
+    func signInWithGoogle() {
     }
 }

@@ -105,6 +105,8 @@ final class ProfileViewController: BaseViewController {
     
     private var viewModel: ProfileViewModelContracts!
     
+    // MARK: -init
+    
     convenience init(viewModel: ProfileViewModelContracts){
         self.init()
         self.viewModel = viewModel
@@ -124,19 +126,12 @@ final class ProfileViewController: BaseViewController {
         nameLabel.isHidden = true
         bioLabel.isHidden = true
     }
-    
-    private func setActionsStack() {
-        actionsStackView.addArrangedSubview(editProfileButton)
-        actionsStackView.addArrangedSubview(changePasswordButton)
-        actionsStackView.addArrangedSubview(reportBugButton)
-    }
-    
-    @objc private func editProfileAction(sender: UIButton!) {
-        viewModel.goEditProfile()
-    }
 }
 
+// MARK: -SetupFunctions
+
 extension ProfileViewController {
+    
     func style() {
         //TODO: (could be unneccesary)
         view.backgroundColor = UIColor.Habitute.primaryDark
@@ -214,6 +209,12 @@ extension ProfileViewController {
         NSLayoutConstraint.activate(constraints)
         
     }
+    
+    private func setActionsStack() {
+        actionsStackView.addArrangedSubview(editProfileButton)
+        actionsStackView.addArrangedSubview(changePasswordButton)
+        actionsStackView.addArrangedSubview(reportBugButton)
+    }
 }
 
 
@@ -255,6 +256,8 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
 }
 
+// MARK: -Helper Functions
+
 extension ProfileViewController {
     
     func setPersonalInformation() {
@@ -273,5 +276,14 @@ extension ProfileViewController {
             bioLabel.text = viewModel.profile?.bio
             bioLabel.isHidden = false
         }
+    }
+}
+
+// MARK: -Actions
+
+extension ProfileViewController {
+    
+    @objc private func editProfileAction(sender: UIButton!) {
+        viewModel.goEditProfile()
     }
 }

@@ -142,6 +142,8 @@ final class LoginBottomView: UIView {
     }
 }
 
+// MARK: -Setup Functions
+
 extension LoginBottomView {
     
     private func style() {
@@ -208,17 +210,14 @@ extension LoginBottomView {
             bottomActionStack.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+}
+
+// MARK: -Helper Functions
+
+extension LoginBottomView {
     
     private func isButtonEnabled() {
         contiuneButton.isEnabled = !self.emailTextField.text.isEmpty && !self.passwordTextField.text.isEmpty
-    }
-    
-    @objc private func buttonAction(sender: UIButton!) {
-        delegate?.tapContiuneButton()
-    }
-    
-    @objc private func bottomButtonAction(sender: UIButton!) {
-        delegate?.tapBottomButton()
     }
     
     func setInfoText(for text: NSAttributedString) {
@@ -244,6 +243,19 @@ extension LoginBottomView {
 }
 
 // MARK: - Actions
+
+extension LoginBottomView {
+    
+    @objc private func buttonAction(sender: UIButton!) {
+        delegate?.tapContiuneButton()
+    }
+    
+    @objc private func bottomButtonAction(sender: UIButton!) {
+        delegate?.tapBottomButton()
+    }
+}
+
+// MARK: -TextField Delegate
 
 extension LoginBottomView: HabitudeTextFieldDelegate {
     

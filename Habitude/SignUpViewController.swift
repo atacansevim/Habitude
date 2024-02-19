@@ -23,6 +23,7 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: -Properties
+    
     private let scrollView = UIScrollView()
     
     private let contentView: UIView = {
@@ -93,7 +94,10 @@ final class SignUpViewController: UIViewController {
     }
 }
 
+// MARK: -Setup Functions
+
 extension SignUpViewController {
+    
     func style() {
         view.backgroundColor = UIColor.Habitute.primaryLight
     }
@@ -149,6 +153,11 @@ extension SignUpViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+}
+
+// MARK: -Helper Functions
+
+extension SignUpViewController {
     
     private func showIndicator(isShow: Bool){
         if isShow {
@@ -171,8 +180,9 @@ extension SignUpViewController {
             loginView.setTitleText(for: viewModel.typeOfLogin!.title)
         }
     }
-
 }
+
+// MARK: -Delegate
 
 extension SignUpViewController: LoginBottomViewDelegate {
     
@@ -202,6 +212,8 @@ extension SignUpViewController: LoginBottomViewDelegate {
     }
     
 }
+
+// MARK: -HandleViewOutput
 
 extension SignUpViewController: SignUpHandleViewOutput {
     

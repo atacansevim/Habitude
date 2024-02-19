@@ -14,11 +14,8 @@ private enum Constants {
     static let collection: String = "habitsNew"
 }
 
-final class HabitManager {
-    static let shared = HabitManager()
+final class HabitManager: HabitManagerContract {
     private let db = Firestore.firestore()
-    
-    private init() {}
     
     func addHabit(documentId: String, data: [String: Any], key: String? = nil, completion: @escaping (Error?) -> Void) {
         let habitId = key ?? String.currentTime()
@@ -58,6 +55,11 @@ final class HabitManager {
             completion(.success(habits))
         }
     }
+}
+
+// MARK: -PrivateFunctions
+
+extension HabitManager {
     
     private func generateMapId() -> String {
         let dateFormatter = DateFormatter()

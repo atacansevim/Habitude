@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 final class EditProfileViewModel: EditProfileViewModelContract {
-    var name: String? {
-        didSet {}
-    }
+    
+    // MARK: -Properties
+    
+    var name: String?
     var surname: String?
     var bio: String?
     var profilePhotoURL: URL?
@@ -21,36 +22,18 @@ final class EditProfileViewModel: EditProfileViewModelContract {
     var profileManager: ProfileContract
     weak var delegate: EditProfileViewModelDelegate?
     
+    // MARK: -init
+    
     init(profileManager: ProfileContract, profile: Profile? = nil, profilePhoto: UIImage? = nil) {
         self.profileManager = profileManager
         self.profilePhoto = profilePhoto
         self.profile = profile
     }
-    
-    func setProfileData() {
-        guard let profile else {
-            return
-        }
-        
-        if let profilePhoto {
-            profilePhotoURL = URL(string: profile.imageUrl)
-            delegate?.handleViewOutput(.setProfilePhoto(profilePhoto))
-        }
-        
-        if profile.name != "" {
-            name = profile.name
-        }
-        
-        if profile.surname != "" {
-            surname = profile.surname
-        }
-        
-        if profile.bio != "" {
-            bio = profile.bio
-        }
-        delegate?.handleViewOutput(.setState(state: .finished(.data)))
-        
-    }
+}
+
+// MARK: -Network Functions
+
+extension EditProfileViewModel {
     
     func uploadProfilePhoto(_ image: UIImage) {
         delegate?.handleViewOutput(.setLoading(true))
@@ -93,6 +76,36 @@ final class EditProfileViewModel: EditProfileViewModelContract {
                 delegate?.handleViewOutput(.backToProfile)
             }
         }
+    }
+}
+
+// MARK: -Helper Functions
+
+extension EditProfileViewModel {
+    
+    func setProfileData() {
+        guard let profile else {
+            return
+        }
+        
+        if let profilePhoto {
+            profilePhotoURL = URL(string: profile.imageUrl)
+            delegate?.handleViewOutput(.setProfilePhoto(profilePhoto))
+        }
+        
+        if profile.name != "" {
+            name = profile.name
+        }
+        
+        if profile.surname != "" {
+            surname = profile.surname
+        }
+        
+        if profile.bio != "" {
+            bio = profile.bio
+        }
+        delegate?.handleViewOutput(.setState(state: .finished(.data)))
+        
     }
     
     private func getUserEmail() -> String {

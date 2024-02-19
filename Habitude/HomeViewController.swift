@@ -76,6 +76,8 @@ final class HomeViewController: BaseViewController {
     private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle)
     private var viewModel: HomeViewModelContracts!
     
+    // MARK: -init
+    
     convenience init(viewModel: HomeViewModelContracts){
         self.init()
         self.viewModel = viewModel
@@ -98,36 +100,12 @@ final class HomeViewController: BaseViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
     }
-    
-    private func setActionsStack(for outcome: Outcome) {
-        switch outcome {
-        case .data:
-            for (index, habit) in viewModel.habits.enumerated() {
-                let habitView = HabitView(habit: habit)
-                habitView.tag = index
-                habitView.addGestureRecognizer(
-                    UITapGestureRecognizer(target: self, action: #selector(updateHabitAction))
-                )
-                habitsStackView.addArrangedSubview(habitView)
-            }
-            habitsStackView.addArrangedSubview(addHabitButton)
-        case .empty:
-            habitsStackView.addArrangedSubview(emptyHabitView)
-            habitsStackView.setCustomSpacing(Constants.customSpacing, after: emptyHabitView)
-            habitsStackView.addArrangedSubview(addHabitButton)
-        case .failed:
-            break
-        }
-    }
-    
-    private func removeHabitStackViewSubViews() {
-        for subView in habitsStackView.arrangedSubviews {
-            habitsStackView.removeArrangedSubview(subView)
-        }
-    }
 }
 
+// MARK: -Setup Functions
+
 extension HomeViewController {
+    
     func style() {
         //TODO: (could be unneccesary)
         view.backgroundColor = UIColor.Habitute.primaryDark
@@ -176,6 +154,43 @@ extension HomeViewController {
         contentStackView.addArrangedSubview(habitsStackView)
         NSLayoutConstraint.activate(constraints)
     }
+}
+
+// MARK: -Helper Functions
+
+extension HomeViewController {
+    
+    private func setActionsStack(for outcome: Outcome) {
+        switch outcome {
+        case .data:
+            for (index, habit) in viewModel.habits.enumerated() {
+                let habitView = HabitView(habit: habit)
+                habitView.tag = index
+                habitView.addGestureRecognizer(
+                    UITapGestureRecognizer(target: self, action: #selector(updateHabitAction))
+                )
+                habitsStackView.addArrangedSubview(habitView)
+            }
+            habitsStackView.addArrangedSubview(addHabitButton)
+        case .empty:
+            habitsStackView.addArrangedSubview(emptyHabitView)
+            habitsStackView.setCustomSpacing(Constants.customSpacing, after: emptyHabitView)
+            habitsStackView.addArrangedSubview(addHabitButton)
+        case .failed:
+            break
+        }
+    }
+    
+    private func removeHabitStackViewSubViews() {
+        for subView in habitsStackView.arrangedSubviews {
+            habitsStackView.removeArrangedSubview(subView)
+        }
+    }
+}
+
+// MARK: -Actions
+
+extension HomeViewController {
     
     @objc private func addHabitAction(sender: UITapGestureRecognizer) {
         viewModel.goToAddHabit()
@@ -188,7 +203,6 @@ extension HomeViewController {
     }
 }
 
-
 // MARK: -HandleViewOutput
 
 extension HomeViewController: HomeViewModelDelegate {
@@ -199,7 +213,11 @@ extension HomeViewController: HomeViewModelDelegate {
             setActivityIndicator(for: flag)
         case .goToAddHabit:
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(viewModel: AddHabitViewModel()), sender: nil)
+            self.show(AddHabitViewController(
+                viewModel: AddHabitViewModel(
+                    habitManager: HabitManager()
+                )
+            ), sender: nil)
         case .setState(state: let state):
             switch state {
             case .loading:
@@ -211,7 +229,12 @@ extension HomeViewController: HomeViewModelDelegate {
             }
         case .goToUpdateHabit(let habit):
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(viewModel: AddHabitViewModel(habit: habit)), sender: nil)
+            self.show(AddHabitViewController(
+                viewModel: AddHabitViewModel(
+                    habit: habit,
+                    habitManager: HabitManager()
+                )
+            ), sender: nil)
         }
     }
 }

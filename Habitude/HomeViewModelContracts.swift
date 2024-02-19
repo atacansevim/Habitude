@@ -9,6 +9,7 @@ protocol HomeViewModelContracts {
     var title: String { get }
     var delegate: HomeViewModelDelegate? { get set }
     var habits: [Habit] { get set }
+    var habitManager: HabitManagerContract { get set }
     
     func goToAddHabit()
     func goToUpdateHabit(for habit: Habit)

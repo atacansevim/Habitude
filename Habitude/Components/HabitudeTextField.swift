@@ -10,7 +10,7 @@ import UIKit
 
 final class HabitudeTextField: UIView {
     
-    // MARK: - Properties
+    // MARK: - Stored Properties
     
     private let placeHolder: UILabel = {
        let label = UILabel()
@@ -39,16 +39,18 @@ final class HabitudeTextField: UIView {
         return textField
      }()
     
-    var text: String {
-        textField.text ?? ""
-    }
-    
     private var holderFont: UIFont?
     private var height: CGFloat = 60
     private var isPlaceHolderUp: Bool?
     private var placeHolderColor: UIColor?
     
     weak var handleViewOutput: HabitudeTextFieldDelegate?
+    
+    // MARK: - Computed Properties
+    
+    var text: String {
+        textField.text ?? ""
+    }
     
     // MARK: - init
     

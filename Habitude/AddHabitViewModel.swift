@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: -Constants
 
 private enum Constants {
     static let titleForAdd = "Add a Habit"
@@ -15,16 +16,18 @@ private enum Constants {
 
 final class AddHabitViewModel: AddHabitViewModelContracts {
     
-    var habitTitle: String = ""{
-        didSet {
-            delegate?.handleViewOutput(.setButtonEnabled(isButtonEnabled))
-        }
-    }
+    // MARK: -Properties
+    
     var habitDescription: String?
     var habitHour: String = ""
     var habitMinute: String = ""
     var habitDays: [Int] = []
     var title: String
+    var habitTitle: String = ""{
+        didSet {
+            delegate?.handleViewOutput(.setButtonEnabled(isButtonEnabled))
+        }
+    }
     var habit: Habit? {
         didSet {
             guard let habit else {
@@ -35,21 +38,34 @@ final class AddHabitViewModel: AddHabitViewModelContracts {
             })
         }
     }
+    
     private var habitIds:[String] = []
+    
+    var habitManager: HabitManagerContract
     weak var delegate: AddHabitViewModelDelegate?
+    
+    // MARK: -ComputedProperties
+    
+    var isButtonEnabled: Bool {
+        return !habitTitle.isEmpty && !habitHour.isEmpty && !habitMinute.isEmpty && !habitDays.isEmpty
+    }
     
     var habitKey: String? {
         habit?.createdDate.toString()
     }
     
-    init(habit: Habit? = nil) {
+    // MARK: -init
+    
+    init(habit: Habit? = nil, habitManager: HabitManagerContract) {
         self.habit = habit
+        self.habitManager = habitManager
         title = habit == nil ? Constants.titleForAdd : Constants.titleForUpdate
     }
-    
-    var isButtonEnabled: Bool {
-        return !habitTitle.isEmpty && !habitHour.isEmpty && !habitMinute.isEmpty && !habitDays.isEmpty
-    }
+}
+
+// MARK: -Helper Functions
+
+extension AddHabitViewModel {
     
     func splitTime(_ timeString: String) {
         let components = timeString.components(separatedBy: ":")
@@ -100,7 +116,7 @@ extension AddHabitViewModel {
             
             switch result {
             case .success(let ids):
-                HabitManager.shared.addHabit(
+                habitManager.addHabit(
                     documentId: self.getUserEmail(),
                     data: self.createHabitMap(ids: ids),
                     key: habitKey
@@ -123,7 +139,7 @@ extension AddHabitViewModel {
     func updateHabit() {
         delegate?.handleViewOutput(.setLoading(true))
         NotificationManager.shared.cancelNotification(identifier: habitIds)
-        HabitManager.shared.addHabit(
+        habitManager.addHabit(
             documentId: self.getUserEmail(),
             data: self.createHabitMap(ids: [:]),
             key: habitKey

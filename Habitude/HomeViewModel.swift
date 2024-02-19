@@ -6,18 +6,21 @@
 //
 
 final class HomeViewModel: HomeViewModelContracts {
+    
     // MARK: -Properties
     
     var title: String = "Home"
     private var email: String
     weak var delegate: HomeViewModelDelegate?
     var habits: [Habit] = []
+    var habitManager: HabitManagerContract
     
     // MARK: - init
     
-    init(title: String, email: String) {
+    init(title: String, email: String, habitManager: HabitManagerContract) {
         self.title = title
         self.email = email
+        self.habitManager = habitManager
     }
 }
 
@@ -33,7 +36,7 @@ extension HomeViewModel {
     
     func loadData() {
         delegate?.handleViewOutput(.setLoading(true))
-        HabitManager.shared.getHabits { [weak self] result in
+        habitManager.getHabits { [weak self] result in
             guard let self else {
                 return
             }

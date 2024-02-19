@@ -8,10 +8,14 @@ import FirebaseAuth
 
 final class SignUpViewModel: SignUpViewModelContract {
     
-   weak var delegate: SignUpHandleViewOutput?
-   weak var appDelegate: AppDelegateViewOutput?
-   var authService: AuthenticationContract!
-   var typeOfLogin: LoginTypeEnum?
+    // MARK: -Properties
+    
+    weak var delegate: SignUpHandleViewOutput?
+    weak var appDelegate: AppDelegateViewOutput?
+    var authService: AuthenticationContract!
+    var typeOfLogin: LoginTypeEnum?
+    
+    // MARK: -init
     
     init(authService: AuthenticationContract, for type: LoginTypeEnum) {
         self.authService = authService
@@ -20,7 +24,7 @@ final class SignUpViewModel: SignUpViewModelContract {
     }
 }
 
-//MARK: -ServiceCalls
+// MARK: -ServiceCalls
 
 extension SignUpViewModel {
     
@@ -41,7 +45,7 @@ extension SignUpViewModel {
     }
 }
 
-//MARK: -ServiceResponse
+// MARK: -ServiceResponse
 
 extension SignUpViewModel: AuthenticationDelegate {
     
@@ -58,7 +62,7 @@ extension SignUpViewModel: AuthenticationDelegate {
     }
 }
 
-//MARK: -Actions
+// MARK: -Actions
 
 extension SignUpViewModel {
     

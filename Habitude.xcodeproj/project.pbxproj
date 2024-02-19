@@ -25,7 +25,7 @@
 		F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */; };
 		F9AC99DD2A07A48000F50CE5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */; };
 		F9AC99DF2A07A4D600F50CE5 /* SignUpViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */; };
-		F9AC99E22A07A82700F50CE5 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E12A07A82700F50CE5 /* Authentication.swift */; };
+		F9AC99E22A07A82700F50CE5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */; };
 		F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */; };
 		F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */; };
 		F9AC99E82A0AC96900F50CE5 /* ProfileViewModelContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */; };
@@ -122,7 +122,7 @@
 		F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasic.swift; sourceTree = "<group>"; };
 		F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelContract.swift; sourceTree = "<group>"; };
-		F9AC99E12A07A82700F50CE5 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationContract.swift; sourceTree = "<group>"; };
 		F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		F9AC99E72A0AC96900F50CE5 /* ProfileViewModelContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelContracts.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 			children = (
 				F9BF32122B80BE4900499676 /* ProfileManager */,
 				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
-				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
+				F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -433,14 +433,14 @@
 			name = StrokeManager;
 			sourceTree = "<group>";
 		};
-		F9D6DEA82B7BE60200E8CF8E /* Authentication */ = {
+		F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */ = {
 			isa = PBXGroup;
 			children = (
-				F9AC99E12A07A82700F50CE5 /* Authentication.swift */,
+				F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */,
 				F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */,
 				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
 			);
-			name = Authentication;
+			name = AuthenticationManager;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -845,7 +845,7 @@
 				F9AC99DD2A07A48000F50CE5 /* SignUpViewModel.swift in Sources */,
 				F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */,
 				F973712B2A155CAE00EE611A /* DrawViewController.swift in Sources */,
-				F9AC99E22A07A82700F50CE5 /* Authentication.swift in Sources */,
+				F9AC99E22A07A82700F50CE5 /* AuthenticationManager.swift in Sources */,
 				F9FDB0422A0424580004472E /* HabitudeCornerButton.swift in Sources */,
 				F9AC99FC2A0AD8D000F50CE5 /* EmptyHabitView.swift in Sources */,
 				F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */,

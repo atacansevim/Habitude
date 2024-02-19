@@ -158,6 +158,8 @@ final class RemindDayComponent: UIView {
     }
 }
 
+// MARK: -Setup Functions
+
 extension RemindDayComponent {
     
     private func style() {
@@ -206,6 +208,11 @@ extension RemindDayComponent {
         sundayButton.addTarget(self, action: #selector(clickAction), for: .touchUpInside)
         switchButton.addTarget(self, action: #selector(switchAction), for: .allEvents)
     }
+}
+
+// MARK: -Helper Functions
+
+extension RemindDayComponent {
     
     func getDaysStackView(days: [Int]) -> UIStackView {
         switchButton.isHidden = true
@@ -273,7 +280,7 @@ extension RemindDayComponent {
     }
 }
 
-//MARK: -Actions
+// MARK: -Actions
 
 extension RemindDayComponent {
     
@@ -296,6 +303,11 @@ extension RemindDayComponent {
         }
         delegate?.selectedDates(selectedDays: getDays(isEnabled))
     }
+}
+
+// MARK: -Private Functions
+
+extension RemindDayComponent {
     
     private func setAllButton(for value: Bool) {
         if !value {

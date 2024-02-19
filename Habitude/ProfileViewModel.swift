@@ -24,11 +24,9 @@ final class ProfileViewModel: ProfileViewModelContracts {
     }
 }
 
+// MARK: -Network Functions
+
 extension ProfileViewModel {
-    
-    func goEditProfile() {
-        delegate?.handleViewOutput(.goToEditProfile(profile: profile))
-    }
     
     func loadData() {
         profileManager.getProfileData {[weak self] result in
@@ -59,5 +57,14 @@ extension ProfileViewModel {
                 break
             }
         }
+    }
+}
+
+// MARK: -Navigation
+
+extension ProfileViewModel {
+    
+    func goEditProfile() {
+        delegate?.handleViewOutput(.goToEditProfile(profile: profile))
     }
 }
