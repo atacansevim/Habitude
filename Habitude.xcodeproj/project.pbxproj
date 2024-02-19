@@ -251,9 +251,9 @@
 		F90811462B83D37100071F4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F90811692B83EBED00071F4A /* HabitManager */,
+				F90811682B83EBD500071F4A /* AuthenticationManager */,
 				F9BF32122B80BE4900499676 /* ProfileManager */,
-				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
-				F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -521,6 +521,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F90811682B83EBD500071F4A /* AuthenticationManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */,
+				F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */,
+				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
+			);
+			path = AuthenticationManager;
+			sourceTree = "<group>";
+		};
+		F90811692B83EBED00071F4A /* HabitManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9D6DEAA2B7BE63700E8CF8E /* HabitManagerContract.swift */,
+				F9D6DEAE2B7BE66700E8CF8E /* HabitManager.swift */,
+				F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */,
+			);
+			path = HabitManager;
+			sourceTree = "<group>";
+		};
 		F9BF32122B80BE4900499676 /* ProfileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,28 +548,6 @@
 				F9BF32152B80BE8E00499676 /* ProfileManager.swift */,
 			);
 			name = ProfileManager;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F9D6DEA82B7BE60200E8CF8E /* AuthenticationManager */ = {
-			isa = PBXGroup;
-			children = (
-				F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */,
-				F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */,
-				F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */,
-			);
-			name = AuthenticationManager;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F9D6DEA92B7BE61600E8CF8E /* HabitManager */ = {
-			isa = PBXGroup;
-			children = (
-				F9D6DEAA2B7BE63700E8CF8E /* HabitManagerContract.swift */,
-				F9D6DEAE2B7BE66700E8CF8E /* HabitManager.swift */,
-				F9D6DEBA2B7C009A00E8CF8E /* Habit.swift */,
-			);
-			name = HabitManager;
 			path = ..;
 			sourceTree = "<group>";
 		};
