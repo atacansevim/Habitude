@@ -223,6 +223,42 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F908113F2B83D2AC00071F4A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F97371262A14255C00EE611A /* Draw */,
+				F9AC99F12A0AD56900F50CE5 /* Home */,
+				F9FDB02B2A0189A50004472E /* Profile */,
+				F9FDAFCB29F8696B0004472E /* Login */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		F90811402B83D2D000071F4A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F9FDAFC629F865250004472E /* UIColor+Extensions.swift */,
+				F9FDAFC829F866A30004472E /* UIFont+Extensions.swift */,
+				F9FDAFD729F9B4810004472E /* String+Extensions.swift */,
+				F9FDB02929F9C15B0004472E /* View+Extensions.swift */,
+				F9FDB0382A018A8E0004472E /* UIViewController+Utils.swift */,
+				F9FDB03C2A018EA70004472E /* Images.swift */,
+				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
+				F908113C2B82B0EF00071F4A /* BaseViewController.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F90811412B83D2E400071F4A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF32122B80BE4900499676 /* ProfileManager */,
+				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
+				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		F97371262A14255C00EE611A /* Draw */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,16 +309,6 @@
 				F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */,
 			);
 			name = KeyChainManager;
-			sourceTree = "<group>";
-		};
-		F9AC99E02A07A70B00F50CE5 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				F9BF32122B80BE4900499676 /* ProfileManager */,
-				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
-				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		F9AC99F12A0AD56900F50CE5 /* Home */ = {
@@ -439,14 +465,14 @@
 		F9FDAF9529F85FDD0004472E /* Habitude */ = {
 			isa = PBXGroup;
 			children = (
+				F90811412B83D2E400071F4A /* Network */,
+				F90811402B83D2D000071F4A /* Utils */,
+				F908113F2B83D2AC00071F4A /* Modules */,
 				F9BF32202B824DB400499676 /* StrokeManager */,
 				F980C13B2B7E7BFF00F6A468 /* KeyChainManager */,
 				F980C1362B7D557F00F6A468 /* NotificationManager */,
-				F9AC99E02A07A70B00F50CE5 /* Network */,
 				F9FDB03E2A02E7310004472E /* Components */,
 				F9FDB00229F9BAD20004472E /* Poppins */,
-				F9FDAFCA29F869630004472E /* Modules */,
-				F9FDAFC529F865090004472E /* Utils */,
 				F9FDAFAB29F862420004472E /* App */,
 			);
 			path = Habitude;
@@ -462,32 +488,6 @@
 				F9FDAFA429F85FDE0004472E /* Info.plist */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		F9FDAFC529F865090004472E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				F9FDAFC629F865250004472E /* UIColor+Extensions.swift */,
-				F9FDAFC829F866A30004472E /* UIFont+Extensions.swift */,
-				F9FDAFD729F9B4810004472E /* String+Extensions.swift */,
-				F9FDB02929F9C15B0004472E /* View+Extensions.swift */,
-				F9FDB0382A018A8E0004472E /* UIViewController+Utils.swift */,
-				F9FDB03C2A018EA70004472E /* Images.swift */,
-				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
-				F908113C2B82B0EF00071F4A /* BaseViewController.swift */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		F9FDAFCA29F869630004472E /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				F97371262A14255C00EE611A /* Draw */,
-				F9AC99F12A0AD56900F50CE5 /* Home */,
-				F9FDB02B2A0189A50004472E /* Profile */,
-				F9FDAFCB29F8696B0004472E /* Login */,
-			);
-			name = Modules;
 			sourceTree = "<group>";
 		};
 		F9FDAFCB29F8696B0004472E /* Login */ = {
