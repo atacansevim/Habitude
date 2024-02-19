@@ -226,8 +226,8 @@
 		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F90811562B83EA0100071F4A /* Draw */,
 				F908114E2B83E96200071F4A /* Home */,
-				F908114D2B83E94D00071F4A /* Draw */,
 				F9FDB02B2A0189A50004472E /* Profile */,
 				F9FDAFCB29F8696B0004472E /* Login */,
 			);
@@ -299,15 +299,6 @@
 			path = NotificationManager;
 			sourceTree = "<group>";
 		};
-		F908114D2B83E94D00071F4A /* Draw */ = {
-			isa = PBXGroup;
-			children = (
-				F97371282A14257E00EE611A /* ViewModel */,
-				F97371272A14257900EE611A /* View */,
-			);
-			path = Draw;
-			sourceTree = "<group>";
-		};
 		F908114E2B83E96200071F4A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +368,15 @@
 				F97371242A140D0200EE611A /* DayEnum.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F90811562B83EA0100071F4A /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				F97371282A14257E00EE611A /* ViewModel */,
+				F97371272A14257900EE611A /* View */,
+			);
+			path = Draw;
 			sourceTree = "<group>";
 		};
 		F97371272A14257900EE611A /* View */ = {
