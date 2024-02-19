@@ -248,14 +248,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F90811462B83D37100071F4A /* Network1 */ = {
+		F90811462B83D37100071F4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				F9BF32122B80BE4900499676 /* ProfileManager */,
 				F9D6DEA92B7BE61600E8CF8E /* HabitManager */,
 				F9D6DEA82B7BE60200E8CF8E /* Authentication */,
 			);
-			path = Network1;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F90811472B83D38400071F4A /* Utils */ = {
@@ -485,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				F90811472B83D38400071F4A /* Utils */,
-				F90811462B83D37100071F4A /* Network1 */,
+				F90811462B83D37100071F4A /* Network */,
 				F90811452B83D35500071F4A /* Components */,
 				F90811432B83D33000071F4A /* Modules */,
 				F9BF32202B824DB400499676 /* StrokeManager */,
