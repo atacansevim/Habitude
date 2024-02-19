@@ -137,11 +137,16 @@ extension DrawingView {
     func recognize() {
         strokeManager.recognizeInk()
     }
+    
+    func clear() {
+        drawnImage.image = nil
+    }
 }
 
 // MARK: -StrokeManagerDelegate
 
 extension DrawingView: StrokeManagerDelegate{
+    
     func getResult(result: PredictResult) {
         delegate?.getResult(result: result)
     }

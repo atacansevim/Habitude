@@ -31,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.Habitute.primaryDark
-        let viewModel =  SignUpViewModel( authService: AuthenticationManager(), for: .SIGNUP)
+        let viewModel =  LoginViewModel( authService: AuthenticationManager(), for: .SIGNUP)
         viewModel.appDelegate = self
-        window?.rootViewController = SignUpViewController(viewModel: viewModel)
+        window?.rootViewController = LoginViewController(viewModel: viewModel)
         return true
     }
 }

@@ -52,9 +52,10 @@ extension EditProfileViewModel {
                         self?.delegate?.handleViewOutput(.backToProfile)
                         return
                     }
+                    self?.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
                 }
-            case .failure(let failure):
-                break
+            case .failure(let error):
+                self.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
             }
         }
     }
@@ -72,9 +73,11 @@ extension EditProfileViewModel {
                 return
             }
             delegate?.handleViewOutput(.setLoading(false))
-            if error == nil {
+            guard let error else {
                 delegate?.handleViewOutput(.backToProfile)
+                return
             }
+            self.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
         }
     }
 }

@@ -27,4 +27,5 @@ enum ProfileViewModelOutput: Equatable {
     case setState(state: ListState)
     case goToEditProfile(profile: Profile?)
     case setProfilePhoto(UIImage)
+    case showAlert(message: String)
 }

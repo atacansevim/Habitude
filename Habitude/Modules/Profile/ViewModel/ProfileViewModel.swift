@@ -45,16 +45,26 @@ extension ProfileViewModel {
                 guard let url = URL(string: profile.imageUrl) else {
                     return
                 }
-                profileManager.downloadImage(from: url) {[weak self] image in
-                    guard let self, let profilePhoto = image else {
+                profileManager.downloadImage(from: url) {[weak self] result in
+                    guard let self else {
                         return
                     }
-                    self.profilePhoto = profilePhoto
-                    self.delegate?.handleViewOutput(.setProfilePhoto(profilePhoto))
+                   
+                    switch result {
+                    case .success(let image):
+                        guard let profilePhoto = image else {
+                            return
+                        }
+                        self.profilePhoto = profilePhoto
+                        self.delegate?.handleViewOutput(.setProfilePhoto(profilePhoto))
+                    case .failure(let error):
+                        self.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
+                    }
+                    
                 }
                 
-            case .failure(let failure):
-                break
+            case .failure(let error):
+                self.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
             }
         }
     }

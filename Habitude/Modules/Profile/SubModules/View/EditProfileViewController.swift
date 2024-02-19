@@ -315,6 +315,8 @@ extension EditProfileViewController: EditProfileViewModelDelegate {
             navigationController?.popViewController(animated: true)
         case .setProfileData:
             setPersonalInformation()
+        case .showAlert:
+            showAlert()
         }
     }
 }

@@ -48,16 +48,16 @@ final class ProfileManager: ProfileContract {
         }
     }
     
-    func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+    func downloadImage(from url: URL, completion: @escaping (Result<UIImage?, Error>) -> Void) {
         let storageRef = Storage.storage().reference(forURL: url.absoluteString)
         
         storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print("Error downloading image: \(error.localizedDescription)")
-                completion(nil)
+                completion(.failure(error))
             } else if let data = data {
                 let image = UIImage(data: data)
-                completion(image)
+                completion(.success(image))
             }
         }
     }
@@ -80,7 +80,7 @@ final class ProfileManager: ProfileContract {
     }
     
     func setProfilePhotoUrl(url: String, completion: @escaping (Error?) -> Void) {
-        db.collection("userProfiles")
+        db.collection(Constants.collection)
         
         db.collection(Constants.collection)
             .document(String.getUserEmail())
@@ -114,7 +114,5 @@ final class ProfileManager: ProfileContract {
             completion(.success(Profile(profileDictionary: data)))
         }
     }
-    
-
 }
 

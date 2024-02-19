@@ -5,8 +5,8 @@
 //  Created by Atacan Sevim on 7.05.2023.
 //
 
-protocol SignUpViewModelContract: AnyObject {
-    var delegate: SignUpHandleViewOutput? { get set }
+protocol LoginViewModelContract: AnyObject {
+    var delegate: LoginHandleViewModelDelegate? { get set }
     var appDelegate: AppDelegateViewOutput? { get set }
     var typeOfLogin: LoginTypeEnum? { get set }
     
@@ -17,11 +17,15 @@ protocol SignUpViewModelContract: AnyObject {
     func changeTheLoginType()
 }
 
-protocol SignUpHandleViewOutput: AnyObject {
-    func setLoading(isLoading: Bool)
-    func fetchedData(email: String)
-    func showError(error: Error)
-    func changeTheLoginType()
+protocol LoginHandleViewModelDelegate: AnyObject {
+    func handleViewOutput(_ output: LoginHandleViewOutput)
+}
+
+enum LoginHandleViewOutput: Equatable {
+    case setLoading(Bool)
+    case setState(state: ListState)
+    case changeTheLoginType
+    case showAlert(message: String)
 }
 
 protocol AppDelegateViewOutput: AnyObject {

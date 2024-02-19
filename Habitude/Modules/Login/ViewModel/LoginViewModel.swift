@@ -6,11 +6,11 @@
 //
 import FirebaseAuth
 
-final class SignUpViewModel: SignUpViewModelContract {
+final class LoginViewModel: LoginViewModelContract {
     
     // MARK: -Properties
     
-    weak var delegate: SignUpHandleViewOutput?
+    weak var delegate: LoginHandleViewModelDelegate?
     weak var appDelegate: AppDelegateViewOutput?
     var authService: AuthenticationContract!
     var typeOfLogin: LoginTypeEnum?
@@ -26,15 +26,15 @@ final class SignUpViewModel: SignUpViewModelContract {
 
 // MARK: -ServiceCalls
 
-extension SignUpViewModel {
+extension LoginViewModel {
     
     func signUp(email: String, password: String) {
-        delegate?.setLoading(isLoading: true)
+        delegate?.handleViewOutput(.setLoading(true))
         authService.signUp(email: email, password: password)
     }
     
     func signIn(email: String, password: String) {
-        delegate?.setLoading(isLoading: true)
+        delegate?.handleViewOutput(.setLoading(true))
         authService.signIn(email: email, password: password)
     }
     
@@ -47,13 +47,13 @@ extension SignUpViewModel {
 
 // MARK: -ServiceResponse
 
-extension SignUpViewModel: AuthenticationDelegate {
+extension LoginViewModel: AuthenticationDelegate {
     
     func fetchedData(email: String?, error: Error?) {
-        delegate?.setLoading(isLoading: false)
+        delegate?.handleViewOutput(.setLoading(false))
         
         guard let email = email else {
-            delegate?.showError(error: error!)
+            delegate?.handleViewOutput(.showAlert(message: error?.localizedDescription ?? ""))
             return
         }
         //- :TODO check when failed.
@@ -64,9 +64,9 @@ extension SignUpViewModel: AuthenticationDelegate {
 
 // MARK: -Actions
 
-extension SignUpViewModel {
+extension LoginViewModel {
     
     func changeTheLoginType() {
-        delegate?.changeTheLoginType()
+        delegate?.handleViewOutput(.changeTheLoginType)
     }
 }

@@ -252,6 +252,8 @@ extension ProfileViewController: ProfileViewModelDelegate {
             }
         case .setProfilePhoto(let profilePhoto):
             profileImageView.image = profilePhoto
+        case .showAlert(let message):
+            showAlert(message: message)
         }
     }
 }

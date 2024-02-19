@@ -31,4 +31,5 @@ enum EditProfileViewModelOutput: Equatable {
     case setState(state: ListState)
     case setProfileData
     case backToProfile
+    case showAlert(message: String)
 }

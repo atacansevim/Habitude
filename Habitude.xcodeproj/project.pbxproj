@@ -23,8 +23,8 @@
 		F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */; };
 		F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */; };
 		F9AC99DB2A079EA200F50CE5 /* UserBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */; };
-		F9AC99DD2A07A48000F50CE5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */; };
-		F9AC99DF2A07A4D600F50CE5 /* SignUpViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */; };
+		F9AC99DD2A07A48000F50CE5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DC2A07A48000F50CE5 /* LoginViewModel.swift */; };
+		F9AC99DF2A07A4D600F50CE5 /* LoginViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99DE2A07A4D600F50CE5 /* LoginViewModelContract.swift */; };
 		F9AC99E22A07A82700F50CE5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */; };
 		F9AC99E42A07A83D00F50CE5 /* AuthenticationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */; };
 		F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */; };
@@ -68,7 +68,7 @@
 		F9FDAFC429F863500004472E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F9FDAFC329F863500004472E /* FirebaseStorageCombine-Community */; };
 		F9FDAFC729F865250004472E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFC629F865250004472E /* UIColor+Extensions.swift */; };
 		F9FDAFC929F866A30004472E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFC829F866A30004472E /* UIFont+Extensions.swift */; };
-		F9FDAFD129F86A110004472E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFD029F86A110004472E /* SignUpViewController.swift */; };
+		F9FDAFD129F86A110004472E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFD029F86A110004472E /* LoginViewController.swift */; };
 		F9FDAFD629F86E4E0004472E /* LoginBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFD529F86E4E0004472E /* LoginBottomView.swift */; };
 		F9FDAFD829F9B4810004472E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDAFD729F9B4810004472E /* String+Extensions.swift */; };
 		F9FDB01629F9BAD20004472E /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9FDB00329F9BAD20004472E /* Poppins-ExtraLight.ttf */; };
@@ -120,8 +120,8 @@
 		F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTextField.swift; sourceTree = "<group>"; };
 		F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
 		F9AC99DA2A079EA200F50CE5 /* UserBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasic.swift; sourceTree = "<group>"; };
-		F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelContract.swift; sourceTree = "<group>"; };
+		F9AC99DC2A07A48000F50CE5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F9AC99DE2A07A4D600F50CE5 /* LoginViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelContract.swift; sourceTree = "<group>"; };
 		F9AC99E12A07A82700F50CE5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F9AC99E32A07A83D00F50CE5 /* AuthenticationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationContract.swift; sourceTree = "<group>"; };
 		F9AC99E52A07AC7200F50CE5 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		F9FDAFAC29F862650004472E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9FDAFC629F865250004472E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		F9FDAFC829F866A30004472E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		F9FDAFD029F86A110004472E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F9FDAFD029F86A110004472E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9FDAFD529F86E4E0004472E /* LoginBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomView.swift; sourceTree = "<group>"; };
 		F9FDAFD729F9B4810004472E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		F9FDB00329F9BAD20004472E /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -497,8 +497,8 @@
 		F90811652B83EB3400071F4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F9AC99DC2A07A48000F50CE5 /* SignUpViewModel.swift */,
-				F9AC99DE2A07A4D600F50CE5 /* SignUpViewModelContract.swift */,
+				F9AC99DC2A07A48000F50CE5 /* LoginViewModel.swift */,
+				F9AC99DE2A07A4D600F50CE5 /* LoginViewModelContract.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 		F90811662B83EB3900071F4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F9FDAFD029F86A110004472E /* SignUpViewController.swift */,
+				F9FDAFD029F86A110004472E /* LoginViewController.swift */,
 				F90811672B83EB4D00071F4A /* Components */,
 			);
 			path = View;
@@ -819,7 +819,7 @@
 				F9AC99E62A07AC7200F50CE5 /* AuthenticationDelegate.swift in Sources */,
 				F97371252A140D0200EE611A /* DayEnum.swift in Sources */,
 				F973712F2A155CCF00EE611A /* DrawViewModel.swift in Sources */,
-				F9AC99DD2A07A48000F50CE5 /* SignUpViewModel.swift in Sources */,
+				F9AC99DD2A07A48000F50CE5 /* LoginViewModel.swift in Sources */,
 				F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */,
 				F973712B2A155CAE00EE611A /* DrawViewController.swift in Sources */,
 				F9AC99E22A07A82700F50CE5 /* AuthenticationManager.swift in Sources */,
@@ -828,7 +828,7 @@
 				F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */,
 				F980C1382B7D559400F6A468 /* NotificationManager.swift in Sources */,
 				F9AC9A062A0AE6D000F50CE5 /* AddHabitViewModelContracts.swift in Sources */,
-				F9FDAFD129F86A110004472E /* SignUpViewController.swift in Sources */,
+				F9FDAFD129F86A110004472E /* LoginViewController.swift in Sources */,
 				F9AC99F62A0AD5E600F50CE5 /* HomeViewModel.swift in Sources */,
 				F9FDB0402A02E7760004472E /* HabitudeTabBar.swift in Sources */,
 				F9AC9A042A0AE6C000F50CE5 /* AddHabitViewModel.swift in Sources */,
@@ -857,7 +857,7 @@
 				F9BF321C2B81E38400499676 /* Profile.swift in Sources */,
 				F9FDAFD829F9B4810004472E /* String+Extensions.swift in Sources */,
 				F9FDAF9729F85FDD0004472E /* AppDelegate.swift in Sources */,
-				F9AC99DF2A07A4D600F50CE5 /* SignUpViewModelContract.swift in Sources */,
+				F9AC99DF2A07A4D600F50CE5 /* LoginViewModelContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

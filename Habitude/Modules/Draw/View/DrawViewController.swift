@@ -283,7 +283,7 @@ extension DrawViewController: DrawViewModelDelegate {
 extension DrawViewController {
     
     @objc private func clearButtonAction() {
-        //subView.clearDrawing()
+        drawnImage.clear()
     }
     
     @objc private func saveButton() {

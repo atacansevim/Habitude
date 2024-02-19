@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class SignUpViewController: UIViewController {
-    
+final class LoginViewController: BaseViewController {
     
     // MARK: -Constants
     
@@ -52,23 +51,14 @@ final class SignUpViewController: UIViewController {
         return view
     }()
     
-    private var activityIndicator: UIActivityIndicatorView = {
-       let indicator = UIActivityIndicatorView()
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.isHidden = true
-        indicator.style = .medium
-        indicator.color = UIColor.Habitute.accent
-        return indicator
-    }()
-    
     private var email: String?
     private var password: String?
     
-    private var viewModel: SignUpViewModelContract!
+    private var viewModel: LoginViewModelContract!
     
     // MARK: -init
     
-    convenience init(viewModel: SignUpViewModelContract){
+    convenience init(viewModel: LoginViewModelContract){
         self.init()
         self.viewModel = viewModel
     }
@@ -96,7 +86,7 @@ final class SignUpViewController: UIViewController {
 
 // MARK: -Setup Functions
 
-extension SignUpViewController {
+extension LoginViewController {
     
     func style() {
         view.backgroundColor = UIColor.Habitute.primaryLight
@@ -157,18 +147,7 @@ extension SignUpViewController {
 
 // MARK: -Helper Functions
 
-extension SignUpViewController {
-    
-    private func showIndicator(isShow: Bool){
-        if isShow {
-            activityIndicator.startAnimating()
-            view.isUserInteractionEnabled = false
-        } else {
-            activityIndicator.stopAnimating()
-            view.isUserInteractionEnabled = true
-        }
-        activityIndicator.isHidden = !isShow
-    }
+extension LoginViewController {
     
     private func setTypeOfScreen() {
         switch viewModel.typeOfLogin! {
@@ -184,7 +163,7 @@ extension SignUpViewController {
 
 // MARK: -Delegate
 
-extension SignUpViewController: LoginBottomViewDelegate {
+extension LoginViewController: LoginBottomViewDelegate {
     
     func tapBottomButton() {
         viewModel.changeTheLoginType()
@@ -215,37 +194,30 @@ extension SignUpViewController: LoginBottomViewDelegate {
 
 // MARK: -HandleViewOutput
 
-extension SignUpViewController: SignUpHandleViewOutput {
-    
-    func setLoading(isLoading: Bool) {
-        showIndicator(isShow: isLoading)
-    }
-    
-    func fetchedData(email: String) {
-    }
-    
-    func showError(error: Error) {
-        print(error.localizedDescription)
-    }
-    
-    func goToHomePage() {
-    }
-    
-    func changeTheLoginType() {
-        switch viewModel.typeOfLogin! {
-        case .SIGNUP:
-            loginView.setTitleText(for: LoginTypeEnum.SIGNIN.title)
-            loginView.setInfoText(for: LoginTypeEnum.SIGNIN.infoText)
-            loginView.setBottomInfoText(for: LoginTypeEnum.SIGNIN.bottomInfoText)
-            loginView.setBottomLeftInfoText(for: LoginTypeEnum.SIGNIN.leftBottomInfoText)
-            viewModel.typeOfLogin = LoginTypeEnum.SIGNIN
-        case .SIGNIN:
-            loginView.setTitleText(for: LoginTypeEnum.SIGNUP.title)
-            loginView.setInfoText(for: LoginTypeEnum.SIGNUP.infoText)
-            loginView.setBottomInfoText(for: LoginTypeEnum.SIGNUP.bottomInfoText)
-            loginView.setBottomLeftInfoText(for: LoginTypeEnum.SIGNUP.leftBottomInfoText)
-            viewModel.typeOfLogin = LoginTypeEnum.SIGNUP
+extension LoginViewController: LoginHandleViewModelDelegate {
+    func handleViewOutput(_ output: LoginHandleViewOutput) {
+        switch output {
+        case .setLoading(let bool):
+            setActivityIndicator(for: bool)
+        case .setState(let state):
+            break
+        case .changeTheLoginType:
+            switch viewModel.typeOfLogin! {
+            case .SIGNUP:
+                loginView.setTitleText(for: LoginTypeEnum.SIGNIN.title)
+                loginView.setInfoText(for: LoginTypeEnum.SIGNIN.infoText)
+                loginView.setBottomInfoText(for: LoginTypeEnum.SIGNIN.bottomInfoText)
+                loginView.setBottomLeftInfoText(for: LoginTypeEnum.SIGNIN.leftBottomInfoText)
+                viewModel.typeOfLogin = LoginTypeEnum.SIGNIN
+            case .SIGNIN:
+                loginView.setTitleText(for: LoginTypeEnum.SIGNUP.title)
+                loginView.setInfoText(for: LoginTypeEnum.SIGNUP.infoText)
+                loginView.setBottomInfoText(for: LoginTypeEnum.SIGNUP.bottomInfoText)
+                loginView.setBottomLeftInfoText(for: LoginTypeEnum.SIGNUP.leftBottomInfoText)
+                viewModel.typeOfLogin = LoginTypeEnum.SIGNUP
+            }
+        case .showAlert(let message):
+            showAlert()
         }
-            
     }
 }
