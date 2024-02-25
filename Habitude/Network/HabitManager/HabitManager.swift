@@ -12,15 +12,16 @@ import FirebaseFirestore
 
 private enum Constants {
     static let collection: String = "habitsNew"
+    static let trackColletion: String = "habitTrack"
 }
 
 final class HabitManager: HabitManagerContract {
     private let db = Firestore.firestore()
     
-    func addHabit(documentId: String, data: [String: Any], key: String? = nil, completion: @escaping (Error?) -> Void) {
-        let habitId = key ?? String.currentTime()
+    func addHabit(data: [String: Any], key: String, completion: @escaping (Error?) -> Void) {
+        let habitId = key
         db.collection(Constants.collection)
-            .document(documentId)
+            .document(getUserEmail())
             .setData([habitId: data], merge: true) { error in
                 if let error = error {
                     completion(error)
@@ -56,19 +57,39 @@ final class HabitManager: HabitManagerContract {
         }
     }
     
-    func deleteHabit(documentId: String, key: String, completion: @escaping (Error?) -> Void) {
+    func deleteHabit(key: String, completion: @escaping (Error?) -> Void) {
         let updates = [
             key: FieldValue.delete()
         ]
         db.collection(Constants.collection)
-            .document(documentId)
+            .document(getUserEmail())
             .updateData(updates) { error in
             if let error = error {
                 completion(error)
-            } else {
-                completion(nil)
             }
         }
+        
+        db.collection(Constants.trackColletion)
+            .document(getUserEmail())
+            .updateData(updates) { error in
+            if let error = error {
+                completion(error)
+            }
+        }
+        
+        completion(nil)
+    }
+    
+    func saveProgress(data: [String: Any], key: String, completion: @escaping (Error?) -> Void) {
+        db.collection(Constants.trackColletion)
+            .document(getUserEmail())
+            .setData([key: data], merge: true) { error in
+                if let error = error {
+                    completion(error)
+                } else {
+                    completion(nil)
+                }
+            }
     }
 }
 

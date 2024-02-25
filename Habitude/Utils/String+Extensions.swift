@@ -15,6 +15,11 @@ public extension String {
         return dateFormatter.string(from: Date())
     }
 
+    static func currentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
     
     func toDate(format: String = "yyyy-MM-dd HH:mm:ss") -> Date? {
         let dateFormatter = DateFormatter()

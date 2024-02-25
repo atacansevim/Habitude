@@ -6,7 +6,8 @@
 //
 
 protocol HabitManagerContract: AnyObject {
-    func addHabit(documentId: String, data: [String: Any], key: String?, completion: @escaping (Error?) -> Void)
+    func addHabit(data: [String: Any], key: String, completion: @escaping (Error?) -> Void)
     func getHabits(completion: @escaping (Result<[Habit], Error>) -> Void)
-    func deleteHabit(documentId: String, key: String, completion: @escaping (Error?) -> Void)
+    func deleteHabit(key: String, completion: @escaping (Error?) -> Void)
+    func saveProgress(data: [String: Any], key: String, completion: @escaping (Error?) -> Void)
 }

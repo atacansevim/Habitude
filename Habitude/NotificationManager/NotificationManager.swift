@@ -20,7 +20,7 @@ final class NotificationManager {
         }
     }
     
-    func scheduleMultipleNotifications(notificationDetails: NotificationDetails, completion: @escaping (Result<[String:String], Error>) -> Void) {
+    func scheduleMultipleNotifications(habitKey: String, notificationDetails: NotificationDetails, completion: @escaping (Result<[String:String], Error>) -> Void) {
         let group = DispatchGroup()
         var errors: [Error] = []
         var ids: [String:String] = [:]
@@ -30,6 +30,9 @@ final class NotificationManager {
 
             let content = UNMutableNotificationContent()
             content.title = notificationDetails.title
+            content.userInfo = [
+                "habitKey": habitKey
+            ]
             //content.body = notificationDetails.description
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: notificationDetail, repeats: true)
@@ -61,5 +64,9 @@ final class NotificationManager {
         for id in identifier {
            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
         }
+    }
+    
+    func setNotificationCenterDelegate(delegate: UNUserNotificationCenterDelegate) {
+            notificationCenter.delegate = delegate
     }
 }

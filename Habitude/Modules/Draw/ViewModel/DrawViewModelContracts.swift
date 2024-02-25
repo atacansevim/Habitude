@@ -8,10 +8,13 @@
 protocol DrawViewModelContracts {
     var title: String { get }
     var userName: String { get }
+    var habitKey: String? { get set }
     var delegate: DrawViewModelDelegate? { get set }
+    var appDelegate: AppDelegateViewOutput? { get set }
     
     func goToAddHabit()
     func loadData()
+    func saveProgress(isSuccess: Bool, completion: @escaping (Error?) -> Void)
 }
 
 protocol DrawViewModelDelegate: AnyObject {
