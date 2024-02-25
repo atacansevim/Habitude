@@ -18,6 +18,7 @@ protocol AddHabitViewModelContracts {
     var habitMinute: String { get set }
     var habitDays: [Int] { get set }
     var isButtonEnabled: Bool { get }
+    var isDeleteButtonEnabled: Bool { get set }
     var habit:Habit? { get set }
     
     var delegate: AddHabitViewModelDelegate? { get set }
@@ -28,6 +29,7 @@ protocol AddHabitViewModelContracts {
     func addHabit()
     func updateHabit()
     func setHabitForUpdate()
+    func deleteHabit()
 }
 
 protocol AddHabitViewModelDelegate: AnyObject {
@@ -38,6 +40,6 @@ enum AddHabitViewModelOutput: Equatable {
     case setLoading(Bool)
     case setState(state: ListState)
     case setButtonEnabled(Bool)
-    case backToHomePage
+    case backToHomePage(habits: [Habit])
     case showError(String)
 }

@@ -15,7 +15,6 @@ private enum Constants {
 }
 
 final class AddHabitViewModel: AddHabitViewModelContracts {
-    
     // MARK: -Properties
     
     var habitDescription: String?
@@ -23,6 +22,7 @@ final class AddHabitViewModel: AddHabitViewModelContracts {
     var habitMinute: String = ""
     var habitDays: [Int] = []
     var title: String
+    var isDeleteButtonEnabled: Bool
     var habitTitle: String = ""{
         didSet {
             delegate?.handleViewOutput(.setButtonEnabled(isButtonEnabled))
@@ -60,6 +60,7 @@ final class AddHabitViewModel: AddHabitViewModelContracts {
         self.habit = habit
         self.habitManager = habitManager
         title = habit == nil ? Constants.titleForAdd : Constants.titleForUpdate
+        isDeleteButtonEnabled = habit != nil
     }
 }
 
@@ -126,7 +127,7 @@ extension AddHabitViewModel {
                     if let error {
                         self?.delegate?.handleViewOutput(.showError(error.localizedDescription))
                     } else {
-                        self?.delegate?.handleViewOutput(.backToHomePage)
+                        self?.getHabits()
                     }
                 }
             case .failure(let failure):
@@ -152,6 +153,36 @@ extension AddHabitViewModel {
                 self.delegate?.handleViewOutput(.showError(error.localizedDescription))
             } else {
                 self.addHabit()
+            }
+        }
+    }
+    
+    func deleteHabit() {
+        delegate?.handleViewOutput(.setLoading(true))
+        NotificationManager.shared.cancelNotification(identifier: habitIds)
+        habitManager.deleteHabit(documentId: getUserEmail(), key: habitKey!) { [weak self] error in
+            self?.delegate?.handleViewOutput(.setLoading(false))
+            guard let error else {
+                self?.getHabits()
+                return
+            }
+            self?.delegate?.handleViewOutput(.showError(error.localizedDescription))
+        }
+    }
+    
+    private func getHabits() {
+        delegate?.handleViewOutput(.setLoading(true))
+        habitManager.getHabits { [weak self] result in
+            guard let self else {
+                return
+            }
+            
+            delegate?.handleViewOutput(.setLoading(false))
+            switch result {
+            case .success(let habits):
+                self.delegate?.handleViewOutput(.backToHomePage(habits: habits))
+            case .failure:
+                self.delegate?.handleViewOutput(.setState(state: .finished(.failed)))
             }
         }
     }

@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol AddHabitViewControllerDelegate: AnyObject {
+    func dismiss(habits: [Habit])
+}
+
 final class AddHabitViewController: BaseViewController {
+    
     // MARK: -Constants
     
     private enum Constants {
@@ -23,6 +28,8 @@ final class AddHabitViewController: BaseViewController {
         static let timeSelectionLabel: String = "Select time for a reminder"
         static let descriptionHeightAnchor: CGFloat = 100
         static let timeFormat: String = "HH:mm"
+        static let deleteButtonTitle: String = "Delete"
+        static let deleteMessage: String = "Are you sure?"
     }
     
     // MARK: -Properties
@@ -79,6 +86,9 @@ final class AddHabitViewController: BaseViewController {
     
     private let addHabitButton = HabitudeCornerButton(title: Constants.addButtonTitle)
     private var viewModel: AddHabitViewModelContracts!
+    weak var delegate: AddHabitViewControllerDelegate?
+    
+    // MARK: -init
     
     convenience init(viewModel: AddHabitViewModelContracts){
         self.init()
@@ -105,7 +115,14 @@ final class AddHabitViewController: BaseViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        self.navigationItem.rightBarButtonItem = BackBarButtonItem(title: "clear", style: .done, target: self, action: #selector(backAction))
+        if viewModel.isDeleteButtonEnabled {
+            self.navigationItem.rightBarButtonItem = BackBarButtonItem(
+                title: Constants.deleteButtonTitle,
+                style: .done,
+                target: self,
+                action: #selector(deleteAction)
+            )
+        }
         viewModel.setHabitForUpdate()
     }
     
@@ -118,8 +135,9 @@ final class AddHabitViewController: BaseViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
 }
+
+// MARK: -Setup Functions
 
 extension AddHabitViewController {
     
@@ -179,26 +197,6 @@ extension AddHabitViewController {
 // MARK: -PrivateFunctions
 
 extension AddHabitViewController {
-    
-    @objc private func backAction(sender: UIBarButtonItem) {
-        //TODO: (will implemented)
-    }
-    
-    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = Constants.timeFormat
-        let time = formatter.string(from: sender.date)
-        viewModel.splitTime(time)
-    }
-    
-    @objc private func buttonAction(sender: UIButton!) {
-        if viewModel.habit != nil {
-            viewModel.updateHabit()
-        } else {
-            viewModel.addHabit()
-        }
-       
-    }
     
     private func setForUpdate() {
         titleTextField.setText(viewModel.habitTitle)
@@ -270,10 +268,43 @@ extension AddHabitViewController: AddHabitViewModelDelegate {
             }
         case .setButtonEnabled(let isEnabled):
             addHabitButton.isEnabled = isEnabled
-        case .backToHomePage:
+        case .backToHomePage(let habits):
+            self.delegate?.dismiss(habits: habits)
             navigationController?.popViewController(animated: true)
         case .showError(let errorMessage):
             showAlert(message: errorMessage)
+        }
+    }
+}
+
+// MARK: -Actions
+
+extension AddHabitViewController {
+    
+    @objc private func deleteAction(sender: UIBarButtonItem) {
+        showAlert(
+            title: Constants.deleteButtonTitle,
+            message: Constants.deleteMessage,
+            positiveAlertMessage: Constants.deleteButtonTitle,
+            positiveAlertAction: { [weak self] _ in
+                self?.viewModel.deleteHabit()
+            },
+            negativeAlertAction: { _ in }
+        )
+    }
+    
+    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = Constants.timeFormat
+        let time = formatter.string(from: sender.date)
+        viewModel.splitTime(time)
+    }
+    
+    @objc private func buttonAction(sender: UIButton!) {
+        if viewModel.habit != nil {
+            viewModel.updateHabit()
+        } else {
+            viewModel.addHabit()
         }
     }
 }

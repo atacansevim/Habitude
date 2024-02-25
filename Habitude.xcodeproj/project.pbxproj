@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E1E418ECE7AB086733399F4C /* Pods_Habitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */; };
 		F908113D2B82B0EF00071F4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908113C2B82B0EF00071F4A /* BaseViewController.swift */; };
+		F908116C2B84023F00071F4A /* StackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908116B2B84023F00071F4A /* StackView+Extensions.swift */; };
 		F97371232A14093700EE611A /* RemindDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371222A14093700EE611A /* RemindDayComponent.swift */; };
 		F97371252A140D0200EE611A /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97371242A140D0200EE611A /* DayEnum.swift */; };
 		F973712B2A155CAE00EE611A /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973712A2A155CAE00EE611A /* DrawViewController.swift */; };
@@ -107,6 +108,7 @@
 		4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitude.release.xcconfig"; path = "Target Support Files/Pods-Habitude/Pods-Habitude.release.xcconfig"; sourceTree = "<group>"; };
 		5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habitude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F908113C2B82B0EF00071F4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F908116B2B84023F00071F4A /* StackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extensions.swift"; sourceTree = "<group>"; };
 		F97371222A14093700EE611A /* RemindDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDayComponent.swift; sourceTree = "<group>"; };
 		F97371242A140D0200EE611A /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
 		F973712A2A155CAE00EE611A /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				F9FDB03C2A018EA70004472E /* Images.swift */,
 				F9AC99ED2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift */,
 				F908113C2B82B0EF00071F4A /* BaseViewController.swift */,
+				F908116B2B84023F00071F4A /* StackView+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9BF321A2B80E65400499676 /* EditProfileViewModelContract.swift in Sources */,
+				F908116C2B84023F00071F4A /* StackView+Extensions.swift in Sources */,
 				F9D6DEAF2B7BE66700E8CF8E /* HabitManager.swift in Sources */,
 				F9BF32222B824DC300499676 /* StrokeManager.swift in Sources */,
 				F9AC99EE2A0ACC6500F50CE5 /* UINavigationItem+Extension.swift in Sources */,

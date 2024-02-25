@@ -161,6 +161,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func setActionsStack(for outcome: Outcome) {
+        habitsStackView.removeAllArrangedSubviews()
         switch outcome {
         case .data:
             for (index, habit) in viewModel.habits.enumerated() {
@@ -175,15 +176,9 @@ extension HomeViewController {
         case .empty:
             habitsStackView.addArrangedSubview(emptyHabitView)
             habitsStackView.setCustomSpacing(Constants.customSpacing, after: emptyHabitView)
-            habitsStackView.addArrangedSubview(addHabitButton)
+            habitsStackView.addArrangedSubview(addHabitButton)            
         case .failed:
             break
-        }
-    }
-    
-    private func removeHabitStackViewSubViews() {
-        for subView in habitsStackView.arrangedSubviews {
-            habitsStackView.removeArrangedSubview(subView)
         }
     }
 }
@@ -213,11 +208,13 @@ extension HomeViewController: HomeViewModelDelegate {
             setActivityIndicator(for: flag)
         case .goToAddHabit:
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(
+            let addHabitViewController = AddHabitViewController(
                 viewModel: AddHabitViewModel(
                     habitManager: HabitManager()
-                )
-            ), sender: nil)
+                ))
+                
+            addHabitViewController.delegate = self
+            self.show(addHabitViewController, sender: nil)
         case .setState(state: let state):
             switch state {
             case .loading:
@@ -229,13 +226,28 @@ extension HomeViewController: HomeViewModelDelegate {
             }
         case .goToUpdateHabit(let habit):
             self.navigationItem.removeBackBarButtonTitle()
-            self.show(AddHabitViewController(
+            let addHabitViewController = AddHabitViewController(
                 viewModel: AddHabitViewModel(
                     habit: habit,
                     habitManager: HabitManager()
                 )
-            ), sender: nil)
+            )
+            addHabitViewController.delegate = self
+            self.show(addHabitViewController, sender: nil)
         }
     }
 }
 
+// MARK: -AddHabitViewControllerDelegate
+
+extension HomeViewController: AddHabitViewControllerDelegate {
+    
+    func dismiss(habits: [Habit]) {
+        viewModel.habits = habits
+        if habits.isEmpty {
+            viewModel.delegate?.handleViewOutput(.setState(state: .finished(.empty)))
+        } else {
+            viewModel.delegate?.handleViewOutput(.setState(state: .finished(.data)))
+        }
+    }
+}

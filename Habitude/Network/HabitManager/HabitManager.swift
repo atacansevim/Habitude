@@ -55,6 +55,21 @@ final class HabitManager: HabitManagerContract {
             completion(.success(habits))
         }
     }
+    
+    func deleteHabit(documentId: String, key: String, completion: @escaping (Error?) -> Void) {
+        let updates = [
+            key: FieldValue.delete()
+        ]
+        db.collection(Constants.collection)
+            .document(documentId)
+            .updateData(updates) { error in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }
 
 // MARK: -PrivateFunctions

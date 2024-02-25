@@ -57,9 +57,19 @@ class BaseViewController: UIViewController {
     
     // MARK: - Alert
     
-    func showAlert(title: String = "Error", message: String = "Something went wrong") {
+    func showAlert(
+        title: String = "Error",
+        message: String = "Something went wrong",
+        positiveAlertMessage: String = "OK",
+        positiveAlertAction: ((UIAlertAction) -> Void)? = nil,
+        negativeAlertMessage: String = "Cancel",
+        negativeAlertAction: ((UIAlertAction) -> Void)? = nil
+    ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: positiveAlertMessage, style: .default, handler: positiveAlertAction))
+        if let negativeAlertAction {
+            alertController.addAction(UIAlertAction(title: negativeAlertMessage, style: .default, handler: negativeAlertAction))
+        }
         present(alertController, animated: true, completion: nil)
     }
 }
