@@ -34,5 +34,6 @@ Carthage/Build
 
 # Dependency directories
 node_modules/
-*.breakpoints
+*.breakpoints# Ignore breakpoints
+*.breakpointv2
 
