@@ -6,11 +6,18 @@
 //
 
 final class DrawViewModel: DrawViewModelContracts {
+    
+    // MARK: -Constants
+    
+    private enum Constants {
+        static let userNameKeychainKey: String = "userName"
+    }
+    
     // MARK: -Properties
     
     var title: String
-    var userName: String = "Beka"
     var habitKey: String?
+    var userName: String?
     weak var delegate: DrawViewModelDelegate?
     weak var appDelegate: AppDelegateViewOutput?
     var habitManager: HabitManagerContract
@@ -22,6 +29,7 @@ final class DrawViewModel: DrawViewModelContracts {
         self.title = title
         self.habitManager = habitManager
         self.habitKey = habitKey
+        setUserName()
     }
 }
 
@@ -50,6 +58,18 @@ extension DrawViewModel {
                 completion(error)
             }
             completion(nil)
+        }
+    }
+}
+
+// MARK: -Private Functions
+
+extension DrawViewModel {
+    
+    private func setUserName() {
+        let userName:String? = KeychainManager.shared.getData(forKey: Constants.userNameKeychainKey)
+        if let userName {
+            self.userName = "Hi \(userName)"
         }
     }
 }

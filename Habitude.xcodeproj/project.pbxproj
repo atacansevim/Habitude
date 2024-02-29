@@ -228,6 +228,7 @@
 		F90811432B83D33000071F4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F908115B2B83EA5800071F4A /* View */,
 				F90811632B83EB2A00071F4A /* Login */,
 				F908115F2B83EAF200071F4A /* Draw */,
 				F90811572B83EA3D00071F4A /* Profile */,
@@ -376,7 +377,6 @@
 		F90811572B83EA3D00071F4A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				F908115B2B83EA5800071F4A /* View */,
 				F908115A2B83EA5200071F4A /* ViewModel */,
 				F90811592B83EA4C00071F4A /* Model */,
 				F90811582B83EA4400071F4A /* SubModules */,
