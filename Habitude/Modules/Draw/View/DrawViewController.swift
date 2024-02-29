@@ -44,8 +44,6 @@ class DrawViewController: BaseViewController {
         label.textColor = UIColor.Habitute.primaryLight
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
-        //TODO: (change dummy name)
-        label.text = "Hi Beka"
         return label
     }()
     
@@ -169,6 +167,7 @@ extension DrawViewController {
         //TODO: (could be unneccesary)
         view.backgroundColor = UIColor.Habitute.primaryDark
         title = viewModel.title
+        nameLabel.text = viewModel.userName
     }
     
     func layout() {

@@ -7,6 +7,7 @@
 
 protocol HomeViewModelContracts {
     var title: String { get }
+    var userName: String? { get set }
     var delegate: HomeViewModelDelegate? { get set }
     var habits: [Habit] { get set }
     var habitManager: HabitManagerContract { get set }

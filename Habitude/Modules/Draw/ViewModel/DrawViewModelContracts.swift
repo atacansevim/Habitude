@@ -7,8 +7,8 @@
 
 protocol DrawViewModelContracts {
     var title: String { get }
-    var userName: String { get }
     var habitKey: String? { get set }
+    var userName: String? { get set }
     var delegate: DrawViewModelDelegate? { get set }
     var appDelegate: AppDelegateViewOutput? { get set }
     

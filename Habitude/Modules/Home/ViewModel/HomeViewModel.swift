@@ -7,9 +7,16 @@
 
 final class HomeViewModel: HomeViewModelContracts {
     
+    // MARK: -Constants
+    
+    private enum Constants {
+        static let userNameKeychainKey: String = "userName"
+    }
+    
     // MARK: -Properties
     
     var title: String = "Home"
+    var userName: String?
     private var email: String
     weak var delegate: HomeViewModelDelegate?
     var habits: [Habit] = []
@@ -21,6 +28,7 @@ final class HomeViewModel: HomeViewModelContracts {
         self.title = title
         self.email = email
         self.habitManager = habitManager
+        setUserName()
     }
 }
 
@@ -53,6 +61,18 @@ extension HomeViewModel {
             case .failure:
                 self.delegate?.handleViewOutput(.setState(state: .finished(.failed)))
             }
+        }
+    }
+}
+
+// MARK: -Private Functions
+
+extension HomeViewModel {
+    
+    private func setUserName() {
+        let userName:String? = KeychainManager.shared.getData(forKey: Constants.userNameKeychainKey)
+        if let userName {
+            self.userName = "Hi \(userName)"
         }
     }
 }

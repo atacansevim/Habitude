@@ -10,6 +10,12 @@ import UIKit
 
 final class EditProfileViewModel: EditProfileViewModelContract {
     
+    // MARK: -Constants
+    
+    private enum Constants {
+        static let userNameKeychainKey: String = "userName"
+    }
+    
     // MARK: -Properties
     
     var name: String?
@@ -74,11 +80,16 @@ extension EditProfileViewModel {
             }
             delegate?.handleViewOutput(.setLoading(false))
             guard let error else {
+                saveUserNameToKeyChain()
                 delegate?.handleViewOutput(.backToProfile)
                 return
             }
             self.delegate?.handleViewOutput(.showAlert(message: error.localizedDescription))
         }
+    }
+    
+    private func saveUserNameToKeyChain() {
+        KeychainManager.shared.setData(name.safelyUnwrapped(), forKey: Constants.userNameKeychainKey)
     }
 }
 
@@ -109,15 +120,5 @@ extension EditProfileViewModel {
         }
         delegate?.handleViewOutput(.setState(state: .finished(.data)))
         
-    }
-    
-    private func getUserEmail() -> String {
-        let email:String? = KeychainManager.shared.getData(forKey: "userEmail")
-        
-        if let email {
-            return email
-        } else {
-            return ""
-        }
     }
 }
