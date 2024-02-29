@@ -7,5 +7,5 @@ target 'Habitude' do
 
   # Pods for Habitude
   pod 'GoogleMLKit/DigitalInkRecognition', '3.2.0'
-
+pod 'HabitudeTests'
 end
