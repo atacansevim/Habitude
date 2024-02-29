@@ -85,7 +85,7 @@ extension HabitudeTabBar {
                 image: Images.homePageUnselected.image
             ),
             createNavigationViewController(
-                for: DrawViewController(viewModel: DrawViewModel()),
+                for: DrawViewController(viewModel: DrawViewModel(habitManager: HabitManager())),
                 image: Images.tickUnselected.image
             ),
             createNavigationViewController(

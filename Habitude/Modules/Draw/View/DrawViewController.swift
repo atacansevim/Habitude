@@ -306,8 +306,22 @@ extension DrawViewController: DrawingViewDelegate {
             message = errorMessage
         }
         
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in}))
-        present(alert, animated: true, completion: nil)
+        if result == .tick || result == .crossMark {
+            viewModel.saveProgress(isSuccess: result == .tick) { [weak self] error in
+                if let error {
+                    self?.showAlert()
+                }
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    let userEmail: String = String.getUserEmail()
+                    self?.viewModel.appDelegate?.goToHomePage(email: userEmail)
+                }))
+                self?.present(alert, animated: true, completion: nil)
+            }
+        } else {
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in}))
+            present(alert, animated: true, completion: nil)
+        }
     }
 }

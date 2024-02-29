@@ -10,13 +10,13 @@ import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     let notificationManager = NotificationManager.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
         FirebaseApp.configure()
-        
+        notificationManager.setNotificationCenterDelegate(delegate: self)
         let notificationManager = NotificationManager.shared
         notificationManager.requestAuthorization { granted, error in
             if let error = error {
@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Notification authorization granted")
             }
         }
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = UIColor.Habitute.primaryDark
@@ -42,5 +41,33 @@ extension AppDelegate: AppDelegateViewOutput {
     
     func goToHomePage(email: String) {
         window?.rootViewController = HabitudeTabBar(email: email)
+    }
+}
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let actionIdentifier = response.actionIdentifier
+        let notification = response.notification
+        let content = notification.request.content
+        let userInfo = content.userInfo
+        
+        switch actionIdentifier {
+        case UNNotificationDefaultActionIdentifier:
+            let viewModel = DrawViewModel(
+                habitManager: HabitManager(),
+                habitKey: userInfo["habitKey"] as? String
+            )
+            viewModel.appDelegate = self
+            window?.rootViewController = DrawViewController(
+                viewModel: viewModel
+            )
+        case UNNotificationDismissActionIdentifier:
+            break
+        default:
+            break
+        }
+        completionHandler()
     }
 }

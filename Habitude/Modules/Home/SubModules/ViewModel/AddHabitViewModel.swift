@@ -101,7 +101,9 @@ extension AddHabitViewModel {
     
     func addHabit() {
         delegate?.handleViewOutput(.setLoading(true))
+        let habitKey = habitKey ?? String.currentTime()
         NotificationManager.shared.scheduleMultipleNotifications(
+            habitKey: habitKey,
             notificationDetails: NotificationDetails(
                 title: habitTitle,
                 description: habitDescription,
@@ -118,7 +120,6 @@ extension AddHabitViewModel {
             switch result {
             case .success(let ids):
                 habitManager.addHabit(
-                    documentId: self.getUserEmail(),
                     data: self.createHabitMap(ids: ids),
                     key: habitKey
                 ) { [weak self] error in
@@ -139,9 +140,9 @@ extension AddHabitViewModel {
     
     func updateHabit() {
         delegate?.handleViewOutput(.setLoading(true))
+        let habitKey = habitKey ?? String.currentTime()
         NotificationManager.shared.cancelNotification(identifier: habitIds)
         habitManager.addHabit(
-            documentId: self.getUserEmail(),
             data: self.createHabitMap(ids: [:]),
             key: habitKey
         ) { [weak self] error in
@@ -160,7 +161,7 @@ extension AddHabitViewModel {
     func deleteHabit() {
         delegate?.handleViewOutput(.setLoading(true))
         NotificationManager.shared.cancelNotification(identifier: habitIds)
-        habitManager.deleteHabit(documentId: getUserEmail(), key: habitKey!) { [weak self] error in
+        habitManager.deleteHabit(key: habitKey!) { [weak self] error in
             self?.delegate?.handleViewOutput(.setLoading(false))
             guard let error else {
                 self?.getHabits()
@@ -200,15 +201,5 @@ extension AddHabitViewModel {
         habitMap["description"] = habitDescription
         habitMap["days"] = ids
         return habitMap
-    }
-    
-    private func getUserEmail() -> String {
-        let email:String? = KeychainManager.shared.getData(forKey: "userEmail")
-        
-        if let email {
-            return email
-        } else {
-            return ""
-        }
     }
 }

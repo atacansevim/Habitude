@@ -10,7 +10,7 @@ import UIKit
 
 import MLKit
 
-enum PredictResult {
+enum PredictResult: Equatable {
     case tick
     case crossMark
     case undefined(errorMessage: String)
