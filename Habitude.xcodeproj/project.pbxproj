@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90D2D3DF2539A3CDB788D832 /* libPods-HabitudeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C56B07D18B25005216D7FD /* libPods-HabitudeTests.a */; };
 		E1E418ECE7AB086733399F4C /* Pods_Habitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */; };
 		F908113D2B82B0EF00071F4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908113C2B82B0EF00071F4A /* BaseViewController.swift */; };
 		F908116C2B84023F00071F4A /* StackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F908116B2B84023F00071F4A /* StackView+Extensions.swift */; };
@@ -20,7 +21,7 @@
 		F980C13D2B7E7C1200F6A468 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */; };
 		F980C1402B7E7CE500F6A468 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F980C13F2B7E7CE500F6A468 /* KeychainSwift */; };
 		F980C1422B7EC28400F6A468 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980C1412B7EC28400F6A468 /* HabitView.swift */; };
-		F9A4409B2B910BF200282251 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4409A2B910BF200282251 /* LoginViewModelTests.swift */; };
+		F9A440E92B911A8F00282251 /* HabitudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A440E82B911A8F00282251 /* HabitudeTests.swift */; };
 		F9A565392A17BA9B00FC9DE7 /* LoginTypeEnum .swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */; };
 		F9AC99D72A0790C400F50CE5 /* HabitudeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */; };
 		F9AC99D92A07998500F50CE5 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */; };
@@ -105,7 +106,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F9A440942B910BB300282251 /* PBXContainerItemProxy */ = {
+		F9A440EA2B911A8F00282251 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F9FDAF8B29F85FDD0004472E /* Project object */;
 			proxyType = 1;
@@ -118,6 +119,9 @@
 		09093A2693EEA6790601A23C /* Pods-Habitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitude.debug.xcconfig"; path = "Target Support Files/Pods-Habitude/Pods-Habitude.debug.xcconfig"; sourceTree = "<group>"; };
 		4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitude.release.xcconfig"; path = "Target Support Files/Pods-Habitude/Pods-Habitude.release.xcconfig"; sourceTree = "<group>"; };
 		5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habitude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7408FE47EFD8A8BEB3619F31 /* Pods-HabitudeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitudeTests.release.xcconfig"; path = "Target Support Files/Pods-HabitudeTests/Pods-HabitudeTests.release.xcconfig"; sourceTree = "<group>"; };
+		A174D3452A964D3CBDAAD3D9 /* Pods-HabitudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitudeTests.debug.xcconfig"; path = "Target Support Files/Pods-HabitudeTests/Pods-HabitudeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8C56B07D18B25005216D7FD /* libPods-HabitudeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitudeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F908113C2B82B0EF00071F4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F908116B2B84023F00071F4A /* StackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extensions.swift"; sourceTree = "<group>"; };
 		F97371222A14093700EE611A /* RemindDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDayComponent.swift; sourceTree = "<group>"; };
@@ -129,9 +133,8 @@
 		F980C1392B7D6DFD00F6A468 /* NotificationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetails.swift; sourceTree = "<group>"; };
 		F980C13C2B7E7C1200F6A468 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F980C1412B7EC28400F6A468 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
-		F9A440902B910BB300282251 /* HabitudeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitudeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9A440992B910BF200282251 /* HabitudeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HabitudeTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		F9A4409A2B910BF200282251 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModelTests.swift; path = ../../../../Documents/LoginViewModelTests.swift; sourceTree = "<group>"; };
+		F9A440E62B911A8F00282251 /* HabitudeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitudeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A440E82B911A8F00282251 /* HabitudeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTests.swift; sourceTree = "<group>"; };
 		F9A565382A17BA9B00FC9DE7 /* LoginTypeEnum .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginTypeEnum .swift"; sourceTree = "<group>"; };
 		F9AC99D62A0790C400F50CE5 /* HabitudeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitudeTextField.swift; sourceTree = "<group>"; };
 		F9AC99D82A07998500F50CE5 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
@@ -204,10 +207,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F9A4408D2B910BB300282251 /* Frameworks */ = {
+		F9A440E32B911A8F00282251 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D2D3DF2539A3CDB788D832 /* libPods-HabitudeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +246,8 @@
 			children = (
 				09093A2693EEA6790601A23C /* Pods-Habitude.debug.xcconfig */,
 				4168204683FCA473C5FC1C00 /* Pods-Habitude.release.xcconfig */,
+				A174D3452A964D3CBDAAD3D9 /* Pods-HabitudeTests.debug.xcconfig */,
+				7408FE47EFD8A8BEB3619F31 /* Pods-HabitudeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -574,11 +580,10 @@
 			path = ProfileManager;
 			sourceTree = "<group>";
 		};
-		F9A440912B910BB300282251 /* HabitudeTests */ = {
+		F9A440E72B911A8F00282251 /* HabitudeTests */ = {
 			isa = PBXGroup;
 			children = (
-				F9A4409A2B910BF200282251 /* LoginViewModelTests.swift */,
-				F9A440992B910BF200282251 /* HabitudeTests-Bridging-Header.h */,
+				F9A440E82B911A8F00282251 /* HabitudeTests.swift */,
 			);
 			path = HabitudeTests;
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7B4AB44022D38A49755B4B /* Pods_Habitude.framework */,
+				D8C56B07D18B25005216D7FD /* libPods-HabitudeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -595,7 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				F9FDAF9529F85FDD0004472E /* Habitude */,
-				F9A440912B910BB300282251 /* HabitudeTests */,
+				F9A440E72B911A8F00282251 /* HabitudeTests */,
 				F9FDAF9429F85FDD0004472E /* Products */,
 				F9D6DEB02B7BE96200E8CF8E /* Frameworks */,
 				BBF329CBF413093034C89146 /* Pods */,
@@ -606,7 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				F9FDAF9329F85FDD0004472E /* Habitude.app */,
-				F9A440902B910BB300282251 /* HabitudeTests.xctest */,
+				F9A440E62B911A8F00282251 /* HabitudeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -668,22 +674,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F9A4408F2B910BB300282251 /* HabitudeTests */ = {
+		F9A440E52B911A8F00282251 /* HabitudeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F9A440962B910BB300282251 /* Build configuration list for PBXNativeTarget "HabitudeTests" */;
+			buildConfigurationList = F9A440EC2B911A8F00282251 /* Build configuration list for PBXNativeTarget "HabitudeTests" */;
 			buildPhases = (
-				F9A4408C2B910BB300282251 /* Sources */,
-				F9A4408D2B910BB300282251 /* Frameworks */,
-				F9A4408E2B910BB300282251 /* Resources */,
+				A1066F729F22489669991BAC /* [CP] Check Pods Manifest.lock */,
+				F9A440E22B911A8F00282251 /* Sources */,
+				F9A440E32B911A8F00282251 /* Frameworks */,
+				F9A440E42B911A8F00282251 /* Resources */,
+				865AE3AC6EFFD93EF0B14726 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F9A440952B910BB300282251 /* PBXTargetDependency */,
+				F9A440EB2B911A8F00282251 /* PBXTargetDependency */,
 			);
 			name = HabitudeTests;
 			productName = HabitudeTests;
-			productReference = F9A440902B910BB300282251 /* HabitudeTests.xctest */;
+			productReference = F9A440E62B911A8F00282251 /* HabitudeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F9FDAF9229F85FDD0004472E /* Habitude */ = {
@@ -733,9 +741,8 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					F9A4408F2B910BB300282251 = {
+					F9A440E52B911A8F00282251 = {
 						CreatedOnToolsVersion = 15.2;
-						LastSwiftMigration = 1520;
 						TestTargetID = F9FDAF9229F85FDD0004472E;
 					};
 					F9FDAF9229F85FDD0004472E = {
@@ -753,7 +760,7 @@
 			);
 			mainGroup = F9FDAF8A29F85FDD0004472E;
 			packageReferences = (
-				F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
 				F980C13E2B7E7CE500F6A468 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = F9FDAF9429F85FDD0004472E /* Products */;
@@ -761,13 +768,13 @@
 			projectRoot = "";
 			targets = (
 				F9FDAF9229F85FDD0004472E /* Habitude */,
-				F9A4408F2B910BB300282251 /* HabitudeTests */,
+				F9A440E52B911A8F00282251 /* HabitudeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F9A4408E2B910BB300282251 /* Resources */ = {
+		F9A440E42B911A8F00282251 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -823,6 +830,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Habitude/Pods-Habitude-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		865AE3AC6EFFD93EF0B14726 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitudeTests/Pods-HabitudeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitudeTests/Pods-HabitudeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitudeTests/Pods-HabitudeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1066F729F22489669991BAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HabitudeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B4B379853B5386522DA913C0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -865,11 +911,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F9A4408C2B910BB300282251 /* Sources */ = {
+		F9A440E22B911A8F00282251 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A4409B2B910BF200282251 /* LoginViewModelTests.swift in Sources */,
+				F9A440E92B911A8F00282251 /* HabitudeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,10 +985,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F9A440952B910BB300282251 /* PBXTargetDependency */ = {
+		F9A440EB2B911A8F00282251 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F9FDAF9229F85FDD0004472E /* Habitude */;
-			targetProxy = F9A440942B910BB300282251 /* PBXContainerItemProxy */;
+			targetProxy = F9A440EA2B911A8F00282251 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -958,12 +1004,12 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F9A440972B910BB300282251 /* Debug */ = {
+		F9A440ED2B911A8F00282251 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A174D3452A964D3CBDAAD3D9 /* Pods-HabitudeTests.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9S589SULTS;
@@ -977,20 +1023,18 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "HabitudeTests/HabitudeTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habitude.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habitude";
 			};
 			name = Debug;
 		};
-		F9A440982B910BB300282251 /* Release */ = {
+		F9A440EE2B911A8F00282251 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7408FE47EFD8A8BEB3619F31 /* Pods-HabitudeTests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9S589SULTS;
@@ -1003,7 +1047,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.atacansevim.HabitudeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "HabitudeTests/HabitudeTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habitude.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habitude";
@@ -1185,11 +1228,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F9A440962B910BB300282251 /* Build configuration list for PBXNativeTarget "HabitudeTests" */ = {
+		F9A440EC2B911A8F00282251 /* Build configuration list for PBXNativeTarget "HabitudeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9A440972B910BB300282251 /* Debug */,
-				F9A440982B910BB300282251 /* Release */,
+				F9A440ED2B911A8F00282251 /* Debug */,
+				F9A440EE2B911A8F00282251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1223,7 +1266,7 @@
 				minimumVersion = 21.0.0;
 			};
 		};
-		F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -1241,72 +1284,72 @@
 		};
 		F9D6DEB12B7BE96200E8CF8E /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseFirestore;
 		};
 		F9D6DEB32B7BE96200E8CF8E /* FirebaseFirestoreCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = "FirebaseFirestoreCombine-Community";
 		};
 		F9D6DEB52B7BE96200E8CF8E /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseFirestoreSwift;
 		};
 		F9FDAFAF29F863500004472E /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAnalytics;
 		};
 		F9FDAFB129F863500004472E /* FirebaseAnalyticsOnDeviceConversion */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAnalyticsOnDeviceConversion;
 		};
 		F9FDAFB329F863500004472E /* FirebaseAnalyticsSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAnalyticsSwift;
 		};
 		F9FDAFB529F863500004472E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAuth;
 		};
 		F9FDAFB729F863500004472E /* FirebaseAuthCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = "FirebaseAuthCombine-Community";
 		};
 		F9FDAFB929F863500004472E /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseCrashlytics;
 		};
 		F9FDAFBB29F863500004472E /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseMessaging;
 		};
 		F9FDAFBD29F863500004472E /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseRemoteConfig;
 		};
 		F9FDAFBF29F863500004472E /* FirebaseRemoteConfigSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseRemoteConfigSwift;
 		};
 		F9FDAFC129F863500004472E /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseStorage;
 		};
 		F9FDAFC329F863500004472E /* FirebaseStorageCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F9FDAFAE29F863500004472E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */

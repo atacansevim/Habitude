@@ -7,5 +7,11 @@ target 'Habitude' do
 
   # Pods for Habitude
   pod 'GoogleMLKit/DigitalInkRecognition', '3.2.0'
-pod 'HabitudeTests'
+end
+target 'HabitudeTests' do
+  inherit! :search_paths
+  # Add any testing dependencies here using CocoaPods
+
+  # Pods for Habitude
+  pod 'GoogleMLKit/DigitalInkRecognition', '3.2.0'
 end
